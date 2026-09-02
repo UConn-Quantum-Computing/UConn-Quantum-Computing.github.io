@@ -3,19 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qiskit Fall Fest Connecticut 2026 - UConn, October 15-17</title>
-<meta name="description" content="A free three-day quantum computing event at UConn Storrs, October 15-17, 2026. Careers panel, beginner Qiskit workshop, and a hackathon. Open to students at any Connecticut university. No experience required.">
-
-<!-- og:image must be an absolute URL, so it stays hardcoded even though everything
-     else on the page is relative. TODO: add assets/og-image.png at 1200x630. -->
+<title>UConn Quantum Computing</title>
+<meta name="description" content="A student organization at the University of Connecticut for people who want to use quantum computers, not just read about them. Open to any UConn student, any major.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Qiskit Fall Fest Connecticut 2026">
-<meta property="og:description" content="Three days at UConn Storrs. Meet the field, learn Qiskit, build something. Free, no experience required.">
-<meta property="og:url" content="https://uconnquantum.org/qiskit-fall-fest-2026/">
-<meta property="og:image" content="https://uconnquantum.org/qiskit-fall-fest-2026/assets/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://uconnquantum.org/qiskit-fall-fest-2026/">
-
+<meta property="og:title" content="UConn Quantum Computing">
+<meta property="og:description" content="A student organization at UConn Storrs for people who want to use quantum computers, not just read about them.">
+<meta property="og:url" content="https://uconnquantum.org/">
+<link rel="canonical" href="https://uconnquantum.org/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -53,560 +47,52 @@
   </symbol>
 </svg>
 
-<a class="skip" href="#main">Skip to content</a>
-
 <nav class="nav">
   <div class="nav-in">
-    <a class="nav-mark" href="#top" aria-label="Qiskit Fall Fest Connecticut 2026, hosted by UConn Quantum Computing">
-      <svg class="nav-logo" aria-hidden="true"><use href="#uqc-logo"></use></svg>
-    </a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#tracks">Tracks</a>
-      <a href="#people">Organizers</a>
-      <a href="#faq">FAQ</a>
-      <!-- TODO: registration form URL. Same label everywhere on the page. -->
-      <a class="nav-cta" href="#register">Register</a>
-    </div>
+    <svg class="nav-logo" role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg>
   </div>
 </nav>
 
-<main id="main">
-
-<!-- ===================== HERO (eyebrow 1 of 3) ===================== -->
-<header class="hero" id="top">
+<header class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <h1>Qiskit Fall Fest<b>Connecticut 2026</b></h1>
-        <p class="hero-lede">
-          Meet the people building quantum in Connecticut, learn Qiskit from scratch,
-          then build something on real hardware. Free, and no experience needed.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#register">Register</a>
-          <a class="btn btn-ghost" href="#schedule">See the schedule</a>
-        </div>
-      </div>
+    <h1>UConn Quantum Computing</h1>
+    <p>
+      A student organization at UConn Storrs for people who want to use quantum computers,
+      not just read about them. Open to any UConn student, any major, whether or not you
+      have written code before.
+    </p>
 
-      <div class="datecard">
-        <div class="d-num">
-          <span class="d-d">15<sup>th</sup></span>
-          <span class="d-sep">to</span>
-          <span class="d-d">17<sup>th</sup></span>
-        </div>
-        <div class="d-mon">October 2026</div>
-        <div class="d-loc">UConn Storrs<br>Thursday evening through Saturday</div>
-      </div>
+    <!-- TODO: real URLs, same set as the Fall Fest page footer. -->
+    <div class="links">
+      <a class="clink" href="#" rel="noopener"><b>Instagram</b><small>Updates and photos</small></a>
+      <a class="clink" href="#" rel="noopener"><b>LinkedIn</b><small>News and alumni</small></a>
+      <a class="clink clink-join" href="#" rel="noopener"><b>Join on UConntact</b><small>For UConn students</small></a>
     </div>
   </div>
 </header>
 
-<!-- Partner strip. Swap each .wordmark for <svg><use href="#..."></use></svg> or an
-     <img> as logo files arrive, and delete a .slot for each sponsor confirmed.
-     IBM Quantum's mark needs Fall Fest event-staff approval before it goes up, and
-     the IBM 8-bar logo may not be used at all. Keep both halves of the track
-     identical or the loop will jump. -->
-<section class="strip" aria-label="Partners and supporters">
-  <div class="marquee">
-    <div class="mq-track">
-      <div class="mq-item"><svg role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item"><span class="wordmark">IBM Quantum</span></div>
-      <div class="mq-item"><span class="wordmark">QuantumCT</span></div>
-      <div class="mq-item"><span class="wordmark">University of Connecticut</span></div>
-      <div class="mq-item"><span class="slot">Sponsor slot</span></div>
-      <div class="mq-item"><span class="slot">Sponsor slot</span></div>
-      <div class="mq-item" aria-hidden="true"><svg><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><span class="wordmark">IBM Quantum</span></div>
-      <div class="mq-item" aria-hidden="true"><span class="wordmark">QuantumCT</span></div>
-      <div class="mq-item" aria-hidden="true"><span class="wordmark">University of Connecticut</span></div>
-      <div class="mq-item" aria-hidden="true"><span class="slot">Sponsor slot</span></div>
-      <div class="mq-item" aria-hidden="true"><span class="slot">Sponsor slot</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== THE CLUB =====================
-     TODO: this section is DRAFT COPY. Replace with the club's real story:
-     founding year, member count, what you actually run week to week,
-     projects, past events, faculty affiliation. Everything marked [ ]
-     needs a real number or fact before this goes public.
-================================================================== -->
-<section id="about">
+<section class="section">
   <div class="wrap">
-    <div class="ecosystem ecosystem-lead">
-      <h2 class="eco-h">IBM Quantum, Qiskit and Fall Fest</h2>
-      <p class="eco-lede">Four names get used a lot around this event. What each one is, and how
-        they relate to each other.</p>
-
-      <div class="tree">
-        <div class="node">
-          <h4>IBM Quantum</h4>
-          <p>IBM's quantum computing division. In 2016 they put a real quantum computer on the
-            internet for anyone to use, which had never been done before. That is the anniversary
-            this year's Fall Fest marks: ten years of quantum on the cloud.</p>
-
-          <div class="kids">
-            <div class="node">
-              <h4>Qiskit</h4>
-              <p>IBM Quantum's open-source Python toolkit for writing quantum programs. Free, and
-                the thing you will actually be typing on Saturday. If you can write basic Python,
-                a quantum circuit is about five lines.</p>
-            </div>
-
-            <div class="node">
-              <h4>Qiskit Fall Fest</h4>
-              <p>A global series of student-run quantum events that IBM Quantum supports each
-                fall. Around 200 universities are taking part in 2026. Last year's edition drew
-                more than 32,000 participants across 150 organizers worldwide.</p>
-
-              <div class="kids">
-                <div class="node node-here">
-                  <h4>Fall Fest Connecticut</h4>
-                  <p>This event. Connecticut's edition, hosted by UConn Quantum Computing at Storrs.
-                    <strong>You do not need to be a UConn student to take part</strong>, and you do
-                    not need to have done any quantum computing before. Students from any
-                    Connecticut university are welcome.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="club-intro club-after">
-      <h2 class="club-title">UConn Quantum Computing</h2>
-      <p class="club-sub">
-        A student organization at UConn Storrs for people who want to use quantum computers,
-        not just read about them. Open to any UConn student, any major, whether or not you
-        have written code before.
-      </p>
-
-      <!-- TODO: real URLs. UConntact links look like
-           https://uconntact.uconn.edu/organization/<club-slug> -->
-      <div class="club-links">
-        <a class="clink" href="#" rel="noopener">
-          <b>Instagram</b>
-          <small>Updates and photos</small>
-        </a>
-        <a class="clink" href="#" rel="noopener">
-          <b>LinkedIn</b>
-          <small>News and alumni</small>
-        </a>
-        <a class="clink clink-join" href="#" rel="noopener">
-          <b>Join on UConntact</b>
-          <small>For UConn students</small>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== SCHEDULE (eyebrow 2 of 3) ===================== -->
-<section id="schedule" class="tint">
-  <div class="wrap">
-    <div class="sec-h">
-      <div class="eyebrow">15 to 17 October</div>
-      <h2 style="margin-top:12px;">The three days</h2>
+    <div class="eyebrow">Happening now</div>
+    <a class="event" href="qiskit-fall-fest-2026/">
+      <span class="when">15 to 17 October 2026 &middot; UConn Storrs</span>
+      <h2>Qiskit Fall Fest Connecticut 2026</h2>
       <p>
-        Each day removes a different reason not to come. Come to one, two, or all three.
-        Thursday and Friday are short evening sessions, and nothing is a prerequisite for
-        anything else.
+        Three days of quantum computing, free and open to students at any Connecticut
+        university. Meet the field, learn Qiskit from scratch, then build something on real
+        quantum hardware. No experience needed.
       </p>
-    </div>
-
-    <div class="days">
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Meet</h3>
-            <div class="day-when">THU 15 OCT<br>6:00 to 7:20 PM<br>drop-in lab until 8:15</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">CX</div>
-        </div>
-        <p class="day-lede">Find out who actually works in quantum in Connecticut, and what they did to get there.</p>
-        <ul class="agenda">
-          <li><span class="t">6:00</span><span>Doors and food</span></li>
-          <li><span class="t">6:15</span><span>Welcome</span></li>
-          <li class="key"><span class="t">6:25</span><span>Careers and research panel, with QuantumCT</span></li>
-          <li><span class="t">7:10</span><span>Networking</span></li>
-          <li class="key"><span class="t">7:20</span><span>Drop-in setup lab</span></li>
-          <li><span class="t">7:25</span><span>IBM Quantum account and Qiskit install</span></li>
-          <li><span class="t">7:50</span><span>Your first quantum circuit</span></li>
-        </ul>
-        <p class="day-foot">No laptop needed for the panel. Bring one for the lab if you plan to come Saturday.</p>
-      </article>
-
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Learn</h3>
-            <div class="day-when">FRI 16 OCT<br>5:00 to 8:00 PM<br>open lab until 9:00</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">H</div>
-        </div>
-        <p class="day-lede">Qubits, gates, measurement, and running a circuit on a real quantum computer.</p>
-        <ul class="agenda">
-          <li><span class="t">5:00</span><span>Doors and food</span></li>
-          <li class="key"><span class="t">5:30</span><span>Quantum and Qiskit 101</span></li>
-          <li><span class="t">6:15</span><span>From circuit to hardware: run on a real QPU</span></li>
-          <li><span class="t">7:00</span><span>Saturday's challenges revealed</span></li>
-          <li class="key"><span class="t">7:25</span><span>Team formation</span></li>
-          <li><span class="t">8:00</span><span>Program ends</span></li>
-          <li><span class="t">8:00</span><span>Optional open lab</span></li>
-        </ul>
-        <p class="day-foot">Come alone and you will leave with a team. Working solo on Saturday is fine too.</p>
-      </article>
-
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Build</h3>
-            <div class="day-when">SAT 17 OCT<br>10:00 AM to 5:00 PM</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">M</div>
-        </div>
-        <p class="day-lede">The main event. Pick a track, build with mentors on hand, demo what you made.</p>
-        <ul class="agenda">
-          <li><span class="t">9:30</span><span>Registration and breakfast</span></li>
-          <li><span class="t">10:00</span><span>Opening remarks</span></li>
-          <li><span class="t">10:15</span><span>Keynote</span></li>
-          <li class="key"><span class="t">11:00</span><span>Build session begins</span></li>
-          <li><span class="t">12:30</span><span>Lunch</span></li>
-          <li><span class="t">1:15</span><span>Building and mentor office hours</span></li>
-          <li><span class="t">3:15</span><span>Submissions close</span></li>
-          <li><span class="t">3:30</span><span>Demos</span></li>
-          <li class="key"><span class="t">4:40</span><span>Awards</span></li>
-          <li><span class="t">5:00</span><span>Finish</span></li>
-        </ul>
-        <p class="day-foot">Breakfast, lunch and snacks provided. Prizes for each track.</p>
-      </article>
-    </div>
+      <span class="go">See the event</span>
+    </a>
   </div>
 </section>
-
-<!-- ===================== TRACKS ===================== -->
-<section id="tracks">
-  <div class="wrap">
-    <div class="sec-h">
-      <h2>Saturday tracks</h2>
-      <p>
-        Three levels, so nobody is stuck. Pick yours on the day. There is a real,
-        finishable project in each one, including for people whose first quantum circuit
-        was the night before.
-      </p>
-    </div>
-
-    <div class="tracks">
-      <div class="track track--e reveal">
-        <div>
-          <h3>Explorer</h3>
-          <span class="track-req">No experience needed</span>
-        </div>
-        <div class="track-list">
-          <span>Bell states</span><span>Quantum teleportation</span>
-          <span>Superposition and measurement</span><span>Quantum games</span>
-          <span>Intro IBM Quantum challenges</span>
-        </div>
-        <p class="track-why">Guided, with instant feedback. Built to be finished in one day by someone completely new.</p>
-      </div>
-
-      <div class="track track--b reveal">
-        <div>
-          <h3>Builder</h3>
-          <span class="track-req">Some Python helps</span>
-        </div>
-        <div class="track-list">
-          <span>Grover's algorithm</span><span>Variational algorithms</span>
-          <span>Optimization</span><span>Noise and error mitigation</span>
-          <span>Real IBM Quantum hardware</span>
-        </div>
-        <p class="track-why">Uses this year's official Fall Fest challenge material. A genuine problem, not a tutorial.</p>
-      </div>
-
-      <div class="track track--c reveal">
-        <div>
-          <h3>The Connecticut Challenge</h3>
-          <span class="track-req">Open ended</span>
-        </div>
-        <div class="track-list">
-          <span>Materials science</span><span>Chemistry</span><span>Healthcare</span>
-          <span>Optimization and finance</span><span>Cybersecurity</span>
-          <span>Energy</span><span>Quantum sensing</span>
-        </div>
-        <p class="track-why">Use quantum computing on a problem that matters to Connecticut. Our signature track. Bring your own idea.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHO ===================== -->
-<section id="who" class="tint">
-  <div class="wrap">
-    <div class="two">
-      <div>
-        <h3>Every major</h3>
-        <p style="color:var(--ink-2);margin-top:14px;max-width:48ch;">
-          Quantum computing will be applied by chemists, materials scientists, biologists and
-          financial analysts at least as much as by programmers. If you are curious, you belong here.
-        </p>
-        <div class="chips">
-          <span>Computer Science</span><span>Physics</span><span>Electrical Engineering</span>
-          <span>Mathematics</span><span>Chemistry</span><span>Materials Science</span>
-          <span>Data Science</span><span>Statistics</span><span>Business</span>
-          <span>Biology</span><span>Any major</span>
-        </div>
-      </div>
-
-      <div>
-        <h3>Every campus</h3>
-        <p style="color:var(--ink-2);margin-top:14px;max-width:48ch;">
-          This is a statewide student event that happens to be hosted at UConn.
-          If you can get to Storrs, you can take part.
-        </p>
-        <div class="chips">
-          <span>UConn, all campuses</span><span>Yale</span><span>Wesleyan</span>
-          <span>Trinity College</span><span>CCSU</span><span>Quinnipiac</span>
-          <span>University of Hartford</span><span>Connecticut College</span>
-          <span>Southern Connecticut State</span><span>Community colleges</span>
-        </div>
-        <div class="callout">
-          <strong>Coming from another university?</strong> Email us and we will help you
-          coordinate a group, so nobody has to walk in alone.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PREPARE ===================== -->
-<section id="prepare">
-  <div class="wrap">
-    <div class="sec-h">
-      <h2>What to bring</h2>
-      <p>You can turn up on Saturday with none of this done and still be fine. Doing it in
-        advance means you spend the day building instead of installing, and Thursday's drop-in
-        lab exists for exactly this.</p>
-    </div>
-
-    <div class="prep">
-      <div>
-        <h3>An IBM Quantum account</h3>
-        <p>Free, and it is what gives you access to real quantum hardware. Sign up at
-          <a href="https://quantum.ibm.com" rel="noopener">quantum.ibm.com</a> and bring the
-          email you used.</p>
-      </div>
-      <div>
-        <h3>Python and Qiskit</h3>
-        <p>Python 3.9 or newer, then <code>pip install qiskit qiskit-ibm-runtime</code>.
-          If any part of that was unfamiliar, come to Thursday's lab and we will do it together.</p>
-      </div>
-      <div>
-        <h3>A laptop and its charger</h3>
-        <p>Saturday is a long day and outlets are finite. No laptop? Say so on the registration
-          form and we will try to sort one out.</p>
-      </div>
-      <div>
-        <h3>Nothing else</h3>
-        <p>No prior coursework, no reading list, no team. Everything else you need is provided
-          on the day.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PEOPLE (eyebrow 3 of 3) =====================
-     TODO: replace every placeholder with a real organizer. Photos go in
-     assets/team/ at 3:4 portrait, roughly 600x800. If someone would rather
-     not have a photo published, leave the .ph block in place for them.
-================================================================== -->
-<section id="people" class="tint">
-  <div class="wrap">
-    <div class="sec-h">
-      <div class="eyebrow">Who is running it</div>
-      <h2 style="margin-top:12px;">The organizing team</h2>
-      <p>Students at UConn, plus the people helping us pull it off. Find any of us at the event
-        and ask anything.</p>
-    </div>
-
-    <div class="people">
-      <div class="person reveal">
-        <div class="ph">PHOTO</div>
-        <h3>Name</h3>
-        <p>Lead organizer<br>Major, Year</p>
-        <a href="#">LinkedIn</a>
-      </div>
-      <div class="person reveal">
-        <div class="ph">PHOTO</div>
-        <h3>Name</h3>
-        <p>Role<br>Major, Year</p>
-        <a href="#">LinkedIn</a>
-      </div>
-      <div class="person reveal">
-        <div class="ph">PHOTO</div>
-        <h3>Name</h3>
-        <p>Role<br>Major, Year</p>
-        <a href="#">LinkedIn</a>
-      </div>
-      <div class="person reveal">
-        <div class="ph">PHOTO</div>
-        <h3>Name</h3>
-        <p>Role<br>Major, Year</p>
-        <a href="#">LinkedIn</a>
-      </div>
-    </div>
-
-    <p style="margin-top:44px;color:var(--ink-2);max-width:56ch;font-size:15px;">
-      Want to sponsor, mentor or speak?
-      <a href="mailto:REPLACE@uconn.edu">Email us</a> and we will find a way to use you.
-    </p>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-h">
-      <h2>Questions</h2>
-    </div>
-
-    <div class="faq">
-      <details open>
-        <summary>I know nothing about quantum computing. Is this really for me?</summary>
-        <p>Yes, and specifically so. About half the places at this event are held for people who
-          have never studied quantum computing. Friday evening teaches you what you need, the
-          Explorer track is built for complete beginners, and mentors are on hand all day Saturday.</p>
-      </details>
-      <details>
-        <summary>Do I have to come to all three days?</summary>
-        <p>No. Each day works on its own. Come Saturday only if that is all you can make, and
-          plenty of people will. That said, Friday evening is the fastest route to arriving on
-          Saturday ready to build, and it is where teams form.</p>
-      </details>
-      <details>
-        <summary>Do I need a team?</summary>
-        <p>No. Teams form on Friday evening, and we will match anyone who arrives on Saturday
-          without one. You can also work solo.</p>
-      </details>
-      <details>
-        <summary>I am not a UConn student. Can I come?</summary>
-        <p>Yes. This is a statewide event and students from any Connecticut university are
-          welcome. You will need to be able to travel to Storrs in person, and there is a
-          question about that on the registration form.</p>
-      </details>
-      <details>
-        <summary>What does it cost?</summary>
-        <p>Nothing. Registration is free and food is provided on all three days.</p>
-      </details>
-      <details>
-        <summary>What is Qiskit?</summary>
-        <p>Qiskit is IBM's open-source Python toolkit for writing quantum programs. If you can
-          write basic Python, you can write a quantum circuit in about five lines. If you cannot
-          write Python yet, Friday will get you far enough.</p>
-      </details>
-      <details>
-        <summary>Will there be prizes?</summary>
-        <p>Yes, for each of the three tracks, along with certificates of participation. Details
-          closer to the event.</p>
-      </details>
-      <details>
-        <summary>How do I join UConn Quantum Computing afterwards?</summary>
-        <p>Turn up to a meeting. There is no application and no prerequisite. Ask any organizer
-          at the event, or <a href="mailto:REPLACE@uconn.edu">email us</a>.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== REGISTER ===================== -->
-<section id="register" class="band">
-  <div class="wrap">
-    <h2>Registration</h2>
-    <p>Free, open to students across Connecticut, and designed for people starting from zero.
-      Saturday places are limited by room capacity, so register early.</p>
-    <!-- When registration opens: delete the <span> and uncomment the <a>, pointing it
-         at the live form. The form MUST include a photo release and a question
-         confirming the registrant can attend in person near Storrs. -->
-    <span class="btn btn-waiting" role="status">Registration opening soon</span>
-    <!-- <a class="btn btn-primary" href="REPLACE_FORM_URL">Register</a> -->
-    <p class="fineprint">
-      We will announce the date on our socials and by email.
-      <a href="mailto:REPLACE@uconn.edu">Email us</a> to be told the moment it opens,
-      or with any question at all.
-    </p>
-  </div>
-</section>
-
-</main>
 
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-mark">Qiskit Fall Fest <b>Connecticut</b></div>
-        <p style="margin-top:14px;max-width:36ch;color:var(--ink-3);">
-          15 to 17 October 2026 at the University of Connecticut, Storrs.
-          Hosted by UConn Quantum Computing.
-        </p>
-      </div>
-      <div>
-        <h4>Event</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#tracks">Tracks</a></li>
-          <li><a href="#prepare">What to bring</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Find us</h4>
-        <ul>
-          <!-- TODO: real links -->
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">UConntact</a></li>
-          <li><a href="mailto:REPLACE@uconn.edu">Email</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="foot-legal">
-      Qiskit Fall Fest is a program of IBM Quantum. Qiskit and IBM Quantum are trademarks of
-      International Business Machines Corporation. This event is organized by students at the
-      University of Connecticut and is not an IBM event. By registering you agree to be
-      photographed at the event; details are on the registration form.
-    </p>
+    UConn Quantum Computing &middot; University of Connecticut, Storrs &middot;
+    <a href="mailto:REPLACE@uconn.edu">REPLACE@uconn.edu</a>
   </div>
 </footer>
-
-<script>
-  // Reveal on scroll. Content is visible by default in the stylesheet; the hidden
-  // state is only applied here, so no-JS and reduced-motion users always see everything.
-  (function () {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) return;
-
-    // Only now is it safe to hide things: JS is running and motion is allowed.
-    document.documentElement.classList.add('js-reveal');
-
-    var items = document.querySelectorAll('.reveal');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    items.forEach(function (el, i) {
-      el.style.transitionDelay = (i % 4) * 60 + 'ms';
-      io.observe(el);
-    });
-  })();
-</script>
 
 </body>
 </html>

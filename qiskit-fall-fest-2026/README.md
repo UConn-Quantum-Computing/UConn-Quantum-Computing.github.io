@@ -95,9 +95,11 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
-- [ ] **Partner logos** — in the marquee strip under the hero, swap each `.wordmark` span for an
-      `<svg><use>` or `<img>`, and delete a `Sponsor slot` for each sponsor confirmed. Keep both
-      halves of the track identical or the loop will jump.
+- [ ] **Sponsor logos** — the marquee strip under the hero currently holds the club logo plus
+      four `Sponsor slot` placeholders. Replace a slot with `<svg><use>` or `<img>` as each
+      sponsor is confirmed. The track repeats the same set **three times** and slides by exactly
+      one third, so all three copies must stay identical or the loop will visibly jump.
+      IBM Quantum's mark needs Fall Fest event-staff approval before it goes up.
 - [ ] **Contact email** — `REPLACE@uconn.edu`, appears 5 times
 - [ ] **Social and join links** — Instagram, LinkedIn and UConntact, in two places: the three
       link cards in `#about` and the footer list. UConntact URLs look like
@@ -107,7 +109,6 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       `canonical` are already set to the uconnquantum.org path.
 - [ ] **Speakers** — no section yet. Add one once names are confirmed; the `.people` grid is
       the right component to reuse.
-- [ ] **Partner list** — confirm each name with the partner before publishing it
 
 ### Registration requirements (from IBM)
 

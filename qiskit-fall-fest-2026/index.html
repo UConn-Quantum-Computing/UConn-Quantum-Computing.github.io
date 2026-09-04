@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 
@@ -171,52 +171,58 @@
 <section id="about">
   <div class="wrap">
     <div class="ecosystem ecosystem-lead">
-      <div class="eco-head">
-        <div>
+      <div class="eco-grid">
+        <div class="eco-text">
           <h2 class="eco-h">IBM Quantum, Qiskit and Fall Fest</h2>
           <p class="eco-lede">Four names get used a lot around this event. What each one is, and
             how they relate to each other.</p>
-        </div>
-        <img class="eco-art" src="assets/qiskit-fall-fest-2026.png"
-             width="1280" height="848" loading="lazy" decoding="async"
-             alt="Qiskit Fall Fest 2026 artwork: the Fall Fest badge beside two hummingbirds and clouds.">
-      </div>
 
-      <div class="tree">
-        <div class="node">
-          <h4>IBM Quantum</h4>
-          <p>IBM's quantum computing division. In 2016 they put a real quantum computer on the
-            internet for anyone to use, which had never been done before. That is the anniversary
-            this year's Fall Fest marks: ten years of quantum on the cloud.</p>
-
-          <div class="kids">
+          <div class="tree">
             <div class="node">
-              <h4>Qiskit</h4>
-              <p>IBM Quantum's open-source Python toolkit for writing quantum programs. Free, and
-                the thing you will actually be typing on Saturday. If you can write basic Python,
-                a quantum circuit is about five lines.</p>
-            </div>
-
-            <div class="node">
-              <h4>Qiskit Fall Fest</h4>
-              <p>A global series of student-run quantum events that IBM Quantum supports each
-                fall. Around 200 universities are taking part in 2026. Last year's edition drew
-                more than 32,000 participants across 150 organizers worldwide.</p>
-
+              <h4>IBM Quantum</h4>
+              <p>IBM's quantum computing division. In 2016 they put a real quantum computer on the
+                internet for anyone to use, which had never been done before. That is the anniversary
+                this year's Fall Fest marks: ten years of quantum on the cloud.</p>
+    
               <div class="kids">
-                <div class="node node-here">
-                  <h4>Fall Fest Connecticut</h4>
-                  <p>This event. Connecticut's edition, hosted by UConn Quantum Computing at Storrs.
-                    <strong>You do not need to be a UConn student to take part</strong>, and you do
-                    not need to have done any quantum computing before. Students from any
-                    Connecticut university are welcome.</p>
+                <div class="node">
+                  <h4>Qiskit</h4>
+                  <p>IBM Quantum's open-source Python toolkit for writing quantum programs. Free, and
+                    the thing you will actually be typing on Saturday. If you can write basic Python,
+                    a quantum circuit is about five lines.</p>
+                </div>
+    
+                <div class="node">
+                  <h4>Qiskit Fall Fest</h4>
+                  <p>A global series of student-run quantum events that IBM Quantum supports each
+                    fall. Around 200 universities are taking part in 2026. Last year's edition drew
+                    more than 32,000 participants across 150 organizers worldwide.</p>
+    
+                  <div class="kids">
+                    <div class="node node-here">
+                      <h4>Fall Fest Connecticut</h4>
+                      <p>This event. Connecticut's edition, hosted by UConn Quantum Computing at Storrs.
+                        <strong>You do not need to be a UConn student to take part</strong>, and you do
+                        not need to have done any quantum computing before. Students from any
+                        Connecticut university are welcome.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- The artwork sits beside the whole explainer and sticks as the tree
+             scrolls past it, rather than lining up with the heading alone. -->
+        <div class="eco-media">
+          <img class="eco-art" src="assets/qiskit-fall-fest-2026.png"
+             width="1280" height="848" loading="lazy" decoding="async"
+             alt="Qiskit Fall Fest 2026 artwork: the Fall Fest badge beside two hummingbirds and clouds.">
+        </div>
       </div>
     </div>
+
     <div class="club-intro club-after">
       <h2 class="club-title">UConn Quantum Computing</h2>
       <p class="club-sub">

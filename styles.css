@@ -128,12 +128,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .clink {
-  border: 1px solid var(--rule-2); padding: 16px 20px; min-width: 200px;
-  text-decoration: none; display: flex; align-items: center; gap: 11px;
+  border: 1px solid var(--rule-2); padding: 16px 22px; min-width: 196px;
+  text-decoration: none; display: flex; flex-direction: column; gap: 3px;
   transition: border-color .2s, background .2s;
 }
-.clink > span { display: flex; flex-direction: column; gap: 3px; }
-.clink-ic { width: 16px; height: 16px; flex: none; color: var(--ink-3); transition: color .2s; }
+/* icon sits on the label's own line, at the label's size */
+.clink b { display: flex; align-items: center; gap: 8px; }
+.clink-ic { width: 15px; height: 15px; flex: none; color: var(--ink-3); transition: color .2s; }
 .clink:hover .clink-ic { color: var(--accent); }
 .clink-join .clink-ic { color: var(--accent); }
 .clink:hover { border-color: var(--accent); background: var(--accent-bg); }

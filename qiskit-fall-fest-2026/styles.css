@@ -316,35 +316,27 @@ section.tint { background: var(--layer); }
   .node-here > h4::after { display: block; margin: 8px 0 0; width: max-content; }
 }
 
-/* ---------- schedule: three-day grid ---------- */
-.days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
-.day { background: var(--bg); padding: 30px 26px; display: flex; flex-direction: column; gap: 18px; transition: box-shadow .4s var(--ease); }
-.day:hover { box-shadow: 0 10px 40px -26px var(--ink); }
-.day:hover .day-gate { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-section.tint .day { background: var(--bg); }
-.day-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
-.day h3 { font-size: 28px; }
-.day-when { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-3); margin-top: 8px; line-height: 1.5; }
-.day-gate { width: 42px; height: 42px; flex: none; border: 1.5px solid var(--accent); color: var(--accent); transition: background .35s var(--ease), color .35s var(--ease); display: grid; place-items: center; font-family: "IBM Plex Mono", monospace; font-size: 16px; font-weight: 600; }
-.day-lede { font-size: 15px; color: var(--ink-2); }
-.agenda { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
-.agenda li { display: grid; grid-template-columns: 62px 1fr; gap: 12px; padding: 8px 0; font-size: 14.5px; }
-.agenda .t { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.agenda li.key .t { color: var(--accent); font-weight: 600; }
-.agenda li.key span:last-child { font-weight: 600; }
-.day-foot { font-size: 13.5px; color: var(--ink-3); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--rule); }
-
-/* ---------- tracks: stacked rows, not cards ---------- */
-.tracks { border-top: 2px solid var(--ink); }
-.track { display: grid; grid-template-columns: 250px 1fr 260px; gap: 40px; padding: 30px 0; border-bottom: 1px solid var(--rule); align-items: start; }
-.track h3 { font-size: 25px; }
-.track-req { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; display: inline-block; margin-top: 10px; }
-.track--e .track-req { background: var(--green-bg); color: var(--green); }
-.track--b .track-req { background: var(--blue-bg); color: var(--blue); }
-.track--c .track-req { background: var(--accent-bg); color: var(--accent); }
-.track-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.track-list span { font-size: 14px; padding: 5px 11px; border: 1px solid var(--rule-2); color: var(--ink-2); }
-.track-why { font-size: 14.5px; color: var(--ink-2); }
+/* ---------- schedule: one row per day ----------
+   The hour-by-hour grid and the tracks rows are parked in
+   QFF-26/parked-schedule-and-tracks.html, outside the repo. */
+.dayrows { border-top: 2px solid var(--ink); }
+.dayrow {
+  display: grid; grid-template-columns: 130px 44px 1fr; gap: 30px;
+  padding: 26px 0; border-bottom: 1px solid var(--rule); align-items: start;
+}
+.dr-when {
+  font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink); padding-top: 6px;
+}
+.dr-when span { display: block; color: var(--ink-3); margin-top: 4px; }
+.dr-gate {
+  width: 44px; height: 44px; border: 1.5px solid var(--accent); color: var(--accent);
+  display: grid; place-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 16px; font-weight: 600;
+}
+.dr-body h3 { font-size: 25px; }
+.dr-body p { color: var(--ink-2); margin-top: 8px; max-width: 62ch; }
+.sched-note { margin-top: 26px; font-size: 14.5px; color: var(--ink-3); max-width: 56ch; }
 
 /* ---------- who: two columns of chips ---------- */
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
@@ -406,13 +398,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
   .hero-grid, .two, .foot-grid { grid-template-columns: 1fr; gap: 44px; }
-  .days, .people { grid-template-columns: repeat(2, 1fr); }
-  .track { grid-template-columns: 1fr; gap: 18px; }
+  .people { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
   section { padding: 60px 0; }
   .hero { padding: 48px 0 56px; }
-  .days, .people, .prep { grid-template-columns: 1fr; }
+  .people, .prep { grid-template-columns: 1fr; }
+  .dayrow { grid-template-columns: 44px 1fr; gap: 18px; }
+  .dr-when { grid-column: 1 / -1; padding-top: 0; }
   .prep { gap: 0; }
   .datecard { margin-top: 4px; }
 }

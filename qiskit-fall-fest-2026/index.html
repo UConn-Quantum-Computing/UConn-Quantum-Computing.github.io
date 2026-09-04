@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -77,7 +77,6 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#schedule">Schedule</a>
-      <a href="#tracks">Tracks</a>
       <a href="#people">Organizers</a>
       <a href="#faq">FAQ</a>
       <!-- TODO: registration form URL. Same label everywhere on the page. -->
@@ -238,7 +237,11 @@
   </div>
 </section>
 
-<!-- ===================== SCHEDULE (eyebrow 2 of 3) ===================== -->
+<!-- ===================== SCHEDULE (eyebrow 2 of 3) =====================
+     Detailed day-by-day timings and the Saturday tracks are parked in
+     QFF-26/parked-schedule-and-tracks.html, outside this repo, until the
+     programme is confirmed. Restore instructions are in that file.
+================================================================== -->
 <section id="schedule" class="tint">
   <div class="wrap">
     <div class="sec-h">
@@ -251,128 +254,42 @@
       </p>
     </div>
 
-    <div class="days">
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Meet</h3>
-            <div class="day-when">THU 15 OCT<br>6:00 to 7:20 PM<br>drop-in lab until 8:15</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">CX</div>
+    <div class="dayrows">
+      <div class="dayrow reveal">
+        <div class="dr-when">Thu 15 Oct<span>Evening</span></div>
+        <div class="dr-gate" aria-hidden="true">CX</div>
+        <div class="dr-body">
+          <h3>Meet</h3>
+          <p>A careers and research panel with QuantumCT, then a drop-in lab to get an IBM
+            Quantum account and Qiskit working on your laptop.</p>
         </div>
-        <p class="day-lede">Find out who actually works in quantum in Connecticut, and what they did to get there.</p>
-        <ul class="agenda">
-          <li><span class="t">6:00</span><span>Doors and food</span></li>
-          <li><span class="t">6:15</span><span>Welcome</span></li>
-          <li class="key"><span class="t">6:25</span><span>Careers and research panel, with QuantumCT</span></li>
-          <li><span class="t">7:10</span><span>Networking</span></li>
-          <li class="key"><span class="t">7:20</span><span>Drop-in setup lab</span></li>
-          <li><span class="t">7:25</span><span>IBM Quantum account and Qiskit install</span></li>
-          <li><span class="t">7:50</span><span>Your first quantum circuit</span></li>
-        </ul>
-        <p class="day-foot">No laptop needed for the panel. Bring one for the lab if you plan to come Saturday.</p>
-      </article>
-
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Learn</h3>
-            <div class="day-when">FRI 16 OCT<br>5:00 to 8:00 PM<br>open lab until 9:00</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">H</div>
-        </div>
-        <p class="day-lede">Qubits, gates, measurement, and running a circuit on a real quantum computer.</p>
-        <ul class="agenda">
-          <li><span class="t">5:00</span><span>Doors and food</span></li>
-          <li class="key"><span class="t">5:30</span><span>Quantum and Qiskit 101</span></li>
-          <li><span class="t">6:15</span><span>From circuit to hardware: run on a real QPU</span></li>
-          <li><span class="t">7:00</span><span>Saturday's challenges revealed</span></li>
-          <li class="key"><span class="t">7:25</span><span>Team formation</span></li>
-          <li><span class="t">8:00</span><span>Program ends</span></li>
-          <li><span class="t">8:00</span><span>Optional open lab</span></li>
-        </ul>
-        <p class="day-foot">Come alone and you will leave with a team. Working solo on Saturday is fine too.</p>
-      </article>
-
-      <article class="day reveal">
-        <div class="day-h">
-          <div>
-            <h3>Build</h3>
-            <div class="day-when">SAT 17 OCT<br>10:00 AM to 5:00 PM</div>
-          </div>
-          <div class="day-gate" aria-hidden="true">M</div>
-        </div>
-        <p class="day-lede">The main event. Pick a track, build with mentors on hand, demo what you made.</p>
-        <ul class="agenda">
-          <li><span class="t">9:30</span><span>Registration and breakfast</span></li>
-          <li><span class="t">10:00</span><span>Opening remarks</span></li>
-          <li><span class="t">10:15</span><span>Keynote</span></li>
-          <li class="key"><span class="t">11:00</span><span>Build session begins</span></li>
-          <li><span class="t">12:30</span><span>Lunch</span></li>
-          <li><span class="t">1:15</span><span>Building and mentor office hours</span></li>
-          <li><span class="t">3:15</span><span>Submissions close</span></li>
-          <li><span class="t">3:30</span><span>Demos</span></li>
-          <li class="key"><span class="t">4:40</span><span>Awards</span></li>
-          <li><span class="t">5:00</span><span>Finish</span></li>
-        </ul>
-        <p class="day-foot">Breakfast, lunch and snacks provided. Prizes for each track.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TRACKS ===================== -->
-<section id="tracks">
-  <div class="wrap">
-    <div class="sec-h">
-      <h2>Saturday tracks</h2>
-      <p>
-        Three levels, so nobody is stuck. Pick yours on the day. There is a real,
-        finishable project in each one, including for people whose first quantum circuit
-        was the night before.
-      </p>
-    </div>
-
-    <div class="tracks">
-      <div class="track track--e reveal">
-        <div>
-          <h3>Explorer</h3>
-          <span class="track-req">No experience needed</span>
-        </div>
-        <div class="track-list">
-          <span>Bell states</span><span>Quantum teleportation</span>
-          <span>Superposition and measurement</span><span>Quantum games</span>
-          <span>Intro IBM Quantum challenges</span>
-        </div>
-        <p class="track-why">Guided, with instant feedback. Built to be finished in one day by someone completely new.</p>
       </div>
 
-      <div class="track track--b reveal">
-        <div>
-          <h3>Builder</h3>
-          <span class="track-req">Some Python helps</span>
+      <div class="dayrow reveal">
+        <div class="dr-when">Fri 16 Oct<span>Evening</span></div>
+        <div class="dr-gate" aria-hidden="true">H</div>
+        <div class="dr-body">
+          <h3>Learn</h3>
+          <p>Quantum and Qiskit from scratch, then run your first circuit on a real quantum
+            computer. Teams form at the end of the night.</p>
         </div>
-        <div class="track-list">
-          <span>Grover's algorithm</span><span>Variational algorithms</span>
-          <span>Optimization</span><span>Noise and error mitigation</span>
-          <span>Real IBM Quantum hardware</span>
-        </div>
-        <p class="track-why">Uses this year's official Fall Fest challenge material. A genuine problem, not a tutorial.</p>
       </div>
 
-      <div class="track track--c reveal">
-        <div>
-          <h3>The Connecticut Challenge</h3>
-          <span class="track-req">Open ended</span>
+      <div class="dayrow reveal">
+        <div class="dr-when">Sat 17 Oct<span>All day</span></div>
+        <div class="dr-gate" aria-hidden="true">M</div>
+        <div class="dr-body">
+          <h3>Build</h3>
+          <p>The hackathon. Build something with mentors on hand all day, demo it in the
+            afternoon, and stay for the awards.</p>
         </div>
-        <div class="track-list">
-          <span>Materials science</span><span>Chemistry</span><span>Healthcare</span>
-          <span>Optimization and finance</span><span>Cybersecurity</span>
-          <span>Energy</span><span>Quantum sensing</span>
-        </div>
-        <p class="track-why">Use quantum computing on a problem that matters to Connecticut. Our signature track. Bring your own idea.</p>
       </div>
     </div>
+
+    <p class="sched-note">
+      Timings, challenges and speakers will be announced closer to the event.
+      Register and we will email you when they are.
+    </p>
   </div>
 </section>
 
@@ -511,7 +428,7 @@
         <summary>I know nothing about quantum computing. Is this really for me?</summary>
         <p>Yes, and specifically so. About half the places at this event are held for people who
           have never studied quantum computing. Friday evening teaches you what you need, the
-          Explorer track is built for complete beginners, and mentors are on hand all day Saturday.</p>
+          Saturday has work pitched squarely at complete beginners, and mentors are on hand all day.</p>
       </details>
       <details>
         <summary>Do I have to come to all three days?</summary>
@@ -542,8 +459,7 @@
       </details>
       <details>
         <summary>Will there be prizes?</summary>
-        <p>Yes, for each of the three tracks, along with certificates of participation. Details
-          closer to the event.</p>
+        <p>Yes, along with certificates of participation. Details closer to the event.</p>
       </details>
       <details>
         <summary>How do I join UConn Quantum Computing afterwards?</summary>
@@ -590,7 +506,6 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#tracks">Tracks</a></li>
           <li><a href="#prepare">What to bring</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>

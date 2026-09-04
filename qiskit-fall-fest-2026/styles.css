@@ -284,6 +284,9 @@ section.tint { background: var(--layer); }
 .ecosystem { margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule); }
 .ecosystem-lead { margin-top: 0; padding-top: 0; border-top: none; }
 .club-after { margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule); }
+/* Heading and artwork side by side; the tree runs full width beneath. */
+.eco-head { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+.eco-art { width: 100%; height: auto; border: 1px solid var(--rule); }
 .eco-h { font-size: clamp(27px, 3.6vw, 40px); }
 .eco-lede { color: var(--ink-2); font-size: 17px; margin-top: 18px; max-width: 58ch; }
 .tree { margin-top: 34px; }
@@ -394,7 +397,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
-  .hero-grid, .two, .foot-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-grid, .two, .foot-grid, .eco-head { grid-template-columns: 1fr; gap: 44px; }
   .people { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {

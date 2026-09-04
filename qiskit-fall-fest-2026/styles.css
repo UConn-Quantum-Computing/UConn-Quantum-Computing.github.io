@@ -7,18 +7,15 @@
    Dials: DESIGN_VARIANCE 6 / MOTION_INTENSITY 4 / VISUAL_DENSITY 4
    ========================================================================== */
 
-/* Palette drawn from the two organizations this event belongs to.
+/* Navy and white only, taken from UConn's own brand (brand.uconn.edu):
+   Navy #000E2F is the primary institutional color and is the ink here.
+   "Husky Eyes" #A4C8E1 from the secondary palette frames the partner strip.
 
-   UConn (brand.uconn.edu):  Navy #000E2F is the primary institutional color and
-                             is used here as the ink. "Husky Eyes" #A4C8E1 from the
-                             secondary palette frames the partner strip.
-   IBM Carbon (IBM Quantum): Purple 70 #6929C4 and Blue 70 #0043CE, the system
-                             IBM Quantum is built in.
-
-   Two accents with fixed jobs, not two accents fighting:
-     PURPLE = the event itself. Primary CTA, the headline, brand moments.
-     BLUE   = interactive and informational. Links, the Builder track.
-     NAVY   = ink and structure.
+   There is no accent hue. Buttons, headline emphasis and every interactive
+   state use the ink itself, inverting to white on navy where they need to
+   stand out, so links stay legible by their underline rather than by color.
+   The register band is permanently navy, so anything sitting on it inverts
+   explicitly instead of inheriting the accent, which would vanish.
    Solid fills throughout. No gradients. */
 :root {
   --bg:         #ffffff;
@@ -31,19 +28,14 @@
   --rule-2:     #aeb8c9;
   --sky:        #a4c8e1;
 
-  --accent:     #6929c4;
-  --accent-br:  #8a3ffc;
-  --accent-bg:  #f6f2ff;
+  --accent:     #000e2f;
+  --accent-br:  #1f2f52;
+  --accent-bg:  #eef1f7;
   --on-accent:  #ffffff;
 
   --band-bg:    #000e2f;
   --band-ink:   #ffffff;
   --band-mute:  #9fabc4;
-
-  --green:      #198038;
-  --green-bg:   #defbe6;
-  --blue:       #0043ce;
-  --blue-bg:    #edf5ff;
 
   --maxw: 1240px;
   --gut: 24px;
@@ -62,19 +54,14 @@
     --rule-2:     #33477a;
     --sky:        #4d7ba3;
 
-    --accent:     #be95ff;
-    --accent-br:  #d4bbff;
-    --accent-bg:  #2b1a4d;
+    --accent:     #eaf0fa;
+    --accent-br:  #ffffff;
+    --accent-bg:  #16243f;
     --on-accent:  #000e2f;
 
     --band-bg:    #0a1a3f;
     --band-ink:   #ffffff;
     --band-mute:  #9fabc4;
-
-    --green:      #42be65;
-    --green-bg:   #122c1b;
-    --blue:       #78a9ff;
-    --blue-bg:    #12244d;
   }
 }
 
@@ -89,19 +76,14 @@
   --rule-2:   #33477a;
   --sky:    #4d7ba3;
 
-  --accent:   #be95ff;
-  --accent-br:  #d4bbff;
-  --accent-bg:  #2b1a4d;
+  --accent:   #eaf0fa;
+  --accent-br:  #ffffff;
+  --accent-bg:  #16243f;
   --on-accent:  #000e2f;
 
   --band-bg:  #0a1a3f;
   --band-ink:   #ffffff;
   --band-mute:  #9fabc4;
-
-  --green:    #42be65;
-  --green-bg:   #122c1b;
-  --blue:     #78a9ff;
-  --blue-bg:  #12244d;
 }
 
 * { box-sizing: border-box; }
@@ -185,7 +167,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .btn-waiting { background: transparent; color: var(--band-ink); border-color: var(--band-mute); cursor: default; }
 .btn-waiting:active { transform: none; }
 
-/* date, right side of hero. The numerals are the point, the rule carries the accent. */
+/* date, right side of hero. The numerals are the point. */
 .d-num {
   font-size: clamp(64px, 9vw, 116px); line-height: 0.9; font-weight: 600;
   letter-spacing: -0.045em; font-variant-numeric: tabular-nums;
@@ -376,10 +358,13 @@ section.tint { background: var(--layer); }
 .band .eyebrow { color: var(--band-mute); }
 .band h2 { font-size: clamp(30px, 4.4vw, 50px); color: var(--band-ink); margin-top: 14px; letter-spacing: -0.03em; }
 .band p { color: var(--band-mute); margin-top: 20px; max-width: 52ch; font-size: 17px; }
-.band .btn-primary { margin-top: 32px; }
+/* The band is always navy, so its button inverts rather than inheriting the
+   navy accent, which would be invisible against it. */
+.band .btn-primary { margin-top: 32px; background: var(--band-ink); color: var(--band-bg); }
+.band .btn-primary:hover { background: #d7dfea; color: var(--band-bg); }
 
 .band .fineprint { color: var(--band-mute); font-size: 14px; margin-top: 18px; }
-.band .fineprint a { color: var(--accent-br); }
+.band .fineprint a { color: var(--band-ink); }
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }

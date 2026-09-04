@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -114,16 +114,20 @@
         <div class="d-mon">October 2026</div>
         <div class="d-loc">UConn Storrs</div>
 
-        <!-- OpenStreetMap embed: no API key, no tracker. Desaturated in CSS so it
-             sits in the page's palette instead of fighting it. -->
+        <!-- Google Maps Embed API. The key is public by design: it is restricted to
+             HTTP referrers uconnquantum.org/* and *.uconnquantum.org/*, and to the
+             Maps Embed API alone, so it is useless anywhere else. Verified 403 from a
+             foreign referrer. If the domain ever changes, update the referrer list in
+             Google Cloud Console or the map goes blank. -->
         <figure class="map">
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-72.2727%2C41.7983%2C-72.2385%2C41.8255&amp;layer=mapnik&amp;marker=41.8119%2C-72.2648"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWKA6gnKcvj-TmlNjwDBNejp8oHwyjrgY&amp;q=University+of+Connecticut%2C+Storrs%2C+CT&amp;zoom=14"
             title="Map of the University of Connecticut, Storrs campus"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
           <figcaption>
-            <a href="https://www.openstreetmap.org/?mlat=41.8119&amp;mlon=-72.2648#map=14/41.8119/-72.2648"
-               rel="noopener">Open the campus map</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=University+of+Connecticut+Storrs"
+               rel="noopener">Open in Google Maps</a>
           </figcaption>
         </figure>
       </div>

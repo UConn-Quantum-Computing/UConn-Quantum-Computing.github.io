@@ -121,6 +121,28 @@ The registration form is external (Google Forms is fine). IBM requires it to inc
 Worth also collecting, because these are the numbers we report afterwards: university, major,
 whether this is their first quantum event, dietary requirements, and which days they're coming to.
 
+
+### The map
+
+The hero embeds Google Maps via the Maps Embed API. That API is free with unlimited usage,
+but it needs a key, and the key is visible in the page source. That is expected for a
+client-side embed and is safe only because the key is restricted two ways in Google Cloud
+Console:
+
+- **Application restrictions > Websites:** `uconnquantum.org/*` and `*.uconnquantum.org/*`
+- **API restrictions:** Maps Embed API only
+
+Verified: 200 from uconnquantum.org, 403 from any other referrer and from no referrer.
+
+Two consequences worth knowing:
+
+- **The map will not load on `localhost`** unless `localhost:*/*` is added to the referrer
+  list. Everything else on the page previews fine without it.
+- **If the domain changes, the map goes blank** until the referrer list is updated.
+
+If a billable API (Geocoding, Places, Directions) is ever enabled on that Cloud project,
+rotate the key first. It has been shared in plain text.
+
 ### Branding rules
 
 **IBM**

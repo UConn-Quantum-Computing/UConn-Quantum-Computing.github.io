@@ -204,6 +204,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);
 }
 
+/* Map. Greyscaled so OSM's own colours do not fight the palette, and dimmed
+   slightly in dark mode rather than inverted, which would misread water as land. */
+.map { margin: 12px 0 0; }
+.map iframe {
+  display: block; width: 100%; height: 190px; border: 1px solid var(--rule-2);
+  filter: grayscale(1) contrast(1.04);
+}
+.map figcaption { margin-top: 8px; }
+.map figcaption a {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .map iframe { filter: grayscale(1) brightness(.78) contrast(1.1); }
+}
+:root[data-theme="dark"] .map iframe { filter: grayscale(1) brightness(.78) contrast(1.1); }
+
 /* ---------- partner strip ----------
    The one marquee on the page. Its job is to show the roster is plural without
    giving any single logo hierarchy, which a static row of four cannot do.

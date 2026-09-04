@@ -88,9 +88,15 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
 - [ ] **Organizer names, roles and photos** — `#people`, four placeholder cards. Photos go in
       `assets/team/` at 3:4 portrait, roughly 600x800. Anyone who would rather not have a photo
       published keeps the grey `PHOTO` block; that is a supported state, not a broken one.
-- [ ] **Registration URL** — one edit, in the `#register` band: delete the
-      `<span class="btn btn-waiting">` and uncomment the `<a>` above it. The nav and hero
-      buttons are jump links to that section, so they need no change at launch.
+- [ ] **Registration URL** — three edits, because all three buttons are inert spans
+      until the form exists:
+      1. `#register` band: delete the `<span class="btn btn-waiting">` and uncomment the
+         `<a class="btn btn-primary">` above it, pointing at the form.
+      2. Hero: swap `<span class="btn btn-soon">Register<small>Starting soon</small></span>`
+         back to `<a class="btn btn-primary" href="#register">Register</a>`.
+      3. Nav: swap `<span class="nav-cta nav-soon">Register</span>` back to
+         `<a class="nav-cta" href="#register">Register</a>`.
+      Then delete the `.btn-soon` and `.nav-soon` rules and bump the `?v=` number.
 - [ ] **Club logo** — `assets/logo-uconn-quantum.svg` is the real lockup, converted from
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.

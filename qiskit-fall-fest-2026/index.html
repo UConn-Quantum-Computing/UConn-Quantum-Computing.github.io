@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -79,8 +79,8 @@
       <a href="#schedule">Schedule</a>
       <a href="#people">Organizers</a>
       <a href="#faq">FAQ</a>
-      <!-- TODO: registration form URL. Same label everywhere on the page. -->
-      <a class="nav-cta" href="#register">Register</a>
+      <!-- Not a link until registration opens. See the launch steps in README. -->
+      <span class="nav-cta nav-soon" role="status">Register</span>
     </div>
   </div>
 </nav>
@@ -99,7 +99,7 @@
           Free, and no experience needed.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#register">Register</a>
+          <span class="btn btn-soon" role="status">Register<small>Starting soon</small></span>
           <a class="btn btn-ghost" href="#schedule">See the schedule</a>
         </div>
       </div>
@@ -476,7 +476,7 @@
     <!-- When registration opens: delete the <span> and uncomment the <a>, pointing it
          at the live form. The form MUST include a photo release and a question
          confirming the registrant can attend in person near Storrs. -->
-    <span class="btn btn-waiting" role="status">Registration opening soon</span>
+    <span class="btn btn-waiting" role="status">Registration starting soon</span>
     <!-- <a class="btn btn-primary" href="REPLACE_FORM_URL">Register</a> -->
     <p class="fineprint">
       We will announce the date on our socials and by email.

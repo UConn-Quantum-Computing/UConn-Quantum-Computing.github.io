@@ -321,7 +321,7 @@ section.tint { background: var(--layer); }
    QFF-26/parked-schedule-and-tracks.html, outside the repo. */
 .dayrows { border-top: 2px solid var(--ink); }
 .dayrow {
-  display: grid; grid-template-columns: 130px 44px 1fr; gap: 30px;
+  display: grid; grid-template-columns: 140px 1fr; gap: 32px;
   padding: 26px 0; border-bottom: 1px solid var(--rule); align-items: start;
 }
 .dr-when {
@@ -329,11 +329,6 @@ section.tint { background: var(--layer); }
   text-transform: uppercase; color: var(--ink); padding-top: 6px;
 }
 .dr-when span { display: block; color: var(--ink-3); margin-top: 4px; }
-.dr-gate {
-  width: 44px; height: 44px; border: 1.5px solid var(--accent); color: var(--accent);
-  display: grid; place-items: center;
-  font-family: "IBM Plex Mono", monospace; font-size: 16px; font-weight: 600;
-}
 .dr-body h3 { font-size: 25px; }
 .dr-body p { color: var(--ink-2); margin-top: 8px; max-width: 62ch; }
 .sched-note { margin-top: 26px; font-size: 14.5px; color: var(--ink-3); max-width: 56ch; }
@@ -404,8 +399,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   section { padding: 60px 0; }
   .hero { padding: 48px 0 56px; }
   .people, .prep { grid-template-columns: 1fr; }
-  .dayrow { grid-template-columns: 44px 1fr; gap: 18px; }
-  .dr-when { grid-column: 1 / -1; padding-top: 0; }
+  .dayrow { grid-template-columns: 1fr; gap: 10px; }
+  .dr-when { padding-top: 0; }
   .prep { gap: 0; }
   .datecard { margin-top: 4px; }
 }

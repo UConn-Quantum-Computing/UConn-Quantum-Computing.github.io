@@ -246,10 +246,14 @@ section.tint { background: var(--layer); }
 
 .club-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .clink {
-  border: 1px solid var(--rule-2); padding: 16px 22px; min-width: 196px;
-  text-decoration: none; display: flex; flex-direction: column; gap: 3px;
+  border: 1px solid var(--rule-2); padding: 16px 22px; min-width: 208px;
+  text-decoration: none; display: flex; align-items: center; gap: 14px;
   transition: border-color .2s, background .2s;
 }
+.clink > span { display: flex; flex-direction: column; gap: 3px; }
+.clink-ic { width: 22px; height: 22px; flex: none; color: var(--ink-3); transition: color .2s; }
+.clink:hover .clink-ic { color: var(--accent); }
+.clink-join .clink-ic { color: var(--accent); }
 .clink:hover { border-color: var(--accent); background: var(--accent-bg); }
 .clink b { font-size: 16px; font-weight: 600; color: var(--ink); }
 .clink small { font-size: 13.5px; color: var(--ink-3); }

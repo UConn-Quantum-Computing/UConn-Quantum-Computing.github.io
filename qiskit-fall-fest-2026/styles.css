@@ -120,7 +120,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero h1 { font-size: clamp(38px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.035em; }
 .hero h1 b { color: var(--accent); font-weight: 600; display: block; }
 .hero-lede { font-size: 19px; color: var(--ink-2); margin-top: 24px; max-width: 46ch; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 32px; }
 
 .btn { display: inline-block; padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .1s; }
 .btn:active { transform: translateY(1px); }
@@ -134,7 +134,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .btn-soon {
   background: var(--layer-2); color: var(--ink-3); border-color: transparent;
   cursor: default; display: inline-flex; flex-direction: column;
-  align-items: flex-start; gap: 3px; line-height: 1.25;
+  /* column flex, so align-items centres the two lines across and
+     justify-content centres them down, matching the single-line button
+     it sits next to. */
+  align-items: center; justify-content: center; text-align: center;
+  gap: 3px; line-height: 1.25;
 }
 .btn-soon:active { transform: none; }
 .btn-soon small {

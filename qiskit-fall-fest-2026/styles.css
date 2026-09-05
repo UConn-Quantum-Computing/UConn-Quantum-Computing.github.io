@@ -359,7 +359,13 @@ section.tint { background: var(--layer); }
 .band p { color: var(--band-mute); margin-top: 20px; max-width: 52ch; font-size: 17px; }
 /* The band is always navy, so its button inverts rather than inheriting the
    navy accent, which would be invisible against it. */
-.band .btn-primary { margin-top: 32px; background: var(--band-ink); color: var(--band-bg); }
+/* Block rather than inline-block: as an inline element the button sat in a line
+   box, so the space above it was leading rather than margin and could not be
+   tuned. width: max-content keeps it hugging its label. */
+.band .btn-primary, .band .btn-waiting {
+  display: block; width: max-content; margin-top: 22px;
+}
+.band .btn-primary { background: var(--band-ink); color: var(--band-bg); }
 .band .btn-primary:hover { background: #d7dfea; color: var(--band-bg); }
 
 

@@ -362,8 +362,6 @@ section.tint { background: var(--layer); }
 .band .btn-primary { margin-top: 32px; background: var(--band-ink); color: var(--band-bg); }
 .band .btn-primary:hover { background: #d7dfea; color: var(--band-bg); }
 
-.band .fineprint { color: var(--band-mute); font-size: 14px; margin-top: 18px; }
-.band .fineprint a { color: var(--band-ink); }
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }

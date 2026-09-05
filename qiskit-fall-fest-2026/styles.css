@@ -256,6 +256,10 @@ section.tint { background: var(--layer); }
 .sec-h p { color: var(--ink-2); margin-top: 16px; }
 
 /* ---------- about: club intro ---------- */
+/* Club copy and photographs side by side, matching the explainer above it. */
+.club-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 52px; align-items: start; }
+.club-media { display: grid; gap: 20px; align-content: start; }
+.club-photo { width: 100%; height: auto; border: 1px solid var(--rule); }
 .club-title { font-size: clamp(27px, 3.6vw, 40px); }
 .club-sub { color: var(--ink-2); font-size: 17px; margin-top: 18px; max-width: 58ch; }
 
@@ -393,7 +397,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
-  .hero-grid, .two, .foot-grid, .eco-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-grid, .two, .foot-grid, .eco-grid, .club-grid { grid-template-columns: 1fr; gap: 40px; }
   .people { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {

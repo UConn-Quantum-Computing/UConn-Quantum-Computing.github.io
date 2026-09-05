@@ -335,7 +335,10 @@ section.tint { background: var(--layer); }
 /* Five organizers, five columns, so no card is left alone on its own row. */
 .people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px 20px; }
 .person img, .person .ph {
-  width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+  /* height:auto is load-bearing. The width/height attributes on the <img> are
+     presentational hints, and a definite height makes the browser ignore
+     aspect-ratio, which renders the photo 800px tall in a 220px column. */
+  width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
   background: var(--layer-2); border: 1px solid var(--rule);
   display: grid; place-items: center;
   font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--ink-3); letter-spacing: .1em;

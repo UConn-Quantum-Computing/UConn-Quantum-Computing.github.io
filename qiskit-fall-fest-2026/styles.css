@@ -312,7 +312,18 @@ section.tint { background: var(--layer); }
 .dr-when span { display: block; color: var(--ink-3); margin-top: 4px; text-transform: none; letter-spacing: .02em; }
 .dr-body h3 { font-size: 25px; }
 .dr-body p { color: var(--ink-2); margin-top: 8px; max-width: 62ch; }
-.sched-note { margin-top: 26px; font-size: 14.5px; color: var(--ink-3); max-width: 56ch; }
+/* Note panel. White against the section tint so it reads as an aside rather
+   than as trailing body copy, with a solid rule down the left edge. */
+.sched-note {
+  margin-top: 34px; max-width: 64ch; background: var(--bg);
+  border-left: 3px solid var(--ink); padding: 18px 24px;
+  font-size: 15px; line-height: 1.6; color: var(--ink-2);
+}
+.sched-note b {
+  display: block; margin-bottom: 6px; font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink);
+}
 
 /* ---------- who: two columns of chips ---------- */
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }

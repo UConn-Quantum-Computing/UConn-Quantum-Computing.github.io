@@ -105,11 +105,19 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
-- [ ] **Sponsor logos** — the marquee strip under the hero currently holds the club logo plus
-      four `Sponsor slot` placeholders. Replace a slot with `<svg><use>` or `<img>` as each
-      sponsor is confirmed. The track repeats the same set **three times** and slides by exactly
-      one third, so all three copies must stay identical or the loop will visibly jump.
-      IBM Quantum's mark needs Fall Fest event-staff approval before it goes up.
+- [ ] **Sponsor logos** — the marquee strip under the hero holds the club logo, the IBM Quantum
+      wordmark, and three `Sponsor slot` placeholders. Replace a slot with `<svg><use>` or
+      `<img>` as each sponsor is confirmed. The track repeats the same set **three times** and
+      slides by exactly one third, so all three copies must stay identical or the loop will
+      visibly jump.
+- [ ] **IBM Quantum wordmark approval** — `assets/logo-ibm-quantum.png` is live in the strip but
+      **not yet cleared**. The kickoff deck allows the mark only "as long as approved by event
+      staff prior", so this needs sign-off from Serena Godwin or the Fall Fest team, ideally
+      alongside the September 8 Website Information form. Pull it if they decline.
+      Provenance: extracted unmodified from slide 8 of `Qiskit_Fall-Fest_2026_Kickoff.pdf`
+      (the deck's own artwork, 1790x296 raster plus alpha mask, recombined into an RGBA PNG and
+      trimmed of fully transparent margin only). The glyphs themselves are untouched. If IBM
+      supplies an official SVG, prefer it. Never recolor it for the navy band.
 - [ ] **Contact email** — `REPLACE@uconn.edu`, appears 5 times
 - [ ] **Social and join links** — Instagram, LinkedIn and UConntact, in two places: the three
       link cards in `#about` and the footer list. UConntact URLs look like

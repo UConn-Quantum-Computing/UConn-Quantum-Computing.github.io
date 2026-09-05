@@ -263,7 +263,10 @@ section.tint { background: var(--layer); }
 .club-title { font-size: clamp(27px, 3.6vw, 40px); }
 .club-sub { color: var(--ink-2); font-size: 17px; margin-top: 18px; max-width: 58ch; }
 
-.club-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+/* Two across, with UConntact spanning the full width beneath them. Grid rather
+   than flex so the two top cards are equal width instead of sized by content. */
+.club-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+.club-links .clink-join { grid-column: 1 / -1; }
 .clink {
   border: 1px solid var(--rule-2); padding: 16px 22px; min-width: 208px;
   text-decoration: none; display: flex; align-items: center; gap: 14px;
@@ -398,6 +401,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
   .hero-grid, .two, .foot-grid, .eco-grid, .club-grid { grid-template-columns: 1fr; gap: 40px; }
+  .club-links { grid-template-columns: 1fr; }
   .people { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {

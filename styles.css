@@ -16,8 +16,17 @@
    stand out, so links stay legible by their underline rather than by color.
    The register band is permanently navy, so anything sitting on it inverts
    explicitly instead of inheriting the accent, which would vanish.
-   Solid fills throughout. No gradients. */
+   Solid fills throughout. No gradients.
+
+   Light only, deliberately. Every image on the page has a light background,
+   so on a dark ground they read as glowing rectangles rather than artwork.
+   The page paints its own colours explicitly and does not follow the system
+   theme. */
 :root {
+  /* Tells the browser this page is light, so it does not dark-tint
+     scrollbars, form controls or its own chrome on a dark-set device. */
+  color-scheme: light;
+
   --bg:         #ffffff;
   --layer:      #f2f5f9;
   --layer-2:    #e4eaf2;
@@ -40,50 +49,6 @@
   --maxw: 1240px;
   --gut: 24px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:         #000e2f;
-    --layer:      #0a1a3f;
-    --layer-2:    #15274f;
-    --ink:        #eaf0fa;
-    --ink-2:      #aebbd2;
-    --ink-3:      #8494b0;
-    --rule:       #1e3059;
-    --rule-2:     #33477a;
-    --sky:        #4d7ba3;
-
-    --accent:     #eaf0fa;
-    --accent-br:  #ffffff;
-    --accent-bg:  #16243f;
-    --on-accent:  #000e2f;
-
-    --band-bg:    #0a1a3f;
-    --band-ink:   #ffffff;
-    --band-mute:  #9fabc4;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:     #000e2f;
-  --layer:    #0a1a3f;
-  --layer-2:  #15274f;
-  --ink:    #eaf0fa;
-  --ink-2:    #aebbd2;
-  --ink-3:    #8494b0;
-  --rule:     #1e3059;
-  --rule-2:   #33477a;
-  --sky:    #4d7ba3;
-
-  --accent:   #eaf0fa;
-  --accent-br:  #ffffff;
-  --accent-bg:  #16243f;
-  --on-accent:  #000e2f;
-
-  --band-bg:  #0a1a3f;
-  --band-ink:   #ffffff;
-  --band-mute:  #9fabc4;
 }
 
 * { box-sizing: border-box; }

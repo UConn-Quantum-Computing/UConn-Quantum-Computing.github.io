@@ -122,7 +122,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero-lede { font-size: 19px; color: var(--ink-2); margin-top: 24px; max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 32px; }
 
-.btn { display: inline-block; padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .1s; }
+/* inline-flex, centred both ways: the row stretches the buttons to a shared
+   height, and an inline-block label would sit at the top of the taller box. */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .1s; }
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { background: var(--accent-br); }

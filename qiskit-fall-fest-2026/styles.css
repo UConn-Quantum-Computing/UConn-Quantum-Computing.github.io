@@ -375,8 +375,10 @@ section.tint { background: var(--layer); }
 .person a {
   font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em;
   text-transform: uppercase; text-decoration: none;
-  display: inline-block; margin-top: 9px;
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 9px;
 }
+.person-ic { width: 12px; height: 12px; flex: none; color: var(--ink-3); transition: color .2s; }
+.person a:hover .person-ic { color: var(--accent); }
 .person a:hover { text-decoration: underline; }
 
 /* ---------- faq ---------- */

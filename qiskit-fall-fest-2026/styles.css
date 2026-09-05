@@ -354,7 +354,8 @@ section.tint { background: var(--layer); }
 .chips span { font-size: 14px; padding: 6px 13px; background: var(--bg); border: 1px solid var(--rule-2); color: var(--ink-2); }
 
 /* ---------- people ---------- */
-.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; }
+/* Five organizers, five columns, so no card is left alone on its own row. */
+.people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px 20px; }
 .person img, .person .ph {
   width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
   background: var(--layer-2); border: 1px solid var(--rule);
@@ -402,12 +403,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 @media (max-width: 1040px) {
   .hero-grid, .two, .foot-grid, .eco-grid, .club-grid { grid-template-columns: 1fr; gap: 40px; }
   .club-links { grid-template-columns: 1fr; }
-  .people { grid-template-columns: repeat(2, 1fr); }
+  .people { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 700px) {
   section { padding: 60px 0; }
   .hero { padding: 48px 0 56px; }
-  .people { grid-template-columns: 1fr; }
+  .people { grid-template-columns: repeat(2, 1fr); }
   .dayrow { grid-template-columns: 1fr; gap: 10px; }
   .dr-when { padding-top: 0; }
   .datecard { margin-top: 4px; }

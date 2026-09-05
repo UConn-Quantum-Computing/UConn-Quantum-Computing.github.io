@@ -345,8 +345,6 @@ section.tint { background: var(--layer); }
 .two h3 { font-size: 21px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .chips span { font-size: 14px; padding: 6px 13px; background: var(--bg); border: 1px solid var(--rule-2); color: var(--ink-2); }
-.callout { border-left: 3px solid var(--accent); background: var(--accent-bg); padding: 20px 24px; margin-top: 28px; font-size: 15px; color: var(--ink-2); }
-.callout strong { color: var(--ink); }
 
 /* ---------- people ---------- */
 .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; }

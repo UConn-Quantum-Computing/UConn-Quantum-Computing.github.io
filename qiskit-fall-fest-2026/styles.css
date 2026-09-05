@@ -67,6 +67,10 @@ body {
 h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; text-wrap: balance; }
 p, ul, ol { margin: 0; }
 img { max-width: 100%; display: block; }
+/* Body copy runs at --ink-2, so <strong> lifts to full ink as well as weight.
+   Reserved for the things people actually scan for: free, food, swag. Spend it
+   sparingly or it stops working. */
+strong { font-weight: 600; color: var(--ink); }
 
 a { color: var(--accent); text-underline-offset: 2px; }
 a:focus-visible, button:focus-visible, summary:focus-visible {
@@ -392,6 +396,9 @@ section.tint { background: var(--layer); }
 .band .eyebrow { color: var(--band-mute); }
 .band h2 { font-size: clamp(30px, 4.4vw, 50px); color: var(--band-ink); margin-top: 14px; letter-spacing: -0.03em; }
 .band p { color: var(--band-mute); margin-top: 20px; max-width: 52ch; font-size: 17px; }
+/* The global <strong> lifts to --ink, which is the band's own background.
+   Re-point it at the band ink or the emphasised word disappears. */
+.band strong { color: var(--band-ink); }
 /* The band is always navy, so its button inverts rather than inheriting the
    navy accent, which would be invisible against it. */
 /* Block rather than inline-block: as an inline element the button sat in a line

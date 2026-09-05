@@ -369,6 +369,9 @@ section.tint { background: var(--layer); }
   margin-top: 13px; text-wrap: balance;
 }
 .person p { font-size: 13px; line-height: 1.45; color: var(--ink-3); margin-top: 4px; }
+/* Role sits above the study details and carries a touch more weight, so the
+   three lines read as role first, then background. */
+.person .role { color: var(--ink-2); font-weight: 600; }
 .person a {
   font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em;
   text-transform: uppercase; text-decoration: none;

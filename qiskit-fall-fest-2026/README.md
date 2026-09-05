@@ -136,8 +136,14 @@ The registration form is external (Google Forms is fine). IBM requires it to inc
 2. **A question confirming the person can attend in person** in the Storrs area — required
    because this event is open to the public rather than restricted to UConn students.
 
+Note that requirement 2 was written for a fully in-person event. Ours is hybrid: Thursday and
+Friday run in person and online, Saturday's hackathon is in person only. So the question now
+applies to Saturday, and the form needs to ask **which days each person is attending and in
+which format** — otherwise we cannot size the room, the food, or the stream. Worth confirming
+the hybrid format with Fall Fest event staff at the same time as the logo approval.
+
 Worth also collecting, because these are the numbers we report afterwards: university, major,
-whether this is their first quantum event, dietary requirements, and which days they're coming to.
+whether this is their first quantum event, and dietary requirements.
 
 
 ### The map

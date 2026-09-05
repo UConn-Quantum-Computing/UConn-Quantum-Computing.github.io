@@ -314,12 +314,22 @@ section.tint { background: var(--layer); }
   text-transform: uppercase; color: var(--ink); padding-top: 6px;
 }
 .dr-when span { display: block; color: var(--ink-3); margin-top: 4px; text-transform: none; letter-spacing: .02em; }
+/* Format chip. Whether a day can be joined from home is the second thing people
+   need from this column, so it sits with the date rather than in the prose. */
+.dr-when .dr-mode {
+  display: inline-block; margin-top: 12px; padding: 3px 8px;
+  border: 1px solid var(--rule-2); background: var(--bg);
+  font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-2);
+}
+.dr-when .dr-mode-here { border-color: var(--ink); color: var(--ink); }
 .dr-body h3 { font-size: 25px; }
 .dr-body p { color: var(--ink-2); margin-top: 8px; max-width: 62ch; }
-/* Note panel. White against the section tint so it reads as an aside rather
-   than as trailing body copy, with a solid rule down the left edge. */
+/* Note panels. White against the section tint so they read as asides rather
+   than as trailing body copy, with a solid rule down the left edge. Two of
+   them, paired in a row so they read as a deliberate set. */
+.sched-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 34px; align-items: start; }
 .sched-note {
-  margin-top: 34px; max-width: 64ch; background: var(--bg);
+  margin: 0; background: var(--bg);
   border-left: 3px solid var(--ink); padding: 18px 24px;
   font-size: 15px; line-height: 1.6; color: var(--ink-2);
 }
@@ -374,6 +384,7 @@ section.tint { background: var(--layer); }
 .faq summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--accent); font-weight: 400; line-height: 1; }
 .faq details[open] summary::after { content: "\2212"; }
 .faq details p { padding: 0 0 22px; color: var(--ink-2); max-width: 68ch; font-size: 15px; }
+.faq details p:not(:last-of-type) { padding-bottom: 14px; }
 
 
 /* ---------- register band ---------- */
@@ -414,5 +425,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   .people { grid-template-columns: repeat(2, 1fr); }
   .dayrow { grid-template-columns: 1fr; gap: 10px; }
   .dr-when { padding-top: 0; }
+  .sched-notes { grid-template-columns: 1fr; }
   .datecard { margin-top: 4px; }
 }

@@ -115,14 +115,19 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       each group currently lists the two logos **twice**, because one pair per group is narrower
       than a wide viewport and the loop would show a gap. Once there are four or more distinct
       logos, drop back to listing each once per group.
-- [ ] **IBM Quantum wordmark approval** — `assets/logo-ibm-quantum.png` is live in the strip but
-      **not yet cleared**. The kickoff deck allows the mark only "as long as approved by event
-      staff prior", so this needs sign-off from Serena Godwin or the Fall Fest team, ideally
-      alongside the September 8 Website Information form. Pull it if they decline.
-      Provenance: extracted unmodified from slide 8 of `Qiskit_Fall-Fest_2026_Kickoff.pdf`
-      (the deck's own artwork, 1790x296 raster plus alpha mask, recombined into an RGBA PNG and
-      trimmed of fully transparent margin only). The glyphs themselves are untouched. If IBM
-      supplies an official SVG, prefer it. Never recolor it for the navy band.
+- [ ] **IBM marks approval** — both IBM marks are live in the strip and **neither is cleared**.
+      The kickoff deck allows them only "as long as approved by event staff prior", so this
+      needs sign-off from Serena Godwin or the Fall Fest team, ideally alongside the
+      September 8 Website Information form. Pull both if they decline.
+      - `assets/logo-ibm-quantum.png` — the IBM Quantum wordmark. Extracted unmodified from
+        slide 8 of `Qiskit_Fall-Fest_2026_Kickoff.pdf`: the deck's own 1790x296 raster plus its
+        alpha mask, recombined into an RGBA PNG and trimmed of fully transparent margin only.
+      - `assets/logo-qiskit-mark.svg` — the Qiskit globe pictogram, from the same slide, this
+        time as vector paths lifted straight out of the PDF. Inlined as the `#qiskit-mark`
+        symbol so it follows `currentColor`.
+      Neither has been redrawn. If IBM supplies official files, prefer them. Never recolor
+      either mark, and never put them on the navy band.
+      The **IBM 8-bar logo is forbidden outright** — it needs a contract we do not have.
 - [x] **Contact email** — `parth.danve@uconn.edu`, in the footer here and on the root page.
       Worth replacing with a club-owned alias if UConn will issue one, so the address outlives
       any one organizer.

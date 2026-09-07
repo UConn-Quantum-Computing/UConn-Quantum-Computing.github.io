@@ -208,6 +208,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .mq-item { display: flex; align-items: center; height: 44px; flex: none; color: var(--ink-2); }
 .mq-item svg { height: 40px; width: 108px; color: var(--ink); }
+/* The Qiskit mark is a square pictogram, not a lockup, so it needs its own
+   size: at the lockup's 40px it would tower over the wordmarks beside it. */
+.mq-item svg[width="34"] { height: 34px; width: 34px; }
 /* The IBM Quantum wordmark is a single line of caps-and-lowercase, so it needs
    less height than the two-line UConn lockup to read at the same weight. Set
    height and let width follow: the mark is never rescaled non-uniformly. */

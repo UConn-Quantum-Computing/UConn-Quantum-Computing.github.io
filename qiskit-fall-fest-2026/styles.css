@@ -1,0 +1,490 @@
+/* ==========================================================================
+   Qiskit Fall Fest Connecticut 2026
+
+   Direction: IBM Carbon. Sharp corners everywhere (radius 0, deliberately),
+   IBM Plex, hairline rules, generous whitespace.
+
+   Dials: DESIGN_VARIANCE 6 / MOTION_INTENSITY 4 / VISUAL_DENSITY 4
+   ========================================================================== */
+
+/* Navy and white only, taken from UConn's own brand (brand.uconn.edu):
+   Navy #000E2F is the primary institutional color and is the ink here.
+   "Husky Eyes" #A4C8E1 from the secondary palette frames the partner strip.
+
+   There is no accent hue. Buttons, headline emphasis and every interactive
+   state use the ink itself, inverting to white on navy where they need to
+   stand out, so links stay legible by their underline rather than by color.
+   The register band is permanently navy, so anything sitting on it inverts
+   explicitly instead of inheriting the accent, which would vanish.
+   Solid fills throughout. No gradients.
+
+   Light only, deliberately. Every image on the page has a light background,
+   so on a dark ground they read as glowing rectangles rather than artwork.
+   The page paints its own colours explicitly and does not follow the system
+   theme. */
+:root {
+  /* Tells the browser this page is light, so it does not dark-tint
+     scrollbars, form controls or its own chrome on a dark-set device. */
+  color-scheme: light;
+
+  --bg:         #ffffff;
+  --layer:      #f2f5f9;
+  --layer-2:    #e4eaf2;
+  --ink:        #000e2f;
+  --ink-2:      #3f4a61;
+  --ink-3:      #63708a;
+  --rule:       #d9dfe9;
+  --rule-2:     #aeb8c9;
+  --sky:        #a4c8e1;
+
+  --accent:     #000e2f;
+  --accent-br:  #1f2f52;
+  --accent-bg:  #eef1f7;
+  --on-accent:  #ffffff;
+
+  --band-bg:    #000e2f;
+  --band-ink:   #ffffff;
+  --band-mute:  #9fabc4;
+  --band-rule:  #253358;
+
+  --maxw: 1240px;
+  --gut: 24px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; text-wrap: balance; }
+p, ul, ol { margin: 0; }
+img { max-width: 100%; display: block; }
+/* Body copy runs at --ink-2, so <strong> lifts to full ink as well as weight.
+   Reserved for the things people actually scan for: free, food, swag. Spend it
+   sparingly or it stops working. */
+strong { font-weight: 600; color: var(--ink); }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gut); }
+.mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+
+/* Eyebrows are rationed: 3 on the whole page. Do not add more. */
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.skip { position: absolute; left: -9999px; background: var(--ink); color: var(--bg); padding: 10px 16px; z-index: 100; }
+.skip:focus { left: 12px; top: 12px; }
+
+/* ---------- motion: reveal on enter. Content is visible by default; the
+     hidden state is only applied by JS when motion is permitted. ---------- */
+.js-reveal .reveal { opacity: 0; transform: translateY(20px); }
+.js-reveal .reveal.in { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .6s var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-reveal .reveal, .js-reveal .reveal.in { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; }
+}
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--rule); }
+.nav-in { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gut); height: 76px; display: flex; align-items: center; gap: 28px; }
+.nav-mark { display: flex; align-items: center; gap: 18px; text-decoration: none; color: var(--ink); }
+/* Hairline between the two marks. Shorter than the logo it sits beside, so it
+   reads as a separator rather than a border. */
+.nav-rule { width: 1px; height: 36px; background: var(--rule-2); flex: none; }
+/* 44px against the lockup's 50px. A circle needs more height than a wide
+   wordmark to carry the same weight, so matching the numbers would look small. */
+.nav-qiskit { height: 44px; width: 44px; color: var(--ink); flex: none; }
+/* Lockup is 2.7:1. Height drives it, width follows. */
+.nav-logo { height: 50px; width: 135px; color: var(--ink); flex: none; }
+.foot-mark { font-family: "IBM Plex Mono", monospace; font-size: 15px; font-weight: 600; color: var(--ink); }
+.foot-mark b { color: var(--accent); font-weight: 600; }
+.nav-links { display: flex; gap: 24px; margin-left: auto; align-items: center; }
+.nav-links a { font-size: 14px; color: var(--ink-2); text-decoration: none; padding: 3px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+.nav-cta { background: var(--accent); color: var(--on-accent) !important; padding: 12px 22px !important; font-weight: 600; border-bottom: none !important; }
+.nav-cta:hover { background: var(--accent-br); }
+@media (max-width: 900px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* ---------- hero: asymmetric split ---------- */
+.hero { border-bottom: 1px solid var(--rule); padding: 72px 0 76px; }
+.hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 72px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.035em; }
+.hero h1 b { color: var(--accent); font-weight: 600; display: block; }
+.hero-lede { font-size: 19px; color: var(--ink-2); margin-top: 24px; max-width: 46ch; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 32px; }
+
+/* inline-flex, centred both ways: the row stretches the buttons to a shared
+   height, and an inline-block label would sit at the top of the taller box. */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .1s; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-br); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-2); }
+.btn-ghost:hover { background: var(--layer); }
+/* Pre-launch states. These are spans, not links: nothing to click, nothing to
+   focus, no hover. Muted fill so they read as not-yet-available rather than as
+   a primary action that fails silently. */
+.btn-soon {
+  background: var(--layer-2); color: var(--ink-3); border-color: transparent;
+  cursor: default; display: inline-flex; flex-direction: column;
+  /* column flex, so align-items centres the two lines across and
+     justify-content centres them down, matching the single-line button
+     it sits next to. */
+  align-items: center; justify-content: center; text-align: center;
+  gap: 3px; line-height: 1.25;
+}
+.btn-soon:active { transform: none; }
+.btn-soon small {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+}
+.nav-soon {
+  background: var(--layer-2) !important; color: var(--ink-3) !important;
+  cursor: default;
+}
+
+.btn-waiting { background: transparent; color: var(--band-ink); border-color: var(--band-mute); cursor: default; }
+.btn-waiting:active { transform: none; }
+
+/* date, right side of hero. The numerals are the point. */
+.d-num {
+  font-size: clamp(64px, 9vw, 116px); line-height: 0.9; font-weight: 600;
+  letter-spacing: -0.045em; font-variant-numeric: tabular-nums;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+/* Ordinal riding at cap height, sized so it reads as a suffix rather than a footnote. */
+.d-d sup {
+  font-size: 0.34em; font-weight: 600; letter-spacing: -0.01em;
+  vertical-align: baseline; position: relative; top: -1.05em; margin-left: 0.04em;
+}
+.d-sep { font-size: 0.3em; font-weight: 400; letter-spacing: 0; color: var(--ink-3); }
+.d-mon { font-size: clamp(21px, 2.4vw, 29px); font-weight: 600; letter-spacing: -0.02em; margin-top: 10px; }
+.d-loc {
+  font-family: "IBM Plex Mono", monospace; font-size: 12.5px; line-height: 1.7;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3);
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);
+}
+
+/* Map, in full colour. Only a slight dim in dark mode, so it does not glare
+   against a navy page; never inverted, which would read water as land. */
+.map { margin: 12px 0 0; }
+.map iframe {
+  display: block; width: 100%; height: 200px; border: 1px solid var(--rule-2);
+}
+.map figcaption { margin-top: 8px; }
+.map figcaption a {
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+
+/* ---------- partner strip ----------
+   The one marquee on the page. Its job is to show the roster without giving any
+   single logo hierarchy. Track holds three identical groups; translating by a
+   third loops seamlessly, so every group must stay identical. */
+.strip { padding: 26px 0; border-top: 1px solid var(--sky); border-bottom: 1px solid var(--sky); background: var(--layer); overflow: hidden; }
+.marquee { position: relative; overflow: hidden; }
+.marquee::before, .marquee::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none;
+}
+.marquee::before { left: 0; background: linear-gradient(to right, var(--layer), transparent); }
+.marquee::after { right: 0; background: linear-gradient(to left, var(--layer), transparent); }
+.mq-track { display: flex; align-items: center; gap: 120px; width: max-content; animation: mq 42s linear infinite; }
+.marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
+@keyframes mq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+
+.mq-item { display: flex; align-items: center; height: 44px; flex: none; color: var(--ink-2); }
+.mq-item svg { height: 40px; width: 108px; color: var(--ink); }
+/* The IBM Quantum wordmark is a single line of caps-and-lowercase, so it needs
+   less height than the two-line UConn lockup to read at the same weight. Set
+   height and let width follow: the mark is never rescaled non-uniformly. */
+.mq-item img { height: 24px; width: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; }
+  .mq-track { animation: none; }
+  .marquee::before, .marquee::after { display: none; }
+}
+
+/* ---------- section shell ---------- */
+section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
+/* Anchor targets must clear the sticky nav. Without this a jump to #faq puts
+   the section's top edge at y=0, where the 76px nav covers it, leaving 12px of
+   the intended 88px breathing room above the heading. */
+section[id], header[id] { scroll-margin-top: 76px; }
+section.tint { background: var(--layer); }
+.sec-h { margin-bottom: 40px; max-width: 60ch; }
+.sec-h h2 { font-size: clamp(27px, 3.6vw, 40px); }
+.sec-h p { color: var(--ink-2); margin-top: 16px; }
+
+/* ---------- about: club intro ---------- */
+/* Club copy and photographs side by side, matching the explainer above it. */
+.club-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 52px; align-items: start; }
+.club-media { display: grid; gap: 20px; align-content: start; }
+.club-photo { width: 100%; height: auto; border: 1px solid var(--rule); }
+.club-title { font-size: clamp(27px, 3.6vw, 40px); }
+.club-sub { color: var(--ink-2); font-size: 17px; margin-top: 18px; max-width: 58ch; }
+
+/* Two across, with UConntact spanning the full width beneath them. Grid rather
+   than flex so the two top cards are equal width instead of sized by content. */
+.club-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+.club-links .clink-join { grid-column: 1 / -1; }
+.clink {
+  border: 1px solid var(--rule-2); padding: 16px 22px; min-width: 208px;
+  text-decoration: none; display: flex; align-items: center; gap: 14px;
+  transition: border-color .2s, background .2s;
+}
+.clink > span { display: flex; flex-direction: column; gap: 3px; }
+.clink-ic { width: 22px; height: 22px; flex: none; color: var(--ink-3); transition: color .2s; }
+.clink:hover .clink-ic { color: var(--accent); }
+.clink-join .clink-ic { color: var(--accent); }
+.clink:hover { border-color: var(--accent); background: var(--accent-bg); }
+.clink b { font-size: 16px; font-weight: 600; color: var(--ink); }
+.clink small { font-size: 13.5px; color: var(--ink-3); }
+/* UConntact is the actual join action, so it carries the accent */
+.clink-join { border-color: var(--accent); }
+.clink-join b { color: var(--accent); }
+
+/* ---------- ecosystem tree ----------
+   The nesting is the explanation: Qiskit and Fall Fest both come out of IBM
+   Quantum, and our event hangs off Fall Fest. Indentation carries that, so the
+   copy does not have to keep saying "which is part of". */
+/* Whichever block comes second carries the divider. */
+.ecosystem { margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule); }
+.ecosystem-lead { margin-top: 0; padding-top: 0; border-top: none; }
+.club-after { margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule); }
+/* Text column carries the heading, the lede and the whole tree. Both pieces of
+   artwork run down the column beside all of it. Stacked they are roughly the
+   height of the tree, so neither needs to stick and neither sits alone in
+   empty space. The decade graphic is white on white, so the border is what
+   gives it an edge. */
+.eco-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 52px; align-items: start; }
+.eco-media { display: grid; gap: 20px; align-content: start; }
+.eco-art { width: 100%; height: auto; border: 1px solid var(--rule); }
+.eco-h { font-size: clamp(27px, 3.6vw, 40px); }
+.eco-lede { color: var(--ink-2); font-size: 17px; margin-top: 18px; max-width: 58ch; }
+.tree { margin-top: 34px; }
+.node { position: relative; }
+.node > h4 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; }
+.node > p { color: var(--ink-2); font-size: 15px; margin-top: 7px; max-width: 62ch; }
+.kids {
+  margin: 26px 0 0 8px; padding-left: 30px;
+  border-left: 1px solid var(--rule-2);
+  display: grid; gap: 28px;
+}
+/* short tick joining each child to the spine */
+.kids > .node::before {
+  content: ""; position: absolute; left: -30px; top: 13px;
+  width: 20px; height: 1px; background: var(--rule-2);
+}
+.node-here > h4 { color: var(--accent); }
+.node-here::before { background: var(--accent) !important; }
+.node-here > h4::after {
+  content: "You are here";
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-bg);
+  padding: 4px 9px; margin-left: 12px; vertical-align: 3px; white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .kids { margin-left: 2px; padding-left: 20px; }
+  .kids > .node::before { left: -20px; width: 12px; }
+  .node-here > h4::after { display: block; margin: 8px 0 0; width: max-content; }
+}
+
+/* ---------- schedule: one row per day ----------
+   The hour-by-hour grid and the tracks rows are parked in
+   QFF-26/parked-schedule-and-tracks.html, outside the repo. */
+.dayrows { border-top: 2px solid var(--ink); }
+.dayrow {
+  display: grid; grid-template-columns: 170px 1fr; gap: 30px;
+  padding: 26px 0; border-bottom: 1px solid var(--rule); align-items: start;
+}
+.dr-when {
+  font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink); padding-top: 6px;
+}
+.dr-when span { display: block; color: var(--ink-3); margin-top: 4px; text-transform: none; letter-spacing: .02em; }
+/* Format chip. Whether a day can be joined from home is the second thing people
+   need from this column, so it sits with the date rather than in the prose. */
+.dr-when .dr-mode {
+  display: inline-block; margin-top: 12px; padding: 3px 8px;
+  border: 1px solid var(--rule-2); background: var(--bg);
+  font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-2);
+}
+.dr-when .dr-mode-here { border-color: var(--ink); color: var(--ink); }
+.dr-body h3 { font-size: 25px; }
+.dr-body p { color: var(--ink-2); margin-top: 8px; max-width: 62ch; }
+/* Note panels. White against the section tint so they read as asides rather
+   than as trailing body copy, with a solid rule down the left edge. Two of
+   them, paired in a row so they read as a deliberate set. */
+.sched-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 34px; align-items: start; }
+.sched-note {
+  margin: 0; background: var(--bg);
+  border-left: 3px solid var(--ink); padding: 18px 24px;
+  font-size: 15px; line-height: 1.6; color: var(--ink-2);
+}
+.sched-note b {
+  display: block; margin-bottom: 6px; font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink);
+}
+
+/* ---------- who: two columns of chips ---------- */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.two h3 { font-size: 21px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chips span { font-size: 14px; padding: 6px 13px; background: var(--bg); border: 1px solid var(--rule-2); color: var(--ink-2); }
+
+/* ---------- resources ----------
+   Hairline list rather than cards: these are links to read, not objects to
+   compare, and eight bordered tiles would outweigh the schedule above them. */
+.res { margin-top: 20px; border-top: 1px solid var(--rule-2); }
+.res li { list-style: none; padding: 15px 0; border-bottom: 1px solid var(--rule); }
+.res a { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule-2); }
+.res a:hover { border-bottom-color: var(--ink); background: var(--accent-bg); }
+.res p { margin-top: 5px; font-size: 14.5px; color: var(--ink-3); max-width: 46ch; }
+.res .len {
+  float: right; margin-left: 12px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+/* Full width under both columns, so the two lists can stay the same length and
+   the closing note does not make one of them taller than the other. */
+.res-more { margin-top: 34px; font-size: 15px; color: var(--ink-3); max-width: 88ch; }
+.res-more a { color: var(--ink); font-weight: 500; }
+
+/* ---------- people ---------- */
+/* Five organizers, five columns, so no card is left alone on its own row. */
+.people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px 20px; }
+.person img, .person .ph {
+  /* height:auto is load-bearing. The width/height attributes on the <img> are
+     presentational hints, and a definite height makes the browser ignore
+     aspect-ratio, which renders the photo 800px tall in a 220px column. */
+  width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  background: var(--layer-2); border: 1px solid var(--rule);
+  display: grid; place-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--ink-3); letter-spacing: .1em;
+}
+/* Narrow cards, so the name gets the room and everything under it stays quiet
+   and the same length on every card. */
+.person h3 {
+  font-size: 15.5px; line-height: 1.25; letter-spacing: -0.01em;
+  margin-top: 13px; text-wrap: balance;
+}
+.person p { font-size: 13px; line-height: 1.45; color: var(--ink-3); margin-top: 4px; }
+/* Role sits above the study details and carries a touch more weight, so the
+   three lines read as role first, then background. */
+.person .role { color: var(--ink-2); font-weight: 600; }
+.person a {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 9px;
+}
+.person-ic { width: 12px; height: 12px; flex: none; color: var(--ink-3); transition: color .2s; }
+.person a:hover .person-ic { color: var(--accent); }
+.person a:hover { text-decoration: underline; }
+
+/* ---------- faq ---------- */
+/* Heading column beside the accordion rather than above it. Deliberately NOT a
+   two-column accordion: opening an item shifts only its own column, so the rows
+   opposite it slide out of line and the list reads as broken. */
+.faq-grid { display: grid; grid-template-columns: 290px 1fr; gap: 72px; align-items: start; }
+.faq-aside { margin-bottom: 0; position: sticky; top: 100px; }
+.faq-ask { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.faq-ask b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
+.faq-ask p { font-size: 14.5px; color: var(--ink-3); margin-top: 6px; }
+.faq-ask a { display: inline-block; margin-top: 12px; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+
+.faq { border-top: 2px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; padding: 20px 0; font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--accent); font-weight: 400; line-height: 1; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { padding: 0 0 22px; color: var(--ink-2); max-width: 68ch; font-size: 15px; }
+.faq details p:not(:last-of-type) { padding-bottom: 14px; }
+
+
+/* ---------- register band ---------- */
+.band { background: var(--band-bg); color: var(--band-ink); border-bottom: none; }
+.band .eyebrow { color: var(--band-mute); }
+.band h2 { font-size: clamp(30px, 4.4vw, 50px); color: var(--band-ink); margin-top: 14px; letter-spacing: -0.03em; }
+.band p { color: var(--band-mute); margin-top: 20px; max-width: 52ch; font-size: 17px; }
+/* The global <strong> lifts to --ink, which is the band's own background.
+   Re-point it at the band ink or the emphasised word disappears. */
+.band strong { color: var(--band-ink); }
+/* The band is always navy, so its button inverts rather than inheriting the
+   navy accent, which would be invisible against it. */
+/* Block rather than inline-block: as an inline element the button sat in a line
+   box, so the space above it was leading rather than margin and could not be
+   tuned. width: max-content keeps it hugging its label. */
+.band .btn-primary, .band .btn-waiting {
+  display: block; width: max-content; margin-top: 22px;
+}
+.band .btn-primary { background: var(--band-ink); color: var(--band-bg); }
+.band .btn-primary:hover { background: #d7dfea; color: var(--band-bg); }
+
+/* Two columns: the ask on the left, the facts on the right. The band used to be
+   a heading and a dead button in the left half of a very wide dark stripe. */
+.band-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+.band-follow { font-size: 14.5px; margin-top: 18px; }
+.band-follow a { color: var(--band-ink); }
+.band-facts { margin: 8px 0 0; border-top: 1px solid var(--band-rule); }
+.band-facts > div {
+  display: grid; grid-template-columns: 104px 1fr; gap: 20px;
+  padding: 13px 0; border-bottom: 1px solid var(--band-rule);
+}
+.band-facts dt {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--band-mute); padding-top: 3px;
+}
+.band-facts dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--band-ink); }
+
+
+/* ---------- footer ---------- */
+footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+footer h4 { font-size: 13px; color: var(--ink); margin-bottom: 14px; }
+footer ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+footer a { color: var(--ink-2); text-decoration: none; }
+footer a:hover { color: var(--ink); text-decoration: underline; }
+.foot-legal { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 12.5px; color: var(--ink-3); max-width: 80ch; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1040px) {
+  .hero-grid, .two, .foot-grid, .eco-grid, .club-grid, .band-grid { grid-template-columns: 1fr; gap: 40px; }
+  /* Stacked, the aside is above the list, so sticky would pin the heading over
+     the accordion instead of beside it. */
+  .faq-grid { grid-template-columns: 1fr; gap: 36px; }
+  .faq-aside { position: static; }
+  .club-links { grid-template-columns: 1fr; }
+  .people { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+  section { padding: 60px 0; }
+  .hero { padding: 48px 0 56px; }
+  .people { grid-template-columns: repeat(2, 1fr); }
+  .dayrow { grid-template-columns: 1fr; gap: 10px; }
+  .dr-when { padding-top: 0; }
+  .sched-notes { grid-template-columns: 1fr; }
+  .datecard { margin-top: 4px; }
+}

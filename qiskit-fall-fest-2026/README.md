@@ -124,7 +124,10 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
         alpha mask, recombined into an RGBA PNG and trimmed of fully transparent margin only.
       - `assets/logo-qiskit-mark.svg` — the Qiskit globe pictogram, from the same slide, this
         time as vector paths lifted straight out of the PDF. Inlined as the `#qiskit-mark`
-        symbol so it follows `currentColor`.
+        symbol so it follows `currentColor`. It sits in the **nav**, beside the club lockup
+        and separated by the `.nav-rule` hairline. That rule is load-bearing: it is what
+        makes the pair read as two adjacent logos rather than one new combined logotype,
+        which IBM's rules forbid. Do not close the gap or remove the rule.
       Neither has been redrawn. If IBM supplies official files, prefer them. Never recolor
       either mark, and never put them on the navy band.
       The **IBM 8-bar logo is forbidden outright** — it needs a contract we do not have.

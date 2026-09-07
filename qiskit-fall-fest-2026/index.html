@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=38">
+<link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
 
@@ -76,8 +76,14 @@
 
 <nav class="nav">
   <div class="nav-in">
+    <!-- Two marks, not one lockup. The rule between them is what keeps this a
+         pair of separate logos rather than a new combined logotype, which IBM's
+         branding rules forbid. Never close that gap or align them on a shared
+         baseline. -->
     <a class="nav-mark" href="#top" aria-label="Qiskit Fall Fest Connecticut 2026, hosted by UConn Quantum Computing">
       <svg class="nav-logo" width="135" height="50" aria-hidden="true"><use href="#uqc-logo"></use></svg>
+      <span class="nav-rule" aria-hidden="true"></span>
+      <svg class="nav-qiskit" width="32" height="32" role="img" aria-label="Qiskit"><use href="#qiskit-mark"></use></svg>
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -150,31 +156,25 @@
 <section class="strip" aria-label="Partners and supporters">
   <div class="marquee">
     <div class="mq-track">
-      <!-- Three groups, each listing the three marks twice. The track slides by
+      <!-- Three groups, each listing the two marks twice. The track slides by
            exactly one third, so the groups must stay identical; the marks are
-           listed twice within a group because one pass of three is narrower
-           than a wide viewport and the loop would show a gap. Drop to a single
-           pass per group once there are five or more distinct logos. -->
+           listed twice within a group because one pass is narrower than a wide
+           viewport and the loop would show a gap. Drop to a single pass per
+           group once there are four or more distinct logos. -->
       <div class="mq-item"><svg width="108" height="40" role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></div>
-      <div class="mq-item"><svg width="34" height="34" role="img" aria-label="Qiskit"><use href="#qiskit-mark"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="34" height="34"><use href="#qiskit-mark"></use></svg></div>
 
       <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="34" height="34"><use href="#qiskit-mark"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="34" height="34"><use href="#qiskit-mark"></use></svg></div>
 
       <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="34" height="34"><use href="#qiskit-mark"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
       <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="34" height="34"><use href="#qiskit-mark"></use></svg></div>
     </div>
   </div>
 </section>

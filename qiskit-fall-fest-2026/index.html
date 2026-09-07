@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=33">
+<link rel="stylesheet" href="styles.css?v=34">
 </head>
 <body>
 
@@ -78,6 +78,7 @@
       <a href="#about">About</a>
       <a href="#schedule">Schedule</a>
       <a href="#people">Organizers</a>
+      <a href="#resources">Resources</a>
       <a href="#faq">FAQ</a>
       <!-- Not a link until registration opens. See the launch steps in README. -->
       <span class="nav-cta nav-soon" role="status">Register</span>
@@ -420,6 +421,86 @@
   </div>
 </section>
 
+<!-- ===================== RESOURCES =====================
+     Plain section between the tinted #people and the navy #register, so the
+     tint alternation holds. All links are IBM's own material and were checked
+     live: learning.quantum.ibm.com and docs.quantum.ibm.com are both old
+     domains that now 301 to quantum.cloud.ibm.com, so use the new ones.
+     The ordering is our recommendation; IBM does not publish difficulty
+     levels for the courses.
+================================================================== -->
+<section id="resources">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Want a head start?</h2>
+      <p>
+        None of this is required. Friday starts from zero whether you have done any of it or
+        not. But if you would rather not arrive cold, this is IBM's own material, all of it
+        free, in the order we would take it.
+      </p>
+    </div>
+
+    <div class="two">
+      <div>
+        <h3>Worth doing before you come</h3>
+        <ul class="res">
+          <li>
+            <span class="len">5 min</span>
+            <a href="https://quantum.cloud.ibm.com" rel="noopener">Make an IBM Quantum account</a>
+            <p>The one thing genuinely worth doing in advance. It is the account you will use on
+              Friday to run a circuit on real hardware, and setting it up in the room wastes
+              everyone's evening.</p>
+          </li>
+          <li>
+            <span class="len">15 min</span>
+            <a href="https://quantum.cloud.ibm.com/composer" rel="noopener">IBM Quantum Composer</a>
+            <p>Build a circuit by dragging gates onto wires. No code at all, and the quickest
+              way to see what a quantum circuit actually is.</p>
+          </li>
+          <li>
+            <span class="len">30 min</span>
+            <a href="https://quantum.cloud.ibm.com/docs/en/guides/hello-world" rel="noopener">Hello world in Qiskit</a>
+            <p>Your first Qiskit program end to end. If you can run Python, you can follow this
+              one.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>If you want to go further</h3>
+        <ul class="res">
+          <li>
+            <a href="https://quantum.cloud.ibm.com/learning/en/courses/use-a-qc-today" rel="noopener">Use a quantum computer today</a>
+            <p>Practical and short. What these machines can and cannot do right now, without
+              the theory first.</p>
+          </li>
+          <li>
+            <a href="https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information" rel="noopener">Basics of quantum information</a>
+            <p>The proper course: states, measurement, circuits, entanglement and teleportation.
+              Start here if you want to understand why any of it works.</p>
+          </li>
+          <li>
+            <a href="https://quantum.cloud.ibm.com/learning/en/courses/quantum-computing-in-practice" rel="noopener">Quantum computing in practice</a>
+            <p>Hands on, and the closest match to what Saturday will feel like.</p>
+          </li>
+          <li>
+            <a href="https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms" rel="noopener">Fundamentals of quantum algorithms</a>
+            <p>For anyone arriving with experience who wants something to build on at the
+              hackathon.</p>
+          </li>
+        </ul>
+        <p class="res-more">
+          Everything else lives at
+          <a href="https://quantum.cloud.ibm.com/learning/en" rel="noopener">IBM Quantum Learning</a>.
+          Qiskit itself is on <a href="https://github.com/Qiskit/qiskit" rel="noopener">GitHub</a>,
+          and there is a lot of good explanation on the
+          <a href="https://www.youtube.com/@qiskit" rel="noopener">Qiskit YouTube channel</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== REGISTER ===================== -->
 <section id="register" class="band">
   <div class="wrap">
@@ -514,6 +595,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#resources">Resources</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>

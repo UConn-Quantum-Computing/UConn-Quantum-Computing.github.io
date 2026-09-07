@@ -349,6 +349,21 @@ section.tint { background: var(--layer); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .chips span { font-size: 14px; padding: 6px 13px; background: var(--bg); border: 1px solid var(--rule-2); color: var(--ink-2); }
 
+/* ---------- resources ----------
+   Hairline list rather than cards: these are links to read, not objects to
+   compare, and eight bordered tiles would outweigh the schedule above them. */
+.res { margin-top: 20px; border-top: 1px solid var(--rule-2); }
+.res li { list-style: none; padding: 15px 0; border-bottom: 1px solid var(--rule); }
+.res a { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule-2); }
+.res a:hover { border-bottom-color: var(--ink); background: var(--accent-bg); }
+.res p { margin-top: 5px; font-size: 14.5px; color: var(--ink-3); max-width: 46ch; }
+.res .len {
+  float: right; margin-left: 12px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.res-more { margin-top: 26px; font-size: 14.5px; color: var(--ink-3); }
+
 /* ---------- people ---------- */
 /* Five organizers, five columns, so no card is left alone on its own row. */
 .people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px 20px; }

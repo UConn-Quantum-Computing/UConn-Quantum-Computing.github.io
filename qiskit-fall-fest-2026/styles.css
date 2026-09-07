@@ -226,6 +226,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 /* ---------- section shell ---------- */
 section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
+/* Anchor targets must clear the sticky nav. Without this a jump to #faq puts
+   the section's top edge at y=0, where the 76px nav covers it, leaving 12px of
+   the intended 88px breathing room above the heading. */
+section[id], header[id] { scroll-margin-top: 76px; }
 section.tint { background: var(--layer); }
 .sec-h { margin-bottom: 40px; max-width: 60ch; }
 .sec-h h2 { font-size: clamp(27px, 3.6vw, 40px); }

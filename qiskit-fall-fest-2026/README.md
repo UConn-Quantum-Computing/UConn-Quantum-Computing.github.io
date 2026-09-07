@@ -106,11 +106,15 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
-- [ ] **Sponsor logos** — the marquee strip under the hero holds the club logo, the IBM Quantum
-      wordmark, and three `Sponsor slot` placeholders. Replace a slot with `<svg><use>` or
-      `<img>` as each sponsor is confirmed. The track repeats the same set **three times** and
-      slides by exactly one third, so all three copies must stay identical or the loop will
-      visibly jump.
+- [ ] **Sponsor logos** — the marquee strip under the hero holds the club logo and the IBM
+      Quantum wordmark, nothing else. The placeholder `Sponsor slot` chips were removed along
+      with their `.mq-item .slot` rule; re-add a logo as `<svg><use>` or `<img>`, not a
+      placeholder, once a sponsor is confirmed.
+      Two rules for editing the track: it repeats the same group **three times** and slides by
+      exactly one third, so all three groups must stay identical or the loop visibly jumps; and
+      each group currently lists the two logos **twice**, because one pair per group is narrower
+      than a wide viewport and the loop would show a gap. Once there are four or more distinct
+      logos, drop back to listing each once per group.
 - [ ] **IBM Quantum wordmark approval** — `assets/logo-ibm-quantum.png` is live in the strip but
       **not yet cleared**. The kickoff deck allows the mark only "as long as approved by event
       staff prior", so this needs sign-off from Serena Godwin or the Fall Fest team, ideally

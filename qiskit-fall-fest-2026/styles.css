@@ -192,9 +192,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ---------- partner strip ----------
-   The one marquee on the page. Its job is to show the roster is plural without
-   giving any single logo hierarchy, which a static row of four cannot do.
-   Track holds the items twice; translating by half loops seamlessly. */
+   The one marquee on the page. Its job is to show the roster without giving any
+   single logo hierarchy. Track holds three identical groups; translating by a
+   third loops seamlessly, so every group must stay identical. */
 .strip { padding: 26px 0; border-top: 1px solid var(--sky); border-bottom: 1px solid var(--sky); background: var(--layer); overflow: hidden; }
 .marquee { position: relative; overflow: hidden; }
 .marquee::before, .marquee::after {
@@ -202,7 +202,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .marquee::before { left: 0; background: linear-gradient(to right, var(--layer), transparent); }
 .marquee::after { right: 0; background: linear-gradient(to left, var(--layer), transparent); }
-.mq-track { display: flex; align-items: center; gap: 72px; width: max-content; animation: mq 42s linear infinite; }
+.mq-track { display: flex; align-items: center; gap: 120px; width: max-content; animation: mq 42s linear infinite; }
 .marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
 @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
 
@@ -212,12 +212,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    less height than the two-line UConn lockup to read at the same weight. Set
    height and let width follow: the mark is never rescaled non-uniformly. */
 .mq-item img { height: 24px; width: auto; }
-.mq-item .slot {
-  font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--ink-3);
-  border: 1px dashed var(--rule-2); padding: 12px 22px; white-space: nowrap;
-  min-width: 190px; text-align: center;
-}
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .mq-track { animation: none; }

@@ -1,0 +1,8 @@
+# Every pull request against main needs a review from someone listed here.
+# Branch protection on main has "require review from Code Owners" turned on, so
+# without this file that setting matches nothing and quietly does nothing.
+#
+# Add the next club officer here when they take over, rather than replacing this
+# line, so review does not fall to one person.
+
+* @pdd23001

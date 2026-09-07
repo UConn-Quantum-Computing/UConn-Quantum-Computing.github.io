@@ -363,7 +363,10 @@ section.tint { background: var(--layer); }
   font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .08em;
   text-transform: uppercase; color: var(--ink-3);
 }
-.res-more { margin-top: 26px; font-size: 14.5px; color: var(--ink-3); }
+/* Full width under both columns, so the two lists can stay the same length and
+   the closing note does not make one of them taller than the other. */
+.res-more { margin-top: 34px; font-size: 15px; color: var(--ink-3); max-width: 88ch; }
+.res-more a { color: var(--ink); font-weight: 500; }
 
 /* ---------- people ---------- */
 /* Five organizers, five columns, so no card is left alone on its own row. */

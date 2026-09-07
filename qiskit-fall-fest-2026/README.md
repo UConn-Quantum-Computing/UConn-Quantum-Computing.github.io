@@ -4,10 +4,9 @@ Static site for the UConn Quantum Computing event, 15–17 October 2026. Plain H
 no build step, no dependencies. Deploys to GitHub Pages as-is.
 
 ```
-index.html      the whole site — one page, anchored sections
+index.html      the event page — one page, anchored sections
 styles.css      design tokens + layout. Light only, deliberately.
-assets/         put og-image.png and any partner logos here
-.nojekyll       stops GitHub Pages running Jekyll over the files
+assets/         images, logos, favicons, and team/ for organizer photos
 ```
 
 ---

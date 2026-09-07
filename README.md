@@ -7,7 +7,9 @@ No build step, no dependencies.
 index.html                  the club landing page  ->  uconnquantum.org
 styles.css                  its stylesheet
 assets/                     its favicons
-qiskit-fall-fest-2026/      ->  uconnquantum.org/qiskit-fall-fest-2026/
+
+<page-name>/                one folder per page  ->  uconnquantum.org/<page-name>/
+                            qiskit-fall-fest-2026/ is the one that exists so far
 
 CNAME                       the custom domain. Pages reads this at the root only
 .nojekyll                   stops Pages running Jekyll over the tree
@@ -17,9 +19,9 @@ robots.txt                  keeps /pr-preview/ out of search
 CONTRIBUTING.md             how to work on the site
 ```
 
-Every file above is required. Nothing here is build output or scratch: originals that are
-not served (the untouched club logo, source EPS, photo originals) live outside the repo in
-`QFF-26/`, and `.DS_Store` is gitignored.
+Everything above is required, and nothing here is build output or scratch. Only files the
+site actually serves belong in the repo — keep unused source files and full-resolution
+originals out of it, and crop or export before committing. `.DS_Store` is gitignored.
 
 ## Run it locally
 
@@ -29,8 +31,8 @@ cd UConn-Quantum-Computing.github.io
 python3 -m http.server 8000
 ```
 
-<http://localhost:8000/> is the landing page, <http://localhost:8000/qiskit-fall-fest-2026/>
-the event page. There is nothing to install and nothing to build.
+<http://localhost:8000/> is the landing page, and each page folder sits under it at
+`http://localhost:8000/<page-name>/`. There is nothing to install and nothing to build.
 
 **Making a change? Read [CONTRIBUTING.md](CONTRIBUTING.md).** It covers branches, pull
 requests, review, and the handful of rules that will bite you otherwise.
@@ -38,9 +40,16 @@ requests, review, and the handful of rules that will bite you otherwise.
 ## How the paths work
 
 This repo is named `UConn-Quantum-Computing.github.io`, which GitHub treats as the
-organization site: it serves the whole directory tree from the domain root. A folder is a
-path, so each event gets its own folder and its own stylesheet, and one event can never
-break another. Next year is just another folder.
+organization site: it serves the whole directory tree from the domain root. **A folder is a
+path.** So a new page means a new folder — name the folder what you want the URL to be, put
+an `index.html` in it, and it is live at `uconnquantum.org/<folder-name>/` on the next merge.
+Nothing needs registering anywhere.
+
+Each page folder carries its own `styles.css` and its own `assets/`, so restyling one page
+can never break another or the landing page.
+
+This is deliberately the simplest thing that works while there are only a couple of pages.
+Once there are more, it is worth revisiting how they are grouped and what they share.
 
 Every path inside each page is relative. Never add a link or asset starting with `/`.
 
@@ -79,8 +88,8 @@ Details of what this means day to day are in [CONTRIBUTING.md](CONTRIBUTING.md#w
 Every pull request gets a live preview of the **whole site**:
 
 ```
-https://uconnquantum.org/pr-preview/pr-<number>/                      club landing page
-https://uconnquantum.org/pr-preview/pr-<number>/qiskit-fall-fest-2026/  event page
+https://uconnquantum.org/pr-preview/pr-<number>/               club landing page
+https://uconnquantum.org/pr-preview/pr-<number>/<page-name>/   any page folder
 ```
 
 The PR shows a native deployment panel with a **View deployment** button. The preview is
@@ -136,12 +145,12 @@ Set **Settings > Pages > Source** back to `main` / `(root)`. The site serves str
 `main` again and nothing else changes — `gh-pages` is then ignored and can be deleted. The
 workflows can stay in place; they will keep writing to a branch nobody serves.
 
-## Placeholders on this page
+## Placeholders on the landing page
 
 None left — the Instagram, LinkedIn and UConntact links are all live. The contact address is
 `parth.danve@uconn.edu`; swap it for a club-owned alias if UConn will issue one, so it
 survives a change of president.
 
-The event page keeps its own list in
-[qiskit-fall-fest-2026/README.md](qiskit-fall-fest-2026/README.md#before-the-site-goes-public),
-and that one still has open items.
+A page folder can keep its own README for notes and open items specific to it, rather than
+growing this one. [qiskit-fall-fest-2026/README.md](qiskit-fall-fest-2026/README.md) is the
+example, and it still has open items of its own.

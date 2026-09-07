@@ -1,6 +1,6 @@
 # Contributing
 
-This covers the whole site — the club landing page and every event folder under it. It is
+This covers the whole site — the club landing page and every page folder under it. It is
 plain HTML and CSS with no build step and no dependencies, so the barrier is low: if you can
 edit a text file you can contribute.
 
@@ -27,8 +27,8 @@ cd UConn-Quantum-Computing.github.io
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000/>. The event page is at
-<http://localhost:8000/qiskit-fall-fest-2026/>.
+Then open <http://localhost:8000/> for the landing page. Every other page is a folder under
+it, at `http://localhost:8000/<folder-name>/`.
 
 There is no `npm install`, no bundler, no framework, and no generated output. What is in the
 repo is exactly what ships. Editing a file and reloading the browser is the whole loop.
@@ -90,17 +90,17 @@ Each page links its stylesheet as `styles.css?v=N`. Increment `N` in that page's
 `index.html` in the same commit as the CSS change, otherwise returning visitors keep the
 cached old file and your change appears not to have worked.
 
-**4. One folder per event, with its own stylesheet.**
+**4. One folder per page, with its own stylesheet.**
 
-Events do not share CSS. `qiskit-fall-fest-2026/styles.css` belongs to that event alone, so
-restyling one event can never break another or the landing page. Next year is a new folder.
+Pages do not share CSS. A page's `styles.css` belongs to that page alone, so restyling one
+can never break another or the landing page. Editing a page means editing files inside its
+folder and nowhere else.
 
-**5. Keep originals out of the repo.**
+**5. Only commit what the site serves.**
 
-Only files the site actually serves belong here. Source EPS, untouched logo exports, and
-full-resolution photo originals live outside the repo. Crop and resize before committing,
-and check what you are adding — `git add -A` will happily sweep in a file you have not
-looked at.
+Source files and full-resolution originals do not belong in the repo — crop, resize and
+export first, then commit the result. Check what you are adding, too: `git add -A` will
+happily sweep in a file you have not looked at.
 
 Photographs of people need that person's agreement before they are committed, because the
 repo is public and git history keeps a copy even after a later deletion.
@@ -120,16 +120,22 @@ editor and understand it.
 Most visitors arrive on a phone. Resize the browser to about 380px wide and read the page
 top to bottom.
 
-## Adding a new event page
+## Adding a new page
 
-1. Create a folder named for the event, for example `qiskit-fall-fest-2027/`.
+**A new page is a new folder.** Name the folder exactly what you want the URL to be.
+
+1. Create the folder, for example `open-house/` for `uconnquantum.org/open-house/`.
 2. Put `index.html`, `styles.css` and an `assets/` folder in it.
 3. Use relative paths throughout, and link the stylesheet as `styles.css?v=1`.
-4. Link the event from the club landing page at [index.html](index.html).
+4. Link the new page from the landing page at [index.html](index.html).
 
-It is live at `uconnquantum.org/<folder-name>/` as soon as the PR merges. No workflow change
-is needed — previews and deploys copy the entire tree, so a new folder is picked up
-automatically.
+It is live as soon as the PR merges. Nothing needs registering and no workflow needs
+changing — previews and deploys copy the entire tree, so a new folder is picked up on its
+own.
+
+Keep each page self-contained: its own stylesheet, its own assets. That is what stops a
+change to one page breaking another. It is also the simplest arrangement that works while
+there are only a few pages, and worth revisiting once there are more.
 
 ## Reviewing a pull request
 

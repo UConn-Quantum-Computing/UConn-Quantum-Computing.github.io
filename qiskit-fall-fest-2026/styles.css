@@ -110,8 +110,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .nav-mark { display: flex; align-items: center; gap: 18px; text-decoration: none; color: var(--ink); }
 /* Hairline between the two marks. Shorter than the logo it sits beside, so it
    reads as a separator rather than a border. */
-.nav-rule { width: 1px; height: 30px; background: var(--rule-2); flex: none; }
-.nav-qiskit { height: 32px; width: 32px; color: var(--ink); flex: none; }
+.nav-rule { width: 1px; height: 36px; background: var(--rule-2); flex: none; }
+/* 44px against the lockup's 50px. A circle needs more height than a wide
+   wordmark to carry the same weight, so matching the numbers would look small. */
+.nav-qiskit { height: 44px; width: 44px; color: var(--ink); flex: none; }
 /* Lockup is 2.7:1. Height drives it, width follows. */
 .nav-logo { height: 50px; width: 135px; color: var(--ink); flex: none; }
 .foot-mark { font-family: "IBM Plex Mono", monospace; font-size: 15px; font-weight: 600; color: var(--ink); }

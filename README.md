@@ -75,6 +75,11 @@ the previews of every open PR.
 Because a preview copies the entire tree, any page added later is covered with no change to
 the workflow.
 
+Closing a PR empties its preview folder but cannot delete it — the deploy action writes a
+`.nojekyll` into every directory it touches, including one it is clearing. A final step in
+`pr-preview.yml` sweeps `gh-pages` for any `pr-preview/pr-*` folder with no `index.html` in
+it and removes those, so closed PRs leave nothing behind.
+
 **This only works because every path in the site is relative.** A preview is served from a
 subdirectory, so one leading `/` on any href, src or url() would escape the preview and load
 production instead. Keep it that way.

@@ -34,7 +34,8 @@ Before the domain is live you can check the build at
 
 ## Placeholders on this page
 
-`REPLACE@uconn.edu` and the three `#` links. The event page has its own list in
-`qiskit-fall-fest-2026/README.md`.
+The three `#` links. The contact address is live (`parth.danve@uconn.edu`); swap it for a
+club-owned alias if one is ever set up, so it survives a change of president. The event page
+has its own list in `qiskit-fall-fest-2026/README.md`.
 
 Preview locally: `python3 -m http.server 8000`

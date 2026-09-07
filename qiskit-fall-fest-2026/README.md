@@ -118,7 +118,9 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       (the deck's own artwork, 1790x296 raster plus alpha mask, recombined into an RGBA PNG and
       trimmed of fully transparent margin only). The glyphs themselves are untouched. If IBM
       supplies an official SVG, prefer it. Never recolor it for the navy band.
-- [ ] **Contact email** — `REPLACE@uconn.edu`, appears 5 times
+- [x] **Contact email** — `parth.danve@uconn.edu`, in the footer here and on the root page.
+      Worth replacing with a club-owned alias if UConn will issue one, so the address outlives
+      any one organizer.
 - [ ] **Social and join links** — Instagram, LinkedIn and UConntact, in two places: the three
       link cards in `#about` and the footer list. UConntact URLs look like
       `https://uconntact.uconn.edu/organization/<club-slug>`. All six are currently `#`.

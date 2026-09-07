@@ -34,38 +34,74 @@ Before the domain is live you can check the build at
 
 ## PR previews
 
-Every pull request gets a live preview at:
+Every pull request gets a live preview of the **whole site**:
 
 ```
-https://uconnquantum.org/pr-preview/pr-<number>/
-https://uconnquantum.org/pr-preview/pr-<number>/qiskit-fall-fest-2026/
+https://uconnquantum.org/pr-preview/pr-<number>/                      club landing page
+https://uconnquantum.org/pr-preview/pr-<number>/qiskit-fall-fest-2026/  event page
 ```
 
-A bot comments the link on the PR, and it is removed when the PR closes.
+The PR shows a native deployment panel with a **View deployment** button. The preview is
+deleted when the PR closes.
 
-**How it works.** Pages allows one source per repo, so previews have to live inside the
-published site. `.github/workflows/deploy.yml` copies `main` to a `gh-pages` branch, which
-is what Pages actually serves; `.github/workflows/pr-preview.yml` writes each PR into
-`gh-pages:/pr-preview/pr-<number>/`. The `clean-exclude: pr-preview/` line in deploy.yml is
-what stops a push to main from deleting the previews of every open PR.
+### Working with it
+
+```bash
+git checkout -b my-change
+# edit, commit
+git push -u origin my-change
+# open a PR, click View deployment, then Merge
+```
+
+**Merging to `main` is the deploy.** No extra step. Pushing straight to `main` still works
+and still publishes; you just get no preview for it, which is fine for a typo.
+
+### How it works
+
+Pages allows one source per repo, so previews have to live inside the published site.
+`deploy.yml` copies `main` to a `gh-pages` branch, which is what Pages serves;
+`pr-preview.yml` writes each PR into `gh-pages:/pr-preview/pr-<number>/`. The
+`clean-exclude: pr-preview/` line in deploy.yml is what stops a push to main from deleting
+the previews of every open PR.
+
+Because a preview copies the entire tree, any page added later is covered with no change to
+the workflow.
 
 **This only works because every path in the site is relative.** A preview is served from a
-subdirectory, so a single leading `/` on any href, src or url() would escape the preview and
-load production instead. Keep it that way.
+subdirectory, so one leading `/` on any href, src or url() would escape the preview and load
+production instead. Keep it that way.
 
-**One-time setup** — do this *after* the 8 September IBM submission, not before, because it
-changes where the live site is served from:
+### Previews are public, and that is deliberate
 
-1. Merge these workflows to `main`. `deploy.yml` runs and creates the `gh-pages` branch.
-2. Confirm `gh-pages` contains `CNAME`, `.nojekyll`, `index.html` and `qiskit-fall-fest-2026/`.
+GitHub Pages has no access control outside GitHub Enterprise Cloud: *"To publish a GitHub
+Pages site privately, your organization must use GitHub Enterprise Cloud."* A client-side
+login would not help either, since the files stay fetchable at their URLs.
+
+Nothing in a preview is private — it is the same copy as the live public site. The real risk
+is search engines indexing previews and competing with the real pages, so two things guard
+against that: `robots.txt` disallows `/pr-preview/`, and the workflow stamps
+`<meta name="robots" content="noindex, nofollow">` into every previewed HTML file. The meta
+tag is the one that actually works; robots.txt only asks.
+
+If previews ever do need real sign-in, that means moving them off GitHub Pages — Cloudflare
+Pages with Cloudflare Access (free tier, GitHub as the identity provider) is the usual answer.
+
+**Fork PRs get no preview**, by design: building a fork's branch would hand code from outside
+the org a write-scoped token pointed at the live domain.
+
+### One-time setup
+
+Do this **after** the 8 September IBM submission, not before — step 3 changes where the live
+site is served from, and IBM fetches the URL:
+
+1. Merge these workflows to `main`. `deploy.yml` runs and creates `gh-pages`.
+2. Confirm `gh-pages` has `CNAME`, `.nojekyll`, `robots.txt`, `index.html` and
+   `qiskit-fall-fest-2026/`.
 3. **Settings > Pages > Source: Deploy from a branch > `gh-pages` / `(root)`**.
-4. Load `https://uconnquantum.org/` and confirm the site is unchanged.
+4. Load `https://uconnquantum.org/` and confirm nothing changed.
+5. Open a throwaway PR and check the preview link works, then close it and check it 404s.
 
 To roll back, set the source to `main` / `(root)` again. Nothing else changes.
-
-**Fork PRs get no preview.** The workflow uses `pull_request`, which hands forks a read-only
-token, so the deploy step is skipped. That is deliberate: building a fork's branch with a
-write token would let anyone who opens a PR publish to the live domain.
 
 ## Placeholders on this page
 

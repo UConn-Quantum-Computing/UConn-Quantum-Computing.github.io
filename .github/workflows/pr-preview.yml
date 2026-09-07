@@ -1,11 +1,20 @@
-# Builds a preview of every pull request at
-#   https://uconnquantum.org/pr-preview/pr-<number>/
-# and removes it when the PR closes.
+# Publishes a live preview of every pull request, and deletes it when the PR closes.
 #
-# Uses pull_request, not pull_request_target: previews are only built for
-# branches pushed to this repository. A PR from a fork gets no preview, which is
-# correct — a fork preview would mean running a stranger's branch with a write
-# token against the live site.
+#   https://uconnquantum.org/pr-preview/pr-<number>/                     club landing page
+#   https://uconnquantum.org/pr-preview/pr-<number>/qiskit-fall-fest-2026/   event page
+#
+# This covers the whole site, not one folder: a preview is a copy of the entire
+# tree, so any page added later is included with no change here.
+#
+# Previews are public. GitHub Pages has no access control outside Enterprise
+# Cloud, and a client-side login would not help — the files sit at fetchable
+# URLs regardless. Nothing in a preview is private; it is the same copy as the
+# live event page. What we do prevent is search engines indexing them and
+# competing with the real pages: robots.txt disallows /pr-preview/, and the step
+# below stamps noindex into every previewed HTML file.
+#
+# Production is not touched by this file. Merging to main triggers deploy.yml,
+# which republishes uconnquantum.org.
 name: PR preview
 
 on:
@@ -14,7 +23,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+  deployments: write
 
 concurrency:
   group: pr-preview-${{ github.event.number }}
@@ -23,17 +32,68 @@ concurrency:
 jobs:
   preview:
     runs-on: ubuntu-latest
+    # Fork PRs get no preview. Building a fork's branch would mean giving code
+    # from outside the org a write-scoped token pointed at the live domain.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - uses: actions/checkout@v7
 
-      - uses: rossjrw/pr-preview-action@v1
+      # robots.txt only asks; a crawler that reaches a preview through a link can
+      # still index it. The meta tag is the one that actually removes it.
+      - name: Stamp noindex into the preview
+        if: github.event.action != 'closed'
+        run: |
+          find . -name '*.html' -not -path './.git/*' -print0 \
+            | xargs -0 sed -i 's|<head>|<head>\n<meta name="robots" content="noindex, nofollow">|'
+          echo "Stamped:"
+          grep -rl 'name="robots"' --include='*.html' .
+
+      # Registers a GitHub Deployment, which is what renders the native
+      # deployment panel with a "View deployment" button on the PR. Same
+      # mechanism the Qiskit docs repo uses.
+      - name: Open deployment
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        if: github.event.action != 'closed'
+        with:
+          step: start
+          token: ${{ github.token }}
+          env: pr-preview
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Build preview
+        uses: rossjrw/pr-preview-action@v1
+        id: preview
         with:
           source-dir: .
           preview-branch: gh-pages
           umbrella-dir: pr-preview
-          action: auto
-          # Without this the bot builds the link from the repo name, which for a
-          # <owner>.github.io repo comes out as
-          # uconn-quantum-computing.github.io/UConn-Quantum-Computing.github.io.
-          # The site is served from the custom domain, so say so.
           pages-base-url: uconnquantum.org
+          action: auto
+          # Poll until Pages has actually served the build, so the button in the
+          # panel never lands on a 404.
+          wait-for-pages-deployment: true
+          # The deployment panel is the notification. Set true as well if people
+          # keep missing it — the panel is subtle on a quiet repo.
+          comment: false
+
+      - name: Close deployment
+        uses: bobheadxi/deployments@v1
+        if: always() && github.event.action != 'closed'
+        with:
+          step: finish
+          token: ${{ github.token }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          status: ${{ job.status }}
+          env_url: ${{ steps.preview.outputs.preview-url }}
+          override: false
+
+      # Stops the PR advertising a preview that has just been deleted.
+      - name: Deactivate deployment
+        uses: bobheadxi/deployments@v1
+        if: github.event.action == 'closed'
+        with:
+          step: deactivate-env
+          token: ${{ github.token }}
+          env: pr-preview

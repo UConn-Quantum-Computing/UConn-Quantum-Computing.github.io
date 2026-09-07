@@ -11,69 +11,40 @@ assets/         images, logos, favicons, and team/ for organizer photos
 
 ---
 
-## Deploy to uconnquantum.org/qiskit-fall-fest-2026
+## Where this sits
 
-The page lives at a **subpath**, which on GitHub Pages means two repos. There is no way to put a
-project at a subpath without a site at the root of the domain, so the root repo has to exist even
-if it only holds a placeholder for now.
+This folder is **part of the club site repo**, not a repo of its own. It is served at
+`https://uconnquantum.org/qiskit-fall-fest-2026/` purely because of its folder name — the
+repo is the organization site, so the directory tree is the URL structure and a folder is a
+path. Nothing here needs its own Pages settings, its own domain, or its own deploy.
 
-### 1. The root repo (once)
+There is no deploy step for this folder. Merging to `main` publishes the whole site,
+this page included. See the repo [README](../README.md) for how that works and
+[CONTRIBUTING](../CONTRIBUTING.md) for the workflow.
 
-Create a repo named exactly `<username>.github.io`, where `<username>` is the GitHub account or
-organization that will own this. Put something at the root, even a one-page club landing.
-Then **Settings > Pages > Custom domain**: enter `uconnquantum.org` and save. That writes a
-`CNAME` file into that repo.
-
-### 2. DNS (once)
-
-At the registrar for uconnquantum.org, add four `A` records for the apex, all host `@`:
-
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-Plus a `CNAME` record: host `www` -> `<username>.github.io`.
-Back in Settings > Pages, tick **Enforce HTTPS** once the certificate provisions (can take an
-hour or so). Propagation is usually minutes but allow up to 24 hours.
-
-### 3. This repo
+Preview locally from the **repo root**, not this folder:
 
 ```bash
-cd QFF-26-Website
-git init && git branch -M main
-git add . && git commit -m "Fall Fest CT 2026 site"
-git remote add origin git@github.com:<username>/qiskit-fall-fest-2026.git
-git push -u origin main
+python3 -m http.server 8000
 ```
 
-**The repo name is the URL path**, so it must be exactly `qiskit-fall-fest-2026`.
-Then **Settings > Pages > Source: Deploy from a branch > `main` / `(root)`**.
+Then open <http://localhost:8000/qiskit-fall-fest-2026/>. Serving this folder directly also
+works for a quick look, but it puts the page at `/` rather than at a subpath, so it will not
+catch the mistake below.
 
-**Do not set a custom domain on this repo.** Project repos inherit the root repo's domain
-automatically and serve at `/<repo-name>`. Setting one here would move the site off the subpath.
+### Why the subpath works, and how to break it
 
-Live at `https://uconnquantum.org/qiskit-fall-fest-2026/`.
+Every local reference in `index.html` is relative (`styles.css`, and the files under
+`assets/`), and the club logo is inlined as an SVG `<symbol>` rather than fetched. So the
+page does not care what depth it is served from.
 
-Preview locally with `python3 -m http.server 8000` and open `http://localhost:8000`.
+Keep it that way: **never add a link or asset path starting with `/`**. It would break this
+page the moment it moved, and it breaks PR previews today — those are served from
+`/pr-preview/pr-<number>/`, so an absolute path escapes the preview and quietly loads the
+production file instead, making a broken branch look fine.
 
-### Why the subpath works
-
-Every local reference in `index.html` is relative (`styles.css`, and nothing else), and the logo
-is inlined as an SVG `<symbol>` rather than fetched. So the page does not care what depth it is
-served from. Keep it that way: never add a link or asset path starting with `/`, or it will break
-the moment it moves.
-
-The two absolute URLs are `og:image` and `canonical`, which have to be absolute by spec. Update
-those if the path ever changes.
-
-### If you would rather use a subdomain
-
-`fallfest.uconnquantum.org` needs only one repo and no root site: set that as the custom domain
-on this repo and add a `CNAME` DNS record pointing it at `<username>.github.io`. Simpler, but a
-subpath keeps everything under one domain as the club site grows.
+The two absolute URLs are `og:image` and `canonical`, which have to be absolute by spec.
+Update those if the path ever changes.
 
 ---
 
@@ -81,9 +52,10 @@ subpath keeps everything under one domain as the club site grows.
 
 Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked. In order of urgency:
 
-- [ ] **Club facts** — the `#about` section is DRAFT COPY. The one `[Day and time]` placeholder
-      needs a real answer, and the four list items should be checked against what the club
-      actually does. This is what the page leads with, so it cannot ship with guesses in it.
+- [ ] **Club facts** — the `#about` section is still marked DRAFT COPY (see the `TODO` comment
+      in `index.html`). The meeting day and time placeholder has been filled in, but the list
+      items still need checking against what the club actually does. This is what the page
+      leads with, so it cannot ship with guesses in it.
 - [x] **Organizer photos** — all five cards are complete: name, role, major, class year,
       LinkedIn URL and photo. Photos live in `assets/team/` at 3:4 portrait, 600x800, EXIF
       stripped. The `.ph` grey placeholder rule is still in the stylesheet on purpose: if an
@@ -133,12 +105,14 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
 - [x] **Contact email** — `parth.danve@uconn.edu`, in the footer here and on the root page.
       Worth replacing with a club-owned alias if UConn will issue one, so the address outlives
       any one organizer.
-- [ ] **Social and join links** — Instagram, LinkedIn and UConntact, in two places: the three
-      link cards in `#about` and the footer list. UConntact URLs look like
-      `https://uconntact.uconn.edu/organization/<club-slug>`. All six are currently `#`.
-- [ ] **Venue** — currently "announced with registration"
-- [ ] **`assets/og-image.png`** at 1200x630, for link previews. `og:url`, `og:image` and
-      `canonical` are already set to the uconnquantum.org path.
+- [x] **Social and join links** — Instagram, LinkedIn and UConntact are live in all four
+      places: the link cards in `#about`, the register band, and the footer here and on the
+      root page. No `href="#"` remains on either page.
+- [ ] **Venue** — the page says "UConn Storrs and online" and the hero map points at the
+      campus, which is all that is promised so far. A building and room still need announcing,
+      and the registration confirmation is the natural place for it.
+- [x] **`assets/og-image.png`** — in place at 1200x630. `og:url`, `og:image` and `canonical`
+      all point at the uconnquantum.org path.
 - [ ] **Speakers** — no section yet. Add one once names are confirmed; the `.people` grid is
       the right component to reuse.
 

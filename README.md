@@ -134,8 +134,10 @@ workflows can stay in place; they will keep writing to a branch nobody serves.
 
 ## Placeholders on this page
 
-The three `#` links. The contact address is live (`parth.danve@uconn.edu`); swap it for a
-club-owned alias if one is ever set up, so it survives a change of president. The event page
-has its own list in `qiskit-fall-fest-2026/README.md`.
+None left — the Instagram, LinkedIn and UConntact links are all live. The contact address is
+`parth.danve@uconn.edu`; swap it for a club-owned alias if UConn will issue one, so it
+survives a change of president.
 
-Preview locally: `python3 -m http.server 8000`
+The event page keeps its own list in
+[qiskit-fall-fest-2026/README.md](qiskit-fall-fest-2026/README.md#before-the-site-goes-public),
+and that one still has open items.

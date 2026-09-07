@@ -13,11 +13,27 @@ CNAME                       the custom domain. Pages reads this at the root only
 .nojekyll                   stops Pages running Jekyll over the tree
 robots.txt                  keeps /pr-preview/ out of search
 .github/workflows/          deploy + PR previews
+.github/CODEOWNERS          who must review a pull request
+CONTRIBUTING.md             how to work on the site
 ```
 
 Every file above is required. Nothing here is build output or scratch: originals that are
 not served (the untouched club logo, source EPS, photo originals) live outside the repo in
 `QFF-26/`, and `.DS_Store` is gitignored.
+
+## Run it locally
+
+```bash
+git clone https://github.com/UConn-Quantum-Computing/UConn-Quantum-Computing.github.io.git
+cd UConn-Quantum-Computing.github.io
+python3 -m http.server 8000
+```
+
+<http://localhost:8000/> is the landing page, <http://localhost:8000/qiskit-fall-fest-2026/>
+the event page. There is nothing to install and nothing to build.
+
+**Making a change? Read [CONTRIBUTING.md](CONTRIBUTING.md).** It covers branches, pull
+requests, review, and the handful of rules that will bite you otherwise.
 
 ## How the paths work
 
@@ -28,17 +44,31 @@ break another. Next year is just another folder.
 
 Every path inside each page is relative. Never add a link or asset starting with `/`.
 
-## Setup checklist
+## Hosting setup
 
-- [ ] Repo visibility **public** (free orgs cannot serve Pages from private repos)
-- [ ] Settings > Pages > Source: `main` / `(root)`
-- [ ] Settings > Pages > Custom domain: `uconnquantum.org`
-- [ ] DNS: four apex `A` records at `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`
-- [ ] DNS: `CNAME` record, host `www` -> `uconn-quantum-computing.github.io`
-- [ ] Settings > Pages > Enforce HTTPS, once the certificate provisions
+All of this is done. It is recorded here so it can be rebuilt or handed over, not as a task
+list.
 
-Before the domain is live you can check the build at
-`https://uconn-quantum-computing.github.io/`.
+- Repo visibility **public** — free organizations cannot serve Pages from a private repo
+- Settings > Pages > Source: **`gh-pages` / `(root)`**, written by `deploy.yml`
+- Settings > Pages > Custom domain: `uconnquantum.org`, HTTPS enforced
+- DNS: four apex `A` records at `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`
+- DNS: `CNAME` record, host `www` -> `uconn-quantum-computing.github.io`
+
+Because a custom domain is set, every `uconn-quantum-computing.github.io/*` URL now
+301-redirects to `uconnquantum.org`. There is no way to reach the raw Pages domain, which is
+why previews live under the custom domain rather than on github.io.
+
+### Branch protection
+
+`main` requires a pull request with one approving review, a code-owner review, the `preview`
+check passing, and all conversations resolved. Force pushes and deletion are blocked.
+
+`gh-pages` blocks force pushes and deletion but takes direct pushes, because the deploy
+workflow has to write to it. Nothing else should. Organization owners bypass both, so an
+owner can still push directly when something has to be fixed fast.
+
+Details of what this means day to day are in [CONTRIBUTING.md](CONTRIBUTING.md#what-main-requires).
 
 ## PR previews
 
@@ -52,17 +82,8 @@ https://uconnquantum.org/pr-preview/pr-<number>/qiskit-fall-fest-2026/  event pa
 The PR shows a native deployment panel with a **View deployment** button. The preview is
 deleted when the PR closes.
 
-### Working with it
-
-```bash
-git checkout -b my-change
-# edit, commit
-git push -u origin my-change
-# open a PR, click View deployment, then Merge
-```
-
-**Merging to `main` is the deploy.** No extra step. Pushing straight to `main` still works
-and still publishes; you just get no preview for it, which is fine for a typo.
+**Merging to `main` is the deploy.** No extra step. The branch-and-PR workflow itself is in
+[CONTRIBUTING.md](CONTRIBUTING.md#make-a-change).
 
 ### How it works
 
@@ -105,19 +126,11 @@ rebuilt from `main` on every merge, so a manual commit there is overwritten and 
 **Fork PRs get no preview**, by design: building a fork's branch would hand code from outside
 the org a write-scoped token pointed at the live domain.
 
-### One-time setup
+### If previews ever need to be undone
 
-Do this **after** the 8 September IBM submission, not before — step 3 changes where the live
-site is served from, and IBM fetches the URL:
-
-1. Merge these workflows to `main`. `deploy.yml` runs and creates `gh-pages`.
-2. Confirm `gh-pages` has `CNAME`, `.nojekyll`, `robots.txt`, `index.html` and
-   `qiskit-fall-fest-2026/`.
-3. **Settings > Pages > Source: Deploy from a branch > `gh-pages` / `(root)`**.
-4. Load `https://uconnquantum.org/` and confirm nothing changed.
-5. Open a throwaway PR and check the preview link works, then close it and check it 404s.
-
-To roll back, set the source to `main` / `(root)` again. Nothing else changes.
+Set **Settings > Pages > Source** back to `main` / `(root)`. The site serves straight from
+`main` again and nothing else changes — `gh-pages` is then ignored and can be deleted. The
+workflows can stay in place; they will keep writing to a branch nobody serves.
 
 ## Placeholders on this page
 

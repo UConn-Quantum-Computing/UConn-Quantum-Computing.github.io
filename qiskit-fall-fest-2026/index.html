@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="styles.css?v=41">
 </head>
 <body>
 
@@ -549,11 +549,20 @@
 <!-- ===================== FAQ ===================== -->
 <section id="faq">
   <div class="wrap">
-    <div class="sec-h">
-      <h2>FAQ</h2>
-    </div>
+    <div class="faq-grid">
+      <!-- Heading column beside the list, not above it. Sticky, so the "ask us"
+           route stays reachable the whole way down a long accordion. -->
+      <div class="sec-h faq-aside">
+        <h2>FAQ</h2>
+        <p>The things people ask us most before registering.</p>
+        <div class="faq-ask">
+          <b>Still not sure?</b>
+          <p>Ask us anything, however basic. One of the organizers will get back to you.</p>
+          <a href="mailto:parth.danve@uconn.edu">parth.danve@uconn.edu</a>
+        </div>
+      </div>
 
-    <div class="faq">
+      <div class="faq">
       <details>
         <summary>I know nothing about quantum computing. Is this really for me?</summary>
         <p>Yes, and specifically so. About half the places at this event are held for people who
@@ -602,6 +611,7 @@
         <p>Yes, along with certificates of participation. As a Plus event there will also
           be a chance to pick up <strong>IBM Quantum swag</strong>. Details closer to the event.</p>
       </details>
+      </div>
     </div>
   </div>
 </section>

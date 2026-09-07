@@ -400,7 +400,17 @@ section.tint { background: var(--layer); }
 .person a:hover { text-decoration: underline; }
 
 /* ---------- faq ---------- */
-.faq { border-top: 2px solid var(--ink); max-width: 82ch; }
+/* Heading column beside the accordion rather than above it. Deliberately NOT a
+   two-column accordion: opening an item shifts only its own column, so the rows
+   opposite it slide out of line and the list reads as broken. */
+.faq-grid { display: grid; grid-template-columns: 290px 1fr; gap: 72px; align-items: start; }
+.faq-aside { margin-bottom: 0; position: sticky; top: 100px; }
+.faq-ask { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.faq-ask b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
+.faq-ask p { font-size: 14.5px; color: var(--ink-3); margin-top: 6px; }
+.faq-ask a { display: inline-block; margin-top: 12px; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+
+.faq { border-top: 2px solid var(--ink); }
 .faq details { border-bottom: 1px solid var(--rule); }
 .faq summary { cursor: pointer; padding: 20px 0; font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
 .faq summary::-webkit-details-marker { display: none; }
@@ -458,6 +468,10 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
   .hero-grid, .two, .foot-grid, .eco-grid, .club-grid, .band-grid { grid-template-columns: 1fr; gap: 40px; }
+  /* Stacked, the aside is above the list, so sticky would pin the heading over
+     the accordion instead of beside it. */
+  .faq-grid { grid-template-columns: 1fr; gap: 36px; }
+  .faq-aside { position: static; }
   .club-links { grid-template-columns: 1fr; }
   .people { grid-template-columns: repeat(3, 1fr); }
 }

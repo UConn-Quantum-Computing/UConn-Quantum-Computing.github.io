@@ -99,6 +99,9 @@ tag is the one that actually works; robots.txt only asks.
 If previews ever do need real sign-in, that means moving them off GitHub Pages — Cloudflare
 Pages with Cloudflare Access (free tier, GitHub as the identity provider) is the usual answer.
 
+`gh-pages` is generated output. Nothing should ever be committed to it by hand — it is
+rebuilt from `main` on every merge, so a manual commit there is overwritten and lost.
+
 **Fork PRs get no preview**, by design: building a fork's branch would hand code from outside
 the org a write-scoped token pointed at the live domain.
 

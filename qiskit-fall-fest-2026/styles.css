@@ -45,6 +45,7 @@
   --band-bg:    #000e2f;
   --band-ink:   #ffffff;
   --band-mute:  #9fabc4;
+  --band-rule:  #253358;
 
   --maxw: 1240px;
   --gut: 24px;
@@ -425,6 +426,22 @@ section.tint { background: var(--layer); }
 .band .btn-primary { background: var(--band-ink); color: var(--band-bg); }
 .band .btn-primary:hover { background: #d7dfea; color: var(--band-bg); }
 
+/* Two columns: the ask on the left, the facts on the right. The band used to be
+   a heading and a dead button in the left half of a very wide dark stripe. */
+.band-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+.band-follow { font-size: 14.5px; margin-top: 18px; }
+.band-follow a { color: var(--band-ink); }
+.band-facts { margin: 8px 0 0; border-top: 1px solid var(--band-rule); }
+.band-facts > div {
+  display: grid; grid-template-columns: 104px 1fr; gap: 20px;
+  padding: 13px 0; border-bottom: 1px solid var(--band-rule);
+}
+.band-facts dt {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--band-mute); padding-top: 3px;
+}
+.band-facts dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--band-ink); }
+
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }
@@ -437,7 +454,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1040px) {
-  .hero-grid, .two, .foot-grid, .eco-grid, .club-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-grid, .two, .foot-grid, .eco-grid, .club-grid, .band-grid { grid-template-columns: 1fr; gap: 40px; }
   .club-links { grid-template-columns: 1fr; }
   .people { grid-template-columns: repeat(3, 1fr); }
 }

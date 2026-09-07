@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=34">
+<link rel="stylesheet" href="styles.css?v=35">
 </head>
 <body>
 
@@ -504,17 +504,37 @@
 <!-- ===================== REGISTER ===================== -->
 <section id="register" class="band">
   <div class="wrap">
-    <h2>Registration</h2>
-    <p><strong>Free</strong>, open to students, faculty and staff across Connecticut, and
-      designed for people starting from zero. Saturday places are limited by room capacity,
-      so register early.</p>
-    <!-- When registration opens: delete the <span> and uncomment the <a>, pointing it
-         at the live form. The form MUST include a photo release and a question
-         confirming the registrant can attend in person near Storrs. That IBM question
-         now applies to Saturday only, since Thursday and Friday are hybrid, so the form
-         also needs to ask which days each person is coming to and in which format. -->
-    <span class="btn btn-waiting" role="status">Registration starting soon</span>
-    <!-- <a class="btn btn-primary" href="REPLACE_FORM_URL">Register</a> -->
+    <div class="band-grid">
+      <div>
+        <h2>Registration</h2>
+        <p><strong>Free</strong>, open to students, faculty and staff across Connecticut, and
+          designed for people starting from zero.</p>
+        <!-- When registration opens: delete the <span> and uncomment the <a>, pointing it
+             at the live form. The form MUST include a photo release and a question
+             confirming the registrant can attend in person near Storrs. That IBM question
+             now applies to Saturday only, since Thursday and Friday are hybrid, so the form
+             also needs to ask which days each person is coming to and in which format.
+             Delete the .band-follow paragraph below at the same time. -->
+        <span class="btn btn-waiting" role="status">Registration starting soon</span>
+        <!-- <a class="btn btn-primary" href="REPLACE_FORM_URL">Register</a> -->
+        <p class="band-follow">
+          We post the link the day it opens, on
+          <a href="https://www.instagram.com/uconnquantumcclub/" rel="noopener">Instagram</a> and
+          <a href="https://www.linkedin.com/company/uconn-quantum-computing/" rel="noopener">LinkedIn</a>.
+        </p>
+      </div>
+
+      <!-- The facts, repeated here on purpose. This is the last thing anyone reads
+           before deciding, and it is the only place the Saturday cap is stated. -->
+      <dl class="band-facts">
+        <div><dt>Dates</dt><dd>15 to 17 October 2026</dd></div>
+        <div><dt>Where</dt><dd>UConn Storrs, with Thursday and Friday online too</dd></div>
+        <div><dt>Cost</dt><dd>Free, and food on all three days</dd></div>
+        <div><dt>Experience</dt><dd>None needed</dd></div>
+        <div><dt>Saturday</dt><dd><strong>Places are capped by room capacity</strong>, so register
+          early if you want the hackathon</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 

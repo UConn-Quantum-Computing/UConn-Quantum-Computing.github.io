@@ -5,7 +5,7 @@ no build step, no dependencies. Deploys to GitHub Pages as-is.
 
 ```
 index.html      the whole site — one page, anchored sections
-styles.css      design tokens + layout. Light and dark themes.
+styles.css      design tokens + layout. Light only, deliberately.
 assets/         put og-image.png and any partner logos here
 .nojekyll       stops GitHub Pages running Jekyll over the files
 ```
@@ -215,16 +215,15 @@ Visual language deliberately follows **IBM Carbon**, since this is an IBM Quantu
 sharp corners (there is no `border-radius` anywhere and that is on purpose), IBM Plex, thin
 1px rules, lots of whitespace.
 
-The palette comes from the two organizations the event belongs to. UConn navy `#000E2F` is the
-ink and "Husky Eyes" `#A4C8E1` frames the partner strip. IBM Carbon Purple 70 `#6929C4` and
-Blue 70 `#0043CE` are the accents, each with a fixed job: purple is the event (CTAs, headline),
-blue is interactive and informational (links, the Builder track). Solid fills, no gradients.
+The palette comes from UConn's own brand. Navy `#000E2F` is the ink and "Husky Eyes"
+`#A4C8E1` frames the partner strip. There is no accent hue: buttons, headline emphasis and
+interactive states all use the ink itself, inverting to white on the navy register band.
+Links read as links by their underline rather than by color. Solid fills, no gradients.
 
-Both light and dark themes are defined via CSS custom properties in `:root`. Every color is a
-token; don't hardcode hex values in component rules or dark mode will break.
-
-The day cards carry gate glyphs: **CX** entangle (meet people), **H** superposition (learn),
-**M** measure (build and show a result).
+**Light only, on purpose.** Every image on the page has a light background, so on a dark
+ground they read as glowing rectangles. The page paints its own colors and does not follow
+the system theme. Every color is a token in `:root`; don't hardcode hex values in component
+rules.
 
 Copy is American English throughout. Headings are short titles, never full sentences.
 Eyebrow labels are capped at three on the whole page.

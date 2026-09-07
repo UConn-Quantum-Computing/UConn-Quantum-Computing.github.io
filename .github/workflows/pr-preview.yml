@@ -97,3 +97,37 @@ jobs:
           step: deactivate-env
           token: ${{ github.token }}
           env: pr-preview
+
+      # The removal above empties a preview folder but cannot delete it: the
+      # deploy action writes .nojekyll (and a CNAME) into every directory it
+      # touches, including one it is clearing. Those two files keep the folder
+      # alive in git, so closed PRs would leave litter on gh-pages forever.
+      #
+      # A preview folder with no index.html is dead by definition, so sweep all
+      # of them rather than only this PR's. That also clears anything left
+      # behind before this step existed.
+      - name: Purge emptied preview folders
+        if: github.event.action == 'closed'
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git fetch --depth=1 origin gh-pages
+          git checkout -B gh-pages origin/gh-pages
+
+          removed=0
+          for dir in pr-preview/pr-*; do
+            [ -d "$dir" ] || continue
+            if [ -z "$(find "$dir" -name index.html -print -quit)" ]; then
+              echo "Purging $dir"
+              git rm -r --quiet "$dir"
+              removed=$((removed + 1))
+            fi
+          done
+
+          if [ "$removed" -eq 0 ]; then
+            echo "Nothing to purge."
+            exit 0
+          fi
+
+          git commit -q -m "Purge $removed emptied preview folder(s)"
+          git push origin gh-pages

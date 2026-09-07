@@ -6,10 +6,18 @@ No build step, no dependencies.
 ```
 index.html                  the club landing page  ->  uconnquantum.org
 styles.css                  its stylesheet
-CNAME                       the custom domain
-.nojekyll                   stops Pages running Jekyll over the tree
+assets/                     its favicons
 qiskit-fall-fest-2026/      ->  uconnquantum.org/qiskit-fall-fest-2026/
+
+CNAME                       the custom domain. Pages reads this at the root only
+.nojekyll                   stops Pages running Jekyll over the tree
+robots.txt                  keeps /pr-preview/ out of search
+.github/workflows/          deploy + PR previews
 ```
+
+Every file above is required. Nothing here is build output or scratch: originals that are
+not served (the untouched club logo, source EPS, photo originals) live outside the repo in
+`QFF-26/`, and `.DS_Store` is gitignored.
 
 ## How the paths work
 

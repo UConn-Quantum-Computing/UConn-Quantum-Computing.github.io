@@ -64,9 +64,13 @@ why previews live under the custom domain rather than on github.io.
 `main` requires a pull request with one approving review, a code-owner review, the `preview`
 check passing, and all conversations resolved. Force pushes and deletion are blocked.
 
-`gh-pages` blocks force pushes and deletion but takes direct pushes, because the deploy
-workflow has to write to it. Nothing else should. Organization owners bypass both, so an
-owner can still push directly when something has to be fixed fast.
+`gh-pages` blocks **deletion only**. Force pushes have to stay allowed there: the deploy
+action publishes by force-pushing the built tree, so blocking it does not protect the branch,
+it stops the site deploying. Nothing else should write to `gh-pages` by hand — it is
+regenerated from `main` on every merge, so a manual commit is overwritten and lost anyway.
+
+Organization owners bypass protection on both branches, so an owner can still push directly
+when something has to be fixed fast.
 
 Details of what this means day to day are in [CONTRIBUTING.md](CONTRIBUTING.md#what-main-requires).
 

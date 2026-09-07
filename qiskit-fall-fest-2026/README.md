@@ -85,13 +85,14 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
 - [ ] **Club facts** — the `#about` section is DRAFT COPY. The one `[Day and time]` placeholder
       needs a real answer, and the four list items should be checked against what the club
       actually does. This is what the page leads with, so it cannot ship with guesses in it.
-- [ ] **Organizer names, roles and photos** — `#people` has five cards. Parth Danve is filled
-      in; the four co-organizer cards still read "Name". Each card is name, major and
-      class year only, deliberately: at five across there is not room for role titles. Photos go in `assets/team/` at 3:4
-      portrait, roughly 600x800, and every card still needs a real LinkedIn URL. Anyone who
-      would rather not have a photo published keeps the grey `PHOTO` block; that is a supported
-      state, not a broken one. The grid is set to five columns, so changing the number of
-      organizers means changing `.people` in the stylesheet too.
+- [ ] **Organizer photos** — all five cards have names, roles, majors, class years and
+      LinkedIn URLs. Four of the five have photos; **Sahil Chawla** is still on the grey
+      `PHOTO` block. Photos go in `assets/team/` at 3:4 portrait, 600x800. Anyone who would
+      rather not have a photo published keeps the placeholder; that is a supported state, not
+      a broken one. The grid is set to five columns, so changing the number of organizers
+      means changing `.people` in the stylesheet too.
+      Each card is name, role, major and class year only, deliberately: at five across there
+      is not room for more.
 - [ ] **Registration URL** — three edits, because all three buttons are inert spans
       until the form exists:
       1. `#register` band: delete the `<span class="btn btn-waiting">` and uncomment the

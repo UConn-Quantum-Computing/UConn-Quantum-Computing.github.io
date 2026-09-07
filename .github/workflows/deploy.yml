@@ -1,0 +1,41 @@
+# Publishes main to the gh-pages branch, which is what GitHub Pages serves.
+#
+# Why the indirection: Pages allows exactly one source per repository, so PR
+# previews have to live inside the published site. They land in pr-preview/,
+# and clean-exclude below is what stops a push to main from wiping the
+# previews of every open PR.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never let two deploys write gh-pages at once.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Publish to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          # CNAME and .nojekyll sit in the repo root and get copied with everything
+          # else. They have to: without CNAME the custom domain unbinds, and without
+          # .nojekyll Pages runs Jekyll over the output.
+          clean: true
+          # The only thing on gh-pages that is NOT built from main. Without this,
+          # every push to main would delete the previews of all open PRs.
+          clean-exclude: |
+            pr-preview/
+          # .github/ is left out by default (include-github-folder defaults to false).

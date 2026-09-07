@@ -1,0 +1,39 @@
+# Builds a preview of every pull request at
+#   https://uconnquantum.org/pr-preview/pr-<number>/
+# and removes it when the PR closes.
+#
+# Uses pull_request, not pull_request_target: previews are only built for
+# branches pushed to this repository. A PR from a fork gets no preview, which is
+# correct — a fork preview would mean running a stranger's branch with a write
+# token against the live site.
+name: PR preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pr-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: .
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+          # Without this the bot builds the link from the repo name, which for a
+          # <owner>.github.io repo comes out as
+          # uconn-quantum-computing.github.io/UConn-Quantum-Computing.github.io.
+          # The site is served from the custom domain, so say so.
+          pages-base-url: uconnquantum.org

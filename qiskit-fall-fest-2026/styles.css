@@ -124,6 +124,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .nav-cta { background: var(--accent); color: var(--on-accent) !important; padding: 12px 22px !important; font-weight: 600; border-bottom: none !important; }
 .nav-cta:hover { background: var(--accent-br); }
 @media (max-width: 900px) { .nav-links a:not(.nav-cta) { display: none; } }
+/* Small phones. The three marks above are all flex: none, so nothing in the bar
+   can shrink to fit: at full size the row needs 135 + 18 + 1 + 18 + 44 for the
+   marks, 28 for the nav gap and about 100 for the button, which is 344px. A
+   375px phone only has 327px inside the gutters, and a 360px one has 312, so
+   the bar overflowed and the page could be swiped sideways.
+   Scaled rather than hidden: the two marks separated by the rule is what keeps
+   the pair reading as two logos instead of one combined logotype, which is the
+   arrangement IBM's rules require, so it has to survive on every screen. */
+@media (max-width: 480px) {
+  .nav-in { gap: 12px; }
+  .nav-mark { gap: 12px; }
+  .nav-logo { width: 104px; height: 38px; }
+  .nav-qiskit { width: 34px; height: 34px; }
+  .nav-rule { height: 28px; }
+  .nav-cta { padding: 10px 16px !important; }
+}
 
 /* ---------- hero: asymmetric split ---------- */
 .hero { border-bottom: 1px solid var(--rule); padding: 72px 0 76px; }

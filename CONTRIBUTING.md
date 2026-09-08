@@ -12,7 +12,8 @@ The repo is public, so anyone can read it, clone it, and fork it. Pushing a bran
 repo needs **write access**, which is granted per person and is not automatic with membership
 of the UConn Quantum Computing organization — the org default is read.
 
-If you are on the team and need write access, ask Parth Danve (parth.danve@uconn.edu).
+If you are on the team and need write access, email the club at uconnquantum@gmail.com. An
+organization owner grants it; that is Parth Danve at the moment.
 
 If you do not have write access you can still contribute: fork the repo, push to your fork,
 and open a pull request from it. Fork pull requests do not get an automatic preview (see

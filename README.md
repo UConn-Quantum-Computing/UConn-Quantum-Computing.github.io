@@ -147,9 +147,9 @@ workflows can stay in place; they will keep writing to a branch nobody serves.
 
 ## Placeholders on the landing page
 
-None left — the Instagram, LinkedIn and UConntact links are all live. The contact address is
-`parth.danve@uconn.edu`; swap it for a club-owned alias if UConn will issue one, so it
-survives a change of president.
+None left — the Instagram, LinkedIn and UConntact links are all live, and the contact address
+is the club's own inbox, `uconnquantum@gmail.com`, rather than any one organizer's. That is
+deliberate: it survives a change of president without a single link needing to be edited.
 
 A page folder can keep its own README for notes and open items specific to it, rather than
 growing this one. [qiskit-fall-fest-2026/README.md](qiskit-fall-fest-2026/README.md) is the

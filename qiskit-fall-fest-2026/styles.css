@@ -141,31 +141,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .btn-primary:hover { background: var(--accent-br); }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-2); }
 .btn-ghost:hover { background: var(--layer); }
-/* Pre-launch states. These are spans, not links: nothing to click, nothing to
-   focus, no hover. Muted fill so they read as not-yet-available rather than as
-   a primary action that fails silently. */
-.btn-soon {
-  background: var(--layer-2); color: var(--ink-3); border-color: transparent;
-  cursor: default; display: inline-flex; flex-direction: column;
-  /* column flex, so align-items centres the two lines across and
-     justify-content centres them down, matching the single-line button
-     it sits next to. */
-  align-items: center; justify-content: center; text-align: center;
-  gap: 3px; line-height: 1.25;
-}
-.btn-soon:active { transform: none; }
-.btn-soon small {
-  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
-  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
-}
-.nav-soon {
-  background: var(--layer-2) !important; color: var(--ink-3) !important;
-  cursor: default;
-}
-
-.btn-waiting { background: transparent; color: var(--band-ink); border-color: var(--band-mute); cursor: default; }
-.btn-waiting:active { transform: none; }
-
 /* date, right side of hero. The numerals are the point. */
 .d-num {
   font-size: clamp(64px, 9vw, 116px); line-height: 0.9; font-weight: 600;
@@ -437,7 +412,7 @@ section.tint { background: var(--layer); }
 /* Block rather than inline-block: as an inline element the button sat in a line
    box, so the space above it was leading rather than margin and could not be
    tuned. width: max-content keeps it hugging its label. */
-.band .btn-primary, .band .btn-waiting {
+.band .btn-primary {
   display: block; width: max-content; margin-top: 22px;
 }
 .band .btn-primary { background: var(--band-ink); color: var(--band-bg); }

@@ -64,15 +64,14 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       of organizers means changing `.people` in the stylesheet too.
       Each card is name, role, major and class year only, deliberately: at five across there
       is not room for more.
-- [ ] **Registration URL** — three edits, because all three buttons are inert spans
-      until the form exists:
-      1. `#register` band: delete the `<span class="btn btn-waiting">` and uncomment the
-         `<a class="btn btn-primary">` above it, pointing at the form.
-      2. Hero: swap `<span class="btn btn-soon">Register<small>Starting soon</small></span>`
-         back to `<a class="btn btn-primary" href="#register">Register</a>`.
-      3. Nav: swap `<span class="nav-cta nav-soon">Register</span>` back to
-         `<a class="nav-cta" href="#register">Register</a>`.
-      Then delete the `.btn-soon` and `.nav-soon` rules and bump the `?v=` number.
+- [x] **Registration URL** — live, Google Forms:
+      `https://docs.google.com/forms/d/e/1FAIpQLSd5UsDtJWufVUV34c0vvgdPC0G0bPgtnEsLFW40ttpi8cHqow/viewform`
+      It is linked from the nav button and the `#register` band; the hero button scrolls to
+      that band rather than leaving the page, so the form URL appears in exactly two places.
+      The `.btn-soon`, `.nav-soon` and `.btn-waiting` pre-launch rules have been deleted from
+      the stylesheet along with the spans that used them.
+      The form carries a photo release, an under-18 question, a per-day attendance question
+      covering in person and online, and a link to the code of conduct.
 - [ ] **Club logo** — `assets/logo-uconn-quantum.svg` is the real lockup, converted from
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.

@@ -101,9 +101,9 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       Neither has been redrawn. If IBM supplies official files, prefer them. Never recolor
       either mark, and never put them on the navy band.
       The **IBM 8-bar logo is forbidden outright** — it needs a contract we do not have.
-- [x] **Contact email** — `parth.danve@uconn.edu`, in the footer here and on the root page.
-      Worth replacing with a club-owned alias if UConn will issue one, so the address outlives
-      any one organizer.
+- [x] **Contact email** — `uconnquantum@gmail.com`, in the footer here and on the root page.
+      A club inbox rather than an organizer's own address, so it outlives any one person.
+      Make sure at least two organizers hold the password.
 - [x] **Social and join links** — Instagram, LinkedIn and UConntact are live in all four
       places: the link cards in `#about`, the register band, and the footer here and on the
       root page. No `href="#"` remains on either page.

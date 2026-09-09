@@ -209,6 +209,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    less height than the two-line UConn lockup to read at the same weight. Set
    height and let width follow: the mark is never rescaled non-uniformly. */
 .mq-item img { height: 24px; width: auto; }
+/* QuantumCT is a symbol-plus-wordmark lockup, so its overall height is set by
+   the Q, not by the type: the words are only 43% of the file's height. At the
+   wordmark height above, the type would read about half the size of IBM's. It
+   is sized to the UConn lockup instead, the other mark here whose height is
+   driven by a graphic rather than by text. */
+.mq-item img.mq-lockup { height: 40px; }
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .mq-track { animation: none; }

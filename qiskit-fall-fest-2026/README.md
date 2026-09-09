@@ -76,15 +76,19 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       `UConn-Quantum Computing.eps` and reversed for light backgrounds. Ask UConn Communications
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
-- [ ] **Sponsor logos** — the marquee strip under the hero holds the club logo and the IBM
-      Quantum wordmark, nothing else. The placeholder `Sponsor slot` chips were removed along
-      with their `.mq-item .slot` rule; re-add a logo as `<svg><use>` or `<img>`, not a
-      placeholder, once a sponsor is confirmed.
-      Two rules for editing the track: it repeats the same group **three times** and slides by
-      exactly one third, so all three groups must stay identical or the loop visibly jumps; and
-      each group currently lists the two logos **twice**, because one pair per group is narrower
-      than a wide viewport and the loop would show a gap. Once there are four or more distinct
-      logos, drop back to listing each once per group.
+- [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
+      Quantum wordmark and QuantumCT. Add a confirmed sponsor as `<svg><use>` or `<img>`,
+      never as a placeholder chip.
+      Two rules for editing the track. It repeats the same group **three times** and slides by
+      exactly one third, so all three groups must stay identical or the loop visibly jumps.
+      And a group has to be at least as wide as the viewport or a gap appears as it wraps, so
+      each group lists the three marks **three times over**: one pass is about 447px, which
+      makes a group roughly 2420px and keeps it gapless past 1920. Add or drop whole passes as
+      the roster changes rather than editing a single group, and recheck the width — beyond
+      about 2420px of screen a gap returns, and a fourth pass fixes it.
+      `assets/logo-quantumct.png` is QuantumCT's own full-color horizontal lockup, used
+      unmodified. It carries its own `.mq-lockup` height because its wordmark is only 43% of
+      the file's height; at the shared image height its type would read half the size of IBM's.
 - [ ] **IBM marks approval** — both IBM marks are live in the strip and **neither is cleared**.
       The kickoff deck allows them only "as long as approved by event staff prior", so this
       needs sign-off from Serena Godwin or the Fall Fest team, ideally alongside the

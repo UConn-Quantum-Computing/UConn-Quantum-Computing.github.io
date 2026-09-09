@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=47">
+<link rel="stylesheet" href="styles.css?v=48">
 </head>
 <body>
 
@@ -161,36 +161,40 @@
            Each group therefore lists the three marks three times over: one pass
            is 447px, so a group is about 2420px and stays gapless past 1920.
            Add or remove whole passes if the roster changes; never edit one
-           group alone. Only the first group is announced to screen readers. -->
-      <div class="mq-item"><svg width="108" height="40" role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></div>
-      <div class="mq-item"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt="QuantumCT"></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
+           group alone.
+           Every mark links out, and the track pauses on hover and on focus so
+           the target holds still. Only the first pass of the first group is
+           exposed to assistive tech; the repeats are aria-hidden, and so are
+           taken out of the tab order to match. -->
+      <a class="mq-item" href="../" aria-label="UConn Quantum Computing"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt="QuantumCT"></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
 
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
 
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><svg width="108" height="40"><use href="#uqc-logo"></use></svg></div>
-      <div class="mq-item" aria-hidden="true"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></div>
-      <div class="mq-item" aria-hidden="true"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></div>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
+      <a class="mq-item" href="../" aria-hidden="true" tabindex="-1"><svg width="108" height="40" aria-hidden="true"><use href="#uqc-logo"></use></svg></a>
+      <a class="mq-item" href="https://www.ibm.com/quantum" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt=""></a>
+      <a class="mq-item" href="https://www.quantumct.org/" rel="noopener" aria-hidden="true" tabindex="-1"><img class="mq-lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt=""></a>
     </div>
   </div>
 </section>

@@ -200,7 +200,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .marquee::before { left: 0; background: linear-gradient(to right, var(--layer), transparent); }
 .marquee::after { right: 0; background: linear-gradient(to left, var(--layer), transparent); }
 .mq-track { display: flex; align-items: center; gap: 120px; width: max-content; animation: mq 42s linear infinite; }
-.marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
 @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
 
 .mq-item { display: flex; align-items: center; height: 44px; flex: none; color: var(--ink-2); }

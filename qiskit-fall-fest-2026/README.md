@@ -77,13 +77,13 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
 - [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
-      Quantum wordmark and QuantumCT. It is decorative and **not clickable**; the linked
-      version of the same roster is the `#partners` section after the register band, where
-      each mark is a still link that dims on hover. A new sponsor goes in **both** places, as
-      `<svg><use>` or `<img>`, never a placeholder chip.
-      Partner links: the club lockup to `../` (relative, so a PR preview stays inside itself),
-      IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the platform login —
-      and QuantumCT to `quantumct.org`.
+      Quantum wordmark and QuantumCT. It is decorative and **not clickable**. The linked
+      version is the `#sponsors` section after the register band, also in the nav, where each
+      sponsor mark is a still link that dims on hover. The club is the host, not a sponsor, so
+      its lockup appears in the strip only. A new sponsor goes in **both** places, as `<img>`
+      or `<svg><use>`, never a placeholder chip.
+      Sponsor links: IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the
+      platform login — and QuantumCT to `quantumct.org`.
       Two rules for editing the track. It repeats the same group **three times** and slides by
       exactly one third, so all three groups must stay identical or the loop visibly jumps.
       And a group has to be at least as wide as the viewport or a gap appears as it wraps, so

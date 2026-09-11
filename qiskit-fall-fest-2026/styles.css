@@ -456,24 +456,23 @@ section.tint { background: var(--layer); }
 .band-facts dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--band-ink); }
 
 
-/* ---------- partners: the linked roster ----------
-   Same marks as the strip, still and clickable. Left-aligned to sit under the
-   heading like every other section, and flex-wrap so new sponsors just flow
-   onto the row. Sizes are the strip's, scaled by 1.2, keeping its optical
-   balance between the lockups and the one-line IBM wordmark. */
-.partners {
+/* ---------- sponsors: the linked roster ----------
+   Sponsor marks from the strip, still and clickable. Left-aligned to sit under
+   the heading like every other section, and flex-wrap so new sponsors just
+   flow onto the row. Sizes are the strip's, scaled by 1.2, keeping its balance
+   between the QuantumCT lockup and the one-line IBM wordmark. */
+.sponsors {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; align-items: center; gap: 36px 72px;
 }
 /* min-height gives each mark a 48px tap target whatever the logo's own height. */
-.partners a {
+.sponsors a {
   display: flex; align-items: center; min-height: 48px;
   color: var(--ink); text-decoration: none; transition: opacity .2s;
 }
-.partners a:hover { opacity: .6; }
-.partners svg { width: 130px; height: 48px; }
-.partners img { height: 29px; width: auto; }
-.partners img.lockup { height: 48px; }
+.sponsors a:hover { opacity: .6; }
+.sponsors img { height: 29px; width: auto; }
+.sponsors img.lockup { height: 48px; }
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }

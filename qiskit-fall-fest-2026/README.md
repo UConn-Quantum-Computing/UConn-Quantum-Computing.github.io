@@ -77,8 +77,13 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
 - [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
-      Quantum wordmark and QuantumCT. Add a confirmed sponsor as `<svg><use>` or `<img>`,
-      never as a placeholder chip.
+      Quantum wordmark and QuantumCT. It is decorative and **not clickable**; the linked
+      version of the same roster is the `#partners` section after the register band, where
+      each mark is a still link that dims on hover. A new sponsor goes in **both** places, as
+      `<svg><use>` or `<img>`, never a placeholder chip.
+      Partner links: the club lockup to `../` (relative, so a PR preview stays inside itself),
+      IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the platform login —
+      and QuantumCT to `quantumct.org`.
       Two rules for editing the track. It repeats the same group **three times** and slides by
       exactly one third, so all three groups must stay identical or the loop visibly jumps.
       And a group has to be at least as wide as the viewport or a gap appears as it wraps, so
@@ -86,13 +91,6 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       makes a group roughly 2420px and keeps it gapless past 1920. Add or drop whole passes as
       the roster changes rather than editing a single group, and recheck the width — beyond
       about 2420px of screen a gap returns, and a fourth pass fixes it.
-      Every mark links out: the club lockup to `../` (relative, so a PR preview stays inside
-      itself rather than jumping to production), IBM to `ibm.com/quantum` and QuantumCT to
-      `quantumct.org`. Not `quantum.ibm.com` — that redirects to the platform login, which is
-      not where a partner logo should land anyone. The track already paused on hover and
-      focus, which is what makes a moving target clickable; only the first pass of the first
-      group is exposed to assistive tech, and the 24 repeats carry `tabindex="-1"` so nothing
-      hidden from a screen reader is still reachable by keyboard.
       `assets/logo-quantumct.png` is QuantumCT's own full-color horizontal lockup, used
       unmodified. It carries its own `.mq-lockup` height because its wordmark is only 43% of
       the file's height; at the shared image height its type would read half the size of IBM's.

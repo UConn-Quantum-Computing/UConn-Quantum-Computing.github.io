@@ -214,6 +214,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    is sized to the UConn lockup instead, the other mark here whose height is
    driven by a graphic rather than by text. */
 .mq-item img.mq-lockup { height: 40px; }
+/* The School of Computing mark is a three-line stacked lockup, so it takes the
+   full 44px row. Even so its smallest line renders about 4px tall here: at
+   strip scale it is recognised by UCONN, which comes out at about 18px. */
+.mq-item img.mq-stack { height: 44px; }
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .mq-track { animation: none; }
@@ -473,6 +477,9 @@ section.tint { background: var(--layer); }
 .sponsors a:hover { opacity: .6; }
 .sponsors img { height: 29px; width: auto; }
 .sponsors img.lockup { height: 48px; }
+/* Stacked lockup: at 64px its UCONN line matches the height of the IBM
+   wordmark beside it, and the small lines are as legible as the file allows. */
+.sponsors img.stack { height: 64px; }
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }

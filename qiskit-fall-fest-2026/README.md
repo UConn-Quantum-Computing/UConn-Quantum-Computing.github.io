@@ -77,20 +77,27 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
 - [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
-      Quantum wordmark and QuantumCT. It is decorative and **not clickable**. The linked
-      version is the `#sponsors` section after the register band, also in the nav, where each
-      sponsor mark is a still link that dims on hover. The club is the host, not a sponsor, so
-      its lockup appears in the strip only. A new sponsor goes in **both** places, as `<img>`
-      or `<svg><use>`, never a placeholder chip.
+      Quantum wordmark, QuantumCT and the UConn School of Computing. It is decorative and
+      **not clickable**. The linked version is the `#sponsors` section after the register band,
+      also in the nav, where each sponsor mark is a still link that dims on hover. The club is
+      the host, not a sponsor, so its lockup appears in the strip only. A new sponsor goes in
+      **both** places, as `<img>` or `<svg><use>`, never a placeholder chip.
       Sponsor links: IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the
-      platform login — and QuantumCT to `quantumct.org`.
+      platform login — QuantumCT to `quantumct.org`, and the School of Computing to
+      `computing.engineering.uconn.edu`.
       Two rules for editing the track. It repeats the same group **three times** and slides by
       exactly one third, so all three groups must stay identical or the loop visibly jumps.
       And a group has to be at least as wide as the viewport or a gap appears as it wraps, so
-      each group lists the three marks **three times over**: one pass is about 447px, which
-      makes a group roughly 2420px and keeps it gapless past 1920. Add or drop whole passes as
-      the roster changes rather than editing a single group, and recheck the width — beyond
-      about 2420px of screen a gap returns, and a fourth pass fixes it.
+      each group lists the four marks **three times over**: one pass is about 1010px with its
+      gaps, which makes a group roughly 3030px and keeps it gapless past 2560. Add or drop
+      whole passes as the roster changes rather than editing a single group, and recheck the
+      width. With more sponsors, two passes per group will likely be enough.
+      `assets/logo-uconn-school-of-computing.png` is the navy stacked lockup, 300x152 with a
+      transparent background, taken unmodified from UConn's own Senior Design Day site. It
+      is small: only a white version is on the School of Computing site, and recoloring an
+      official UConn mark is not allowed, so ask Engineering communications for a larger
+      navy file and swap it in. Its bottom line is about 4px tall in the strip whatever
+      the file size, because it is a three-line lockup.
       `assets/logo-quantumct.png` is QuantumCT's own full-color horizontal lockup, used
       unmodified. It carries its own `.mq-lockup` height because its wordmark is only 43% of
       the file's height; at the shared image height its type would read half the size of IBM's.

@@ -218,6 +218,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    full 44px row. Even so its smallest line renders about 4px tall here: at
    strip scale it is recognised by UCONN, which comes out at about 18px. */
 .mq-item img.mq-stack { height: 44px; }
+/* qBraid's type fills 75% of its file, against 43% for QuantumCT, so the same
+   height would make its wordmark tower over the rest. 30px lands its type
+   between the IBM wordmark and QuantumCT's. */
+.mq-item img.mq-wide { height: 30px; }
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .mq-track { animation: none; }
@@ -480,6 +484,7 @@ section.tint { background: var(--layer); }
 /* Stacked lockup: at 64px its UCONN line matches the height of the IBM
    wordmark beside it, and the small lines are as legible as the file allows. */
 .sponsors img.stack { height: 64px; }
+.sponsors img.wide { height: 38px; }
 
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }

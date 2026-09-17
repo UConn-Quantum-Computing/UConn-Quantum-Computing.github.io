@@ -77,21 +77,25 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
 - [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
-      Quantum wordmark, QuantumCT and the UConn School of Computing. It is decorative and
+      Quantum wordmark, QuantumCT, the UConn School of Computing and qBraid. It is decorative and
       **not clickable**. The linked version is the `#sponsors` section after the register band,
       also in the nav, where each sponsor mark is a still link that dims on hover. The club is
       the host, not a sponsor, so its lockup appears in the strip only. A new sponsor goes in
       **both** places, as `<img>` or `<svg><use>`, never a placeholder chip.
       Sponsor links: IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the
-      platform login — QuantumCT to `quantumct.org`, and the School of Computing to
-      `computing.engineering.uconn.edu`.
+      platform login — QuantumCT to `quantumct.org`, the School of Computing to
+      `computing.engineering.uconn.edu`, and qBraid to `qbraid.com`.
       Two rules for editing the track. It repeats the same group **three times** and slides by
       exactly one third, so all three groups must stay identical or the loop visibly jumps.
       And a group has to be at least as wide as the viewport or a gap appears as it wraps, so
-      each group lists the four marks **three times over**: one pass is about 1010px with its
-      gaps, which makes a group roughly 3030px and keeps it gapless past 2560. Add or drop
-      whole passes as the roster changes rather than editing a single group, and recheck the
-      width. With more sponsors, two passes per group will likely be enough.
+      each group lists the five marks **three times over**: one pass is about 1240px with its
+      gaps, which makes a group roughly 3730px. Two passes per group would now be enough. Add
+      or drop whole passes as the roster changes rather than editing a single group, never one
+      group on its own, and recheck the width afterwards.
+      `assets/logo-qbraid.png` is qBraid's dark-text lockup, supplied by the club rather than
+      taken from qbraid.com, whose only published wordmark is white and would vanish here.
+      Scaled down from 4104px wide to 1200 (756KB to 136KB); nothing else about it changed.
+      Its type fills 75% of the file against QuantumCT's 43%, hence its own smaller heights.
       `assets/logo-uconn-school-of-computing.png` is the navy stacked lockup, 300x152 with a
       transparent background, taken unmodified from UConn's own Senior Design Day site. It
       is small: only a white version is on the School of Computing site, and recoloring an

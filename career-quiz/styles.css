@@ -81,8 +81,9 @@ kbd {
 
 /* Header bar, shared by questions and results */
 .bar { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--rule); }
-.barin { display: flex; align-items: center; justify-content: space-between; height: 3.6rem; }
-.logo { display: block; width: 5.4rem; height: 2rem; background: url('assets/logo-uconn-quantum-navy.svg') left center / contain no-repeat; }
+/* Sized to match the club site's own top bar and logo, so moving between them feels like one site. */
+.barin { display: flex; align-items: center; justify-content: space-between; height: 4.6rem; }
+.logo { display: block; width: 7.6rem; height: 2.8rem; background: url('assets/logo-uconn-quantum-navy.svg') left center / contain no-repeat; }
 .progress { height: 2px; background: var(--rule); margin-bottom: -1px; }
 .progress span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 400ms var(--ease); }
 
@@ -148,6 +149,21 @@ kbd {
 .hero .sub { font-size: 1.15rem; line-height: 1.5; color: var(--band-mute); margin-top: 1rem; max-width: 48ch; }
 .hero .tolist { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--band-ink); margin-top: 1.6rem; padding: 0.3rem 0; border-bottom: 1px solid var(--band-mute); }
 .hero .tolist:hover, .hero .tolist:focus-visible { color: var(--band-mute); }
+/* Text on the left, the best score as a big ring on the right. White on the navy
+   band, since a navy arc would vanish into it. */
+.herogrid { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2.5rem; }
+.bigring { position: relative; width: clamp(9rem, 16vw, 13rem); height: clamp(9rem, 16vw, 13rem); --i: 0; }
+.bigring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.bigring .rtrack { stroke: var(--band-rule); stroke-width: 2.6; }
+.bigring .rfill { stroke: var(--band-ink); stroke-width: 2.6; transition-duration: 1100ms; }
+.bignum { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.bignum b { font-family: var(--mono); font-size: clamp(2.6rem, 4.6vw, 3.8rem); font-weight: 600; line-height: 1; }
+.bignum span { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--band-mute); margin-top: 0.4rem; }
+@media (max-width: 640px) {
+  .herogrid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .bigring { width: 8.5rem; height: 8.5rem; }
+  .bignum b { font-size: 2.4rem; }
+}
 .ranking { scroll-margin-top: 4.5rem; }
 
 .block { padding-top: 2.6rem; }
@@ -176,7 +192,7 @@ kbd {
 .rank { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
 .rrow {
   display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr) minmax(8rem, 30%) 2.6rem;
+  grid-template-columns: 2.2rem minmax(0, 1fr) 4.4rem;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 0.6rem;
@@ -187,13 +203,20 @@ kbd {
 .rt { font-size: 1rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
 .rd { font-size: 0.8rem; color: var(--ink-2); line-height: 1.45; margin-top: 0.15rem; }
 .rnote { display: inline-block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--rule-2); padding: 0.1rem 0.4rem; margin-top: 0.35rem; }
-.rbar { height: 0.55rem; background: var(--rule); }
-.rbar span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 700ms var(--ease); transition-delay: calc(var(--i) * 45ms); }
-.rrow:not(.top) .rbar span { background: var(--ink-2); }
-.rs { font-family: var(--mono); font-size: 1rem; font-weight: 500; text-align: right; }
+/* Score ring: a hairline track, a navy arc as long as the score, the number inside. */
+.ring { position: relative; width: 4.4rem; height: 4.4rem; }
+.ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.rtrack { fill: none; stroke: var(--rule); stroke-width: 4; }
+.rfill {
+  fill: none; stroke: var(--ink); stroke-width: 4;
+  stroke-dasharray: 100; stroke-dashoffset: 100;
+  transition: stroke-dashoffset 800ms var(--ease); transition-delay: calc(var(--i) * 45ms);
+}
+.rs { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 1.2rem; font-weight: 600; }
 @media (max-width: 640px) {
-  .rrow { grid-template-columns: 1.8rem minmax(0, 1fr) 2.4rem; row-gap: 0.5rem; }
-  .rbar { grid-column: 2 / 3; grid-row: 2; }
+  .rrow { grid-template-columns: 1.6rem minmax(0, 1fr) 3.6rem; gap: 0.7rem; }
+  .ring { width: 3.6rem; height: 3.6rem; }
+  .rs { font-size: 1rem; }
 }
 
 .foot { font-size: 0.74rem; line-height: 1.55; color: var(--ink-3); margin: 3rem 0 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
@@ -214,5 +237,5 @@ kbd {
   @keyframes leavedown { to { opacity: 0; transform: translateY(1.4rem); } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .progress span, .rbar span { transition: none; }
+  .progress span, .rfill { transition: none; }
 }

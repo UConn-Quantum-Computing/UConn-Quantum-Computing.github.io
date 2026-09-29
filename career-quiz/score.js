@@ -47,7 +47,6 @@
     var interest = TYPES.map(function () { return 0; });
     var topics = TOPICS.map(function () { return 0; });
     var level = null;
-    var picked = [];
 
     data.questions.forEach(function (q, qi) {
       var opt = q.options[answers[qi]];
@@ -55,7 +54,6 @@
       if (q.degree) { level = opt.level; return; }
       TYPES.forEach(function (k, i) { interest[i] += (opt.r && opt.r[k]) || 0; });
       topics = topics.map(function (x, i) { return x + topicVector(opt.t)[i]; });
-      picked.push(opt);
     });
 
     var player = center(interest);
@@ -80,15 +78,7 @@
         }
       }
 
-      // The two answers that pushed hardest toward this role.
-      var why = picked
-        .map(function (opt) { return { label: opt.label, w: cosine(topicVector(opt.t), roleTopics) }; })
-        .filter(function (x) { return x.w > 0.3; })
-        .sort(function (a, b) { return b.w - a.w; })
-        .slice(0, 2)
-        .map(function (x) { return x.label; });
-
-      return { role: role, score: s, why: why, degreeNote: degreeNote, degreeTag: degreeTag };
+      return { role: role, score: s, degreeNote: degreeNote, degreeTag: degreeTag };
     });
 
     results.sort(function (a, b) { return b.score - a.score; });

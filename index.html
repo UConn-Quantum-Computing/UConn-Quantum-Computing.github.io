@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=31">
+<link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body>
 
@@ -62,9 +62,20 @@
   <symbol id="ic-join" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
 </svg>
 
-<nav class="nav">
+<!-- Tabs sit in the top bar, beside the logo. Each panel's id doubles as its URL hash
+     (uconnquantum.org/#events), so a tab can be linked to directly and the back button
+     steps through tabs. The script at the end of the page does the switching. Without
+     it, every panel shows, stacked. -->
+<nav class="nav" aria-label="Sections">
   <div class="nav-in">
     <svg class="nav-logo" width="135" height="50" role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg>
+    <div class="tabs" role="tablist">
+      <a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about">About</a>
+      <a class="tab" role="tab" id="tab-events" href="#events" aria-controls="events">Events</a>
+      <a class="tab" role="tab" id="tab-career-match" href="#career-match" aria-controls="career-match">Quantum Career Match</a>
+      <a class="tab" role="tab" id="tab-research" href="#research" aria-controls="research">Research</a>
+      <a class="tab" role="tab" id="tab-hackathons" href="#hackathons" aria-controls="hackathons">Hackathons</a>
+    </div>
   </div>
 </nav>
 
@@ -78,21 +89,6 @@
     </p>
   </div>
 </header>
-
-<!-- Tabs. Each panel's id doubles as its URL hash (uconnquantum.org/#hackathons), so a
-     tab can be linked to directly and the back button steps through tabs. The script at
-     the end of the page does the switching. Without it, every panel shows, stacked. -->
-<nav class="tabbar" aria-label="Sections">
-  <div class="wrap">
-    <div class="tabs" role="tablist">
-      <a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about">About</a>
-      <a class="tab" role="tab" id="tab-events" href="#events" aria-controls="events">Events</a>
-      <a class="tab" role="tab" id="tab-career-match" href="#career-match" aria-controls="career-match">Quantum Career Match</a>
-      <a class="tab" role="tab" id="tab-research" href="#research" aria-controls="research">Research</a>
-      <a class="tab" role="tab" id="tab-hackathons" href="#hackathons" aria-controls="hackathons">Hackathons</a>
-    </div>
-  </div>
-</nav>
 
 <main>
 <section class="panel" id="about" role="tabpanel" aria-labelledby="tab-about">

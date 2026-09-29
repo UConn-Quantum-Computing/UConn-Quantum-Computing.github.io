@@ -216,6 +216,15 @@
   document.addEventListener('keydown', function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     var k = e.key.toLowerCase();
+    // On a question, Enter always means Next, even when the answer just clicked still
+    // has focus. Without this the browser re-clicks that answer and nothing advances.
+    // The Back button keeps its own Enter.
+    if (k === 'enter' && typeof at === 'number' && !(e.target.classList && e.target.classList.contains('backbtn'))) {
+      e.preventDefault();
+      next();
+      return;
+    }
+
     // A focused button already acts on Enter and Space; do not act twice.
     if ((k === 'enter' || k === ' ') && e.target.tagName === 'BUTTON') return;
 

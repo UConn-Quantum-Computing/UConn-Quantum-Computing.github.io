@@ -148,6 +148,21 @@ kbd {
 .hero .sub { font-size: 1.15rem; line-height: 1.5; color: var(--band-mute); margin-top: 1rem; max-width: 48ch; }
 .hero .tolist { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--band-ink); margin-top: 1.6rem; padding: 0.3rem 0; border-bottom: 1px solid var(--band-mute); }
 .hero .tolist:hover, .hero .tolist:focus-visible { color: var(--band-mute); }
+/* Text on the left, the best score as a big ring on the right. White on the navy
+   band, since a navy arc would vanish into it. */
+.herogrid { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2.5rem; }
+.bigring { position: relative; width: clamp(9rem, 16vw, 13rem); height: clamp(9rem, 16vw, 13rem); --i: 0; }
+.bigring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.bigring .rtrack { stroke: var(--band-rule); stroke-width: 2.6; }
+.bigring .rfill { stroke: var(--band-ink); stroke-width: 2.6; transition-duration: 1100ms; }
+.bignum { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.bignum b { font-family: var(--mono); font-size: clamp(2.6rem, 4.6vw, 3.8rem); font-weight: 600; line-height: 1; }
+.bignum span { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--band-mute); margin-top: 0.4rem; }
+@media (max-width: 640px) {
+  .herogrid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .bigring { width: 8.5rem; height: 8.5rem; }
+  .bignum b { font-size: 2.4rem; }
+}
 .ranking { scroll-margin-top: 4.5rem; }
 
 .block { padding-top: 2.6rem; }

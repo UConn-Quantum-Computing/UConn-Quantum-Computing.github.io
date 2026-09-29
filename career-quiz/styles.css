@@ -1,0 +1,218 @@
+/* Tokens from the slide layouts (slides/layouts/uconn.vue), which take them from
+   uconnquantum.org. Navy and white only, square corners, hairlines, no shadows. */
+:root {
+  --bg: #ffffff;
+  --layer: #f2f5f9;
+  --ink: #000e2f;
+  --ink-2: #3f4a61;
+  --ink-3: #63708a;
+  --rule: #d9dfe9;
+  --rule-2: #aeb8c9;
+  --accent-bg: #eef1f7;
+  --band-bg: #000e2f;
+  --band-ink: #ffffff;
+  --band-mute: #9fabc4;
+  --band-rule: #253358;
+  --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+/* Everything is sized in rem, and the root size grows with the window, so the same
+   page reads from the back of a room on a projector and still fits a phone. */
+html { font-size: clamp(16px, 0.55vw + 10px, 22px); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { width: 100%; max-width: 60rem; margin: 0 auto; padding: 0 2rem; }
+@media (max-width: 640px) { .wrap { padding: 0 16px; } }
+
+.eyebrow, .lab, .count {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  border: 1px solid currentColor;
+  padding: 0 0.3em;
+}
+
+.hint { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; color: var(--ink-3); }
+
+.btn {
+  font: 600 1rem var(--sans);
+  letter-spacing: -0.01em;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--band-ink);
+  background: var(--band-ink);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 150ms, border-color 150ms, color 150ms;
+}
+.btn:hover, .btn:focus-visible { background: var(--band-mute); border-color: var(--band-mute); outline: none; }
+.btn.ink { background: var(--ink); border-color: var(--ink); color: var(--band-ink); }
+.btn.ink:hover, .btn.ink:focus-visible { background: var(--ink-2); border-color: var(--ink-2); }
+.btn:disabled, .btn:disabled:hover { background: var(--bg); border-color: var(--rule-2); color: var(--rule-2); cursor: default; }
+.btn.small { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
+
+.linkbtn {
+  font: 500 0.9rem var(--sans);
+  background: none;
+  border: 0;
+  padding: 0.5rem 0;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+.linkbtn:hover, .linkbtn:focus-visible { color: var(--ink); outline: none; }
+
+/* Header bar, shared by questions and results */
+.bar { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--rule); }
+.barin { display: flex; align-items: center; justify-content: space-between; height: 3.6rem; }
+.logo { display: block; width: 5.4rem; height: 2rem; background: url('assets/logo-uconn-quantum-navy.svg') left center / contain no-repeat; }
+.progress { height: 2px; background: var(--rule); margin-bottom: -1px; }
+.progress span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 400ms var(--ease); }
+
+/* Home */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  padding: 3rem 0;
+}
+.home .lockup { width: 15rem; height: 3.3rem; background: url('assets/logo-uconn-quantum-white.svg') left center / contain no-repeat; margin-bottom: 2.4rem; }
+.home .eyebrow, .home .hint { color: var(--band-mute); }
+.home h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; margin: 1rem 0 0; max-width: 16ch; }
+.home .sub { font-size: 1.15rem; line-height: 1.55; color: var(--band-mute); margin-top: 1.3rem; max-width: 50ch; }
+.home .start { margin-top: 2.2rem; }
+.home .hint { margin-top: 1.4rem; }
+
+/* Question: a full-height frame. Header on top, Back / Next pinned to the bottom,
+   and the question centered in the space between, a little above true center. */
+.qpage { min-height: 100vh; display: flex; flex-direction: column; }
+.qmain { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-top: 2.5rem; padding-bottom: 4vh; }
+.qmain h2 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 26ch; text-wrap: balance; }
+.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 0.8rem; margin-top: 2.6rem; }
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.6rem;
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  font: 500 1.1rem/1.35 var(--sans);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule-2);
+  cursor: pointer;
+  transition: background 150ms, border-color 150ms, color 150ms;
+}
+.opt .letter {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 500 0.85rem var(--mono);
+  border: 1px solid var(--ink);
+  transition: background 150ms, color 150ms, border-color 150ms;
+}
+.opt:hover, .opt:focus-visible { background: var(--accent-bg); border-color: var(--ink); outline: none; }
+.opt.on { background: var(--ink); border-color: var(--ink); color: var(--band-ink); }
+.opt.on .letter { background: var(--band-ink); border-color: var(--band-ink); color: var(--ink); }
+.qnavbar { border-top: 1px solid var(--rule); background: var(--bg); }
+.qnav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 5.2rem; }
+@media (max-width: 640px) { .qnav .hint { display: none; } }
+
+/* Result */
+.hero { background: var(--band-bg); color: var(--band-ink); padding: clamp(2.2rem, 7vh, 4rem) 0; }
+.hero .eyebrow { color: var(--band-mute); }
+.hero h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.06; margin: 0.8rem 0 0; max-width: 20ch; text-wrap: balance; }
+.hero .sub { font-size: 1.15rem; line-height: 1.5; color: var(--band-mute); margin-top: 1rem; max-width: 48ch; }
+.hero .tolist { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--band-ink); margin-top: 1.6rem; padding: 0.3rem 0; border-bottom: 1px solid var(--band-mute); }
+.hero .tolist:hover, .hero .tolist:focus-visible { color: var(--band-mute); }
+.ranking { scroll-margin-top: 4.5rem; }
+
+.block { padding-top: 2.6rem; }
+.detail { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.6rem; align-items: start; }
+@media (max-width: 860px) { .detail { grid-template-columns: 1fr; } }
+.rows { border-top: 1px solid var(--ink); }
+.row { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--rule); }
+@media (max-width: 640px) { .row { grid-template-columns: 1fr; gap: 0.3rem; } }
+.rk { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.2rem; }
+.rv { font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); }
+.rv strong { font-weight: 600; color: var(--ink); }
+.rv .from { display: block; font-size: 0.78rem; color: var(--ink-3); margin-top: 0.2rem; }
+.rv .note { display: block; font-weight: 600; color: var(--ink); margin-top: 0.3rem; }
+
+.lab { padding-top: 0.6rem; border-top: 1px solid var(--ink); }
+.side svg { display: block; width: 100%; max-width: 24rem; height: auto; margin: 0.4rem auto 0; }
+.tri { fill: var(--accent-bg); stroke: var(--ink); stroke-width: 1.5; }
+.tri-grid { stroke: var(--rule-2); stroke-width: 1; stroke-dasharray: 3 4; }
+.tri-lab { font: 600 15px var(--sans); fill: var(--ink); text-anchor: middle; }
+.tri-sub { font: 400 11.5px var(--sans); fill: var(--ink-3); text-anchor: middle; }
+.tri-dot { fill: var(--ink); }
+.tri-ring { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+
+/* All roles, ranked: one row per role, a bar on a 0 to 100 track, the number beside it. */
+.rhelp { font-size: 0.82rem; color: var(--ink-3); margin-top: 0.5rem; }
+.rank { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.rrow {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) minmax(8rem, 30%) 2.6rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+.rrow.top { background: var(--accent-bg); }
+.rn { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-3); }
+.rt { font-size: 1rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
+.rd { font-size: 0.8rem; color: var(--ink-2); line-height: 1.45; margin-top: 0.15rem; }
+.rnote { display: inline-block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--rule-2); padding: 0.1rem 0.4rem; margin-top: 0.35rem; }
+.rbar { height: 0.55rem; background: var(--rule); }
+.rbar span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 700ms var(--ease); transition-delay: calc(var(--i) * 45ms); }
+.rrow:not(.top) .rbar span { background: var(--ink-2); }
+.rs { font-family: var(--mono); font-size: 1rem; font-weight: 500; text-align: right; }
+@media (max-width: 640px) {
+  .rrow { grid-template-columns: 1.8rem minmax(0, 1fr) 2.4rem; row-gap: 0.5rem; }
+  .rbar { grid-column: 2 / 3; grid-row: 2; }
+}
+
+.foot { font-size: 0.74rem; line-height: 1.55; color: var(--ink-3); margin: 3rem 0 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.foot strong { font-weight: 600; color: var(--ink-2); }
+
+/* Motion: new content rises in from below; going back, it drops in from above. The
+   old content lifts away first (app.js adds leave-up or leave-down). */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise 420ms var(--ease) both; }
+  .drop { animation: drop 420ms var(--ease) both; }
+  .rise .opt, .rise .rrow { animation: rise 420ms var(--ease) both; animation-delay: calc(80ms + var(--i) * 50ms); }
+  .drop .opt { animation: drop 420ms var(--ease) both; animation-delay: calc(80ms + var(--i) * 50ms); }
+  .leave-up { animation: leaveup 180ms ease-in both; }
+  .leave-down { animation: leavedown 180ms ease-in both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(2.2rem); } to { opacity: 1; transform: none; } }
+  @keyframes drop { from { opacity: 0; transform: translateY(-2.2rem); } to { opacity: 1; transform: none; } }
+  @keyframes leaveup { to { opacity: 0; transform: translateY(-1.4rem); } }
+  @keyframes leavedown { to { opacity: 0; transform: translateY(1.4rem); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress span, .rbar span { transition: none; }
+}

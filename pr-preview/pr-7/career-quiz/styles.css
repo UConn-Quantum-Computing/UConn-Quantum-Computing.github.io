@@ -81,8 +81,9 @@ kbd {
 
 /* Header bar, shared by questions and results */
 .bar { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--rule); }
-.barin { display: flex; align-items: center; justify-content: space-between; height: 3.6rem; }
-.logo { display: block; width: 5.4rem; height: 2rem; background: url('assets/logo-uconn-quantum-navy.svg') left center / contain no-repeat; }
+/* Sized to match the club site's own top bar and logo, so moving between them feels like one site. */
+.barin { display: flex; align-items: center; justify-content: space-between; height: 4.6rem; }
+.logo { display: block; width: 7.6rem; height: 2.8rem; background: url('assets/logo-uconn-quantum-navy.svg') left center / contain no-repeat; }
 .progress { height: 2px; background: var(--rule); margin-bottom: -1px; }
 .progress span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 400ms var(--ease); }
 

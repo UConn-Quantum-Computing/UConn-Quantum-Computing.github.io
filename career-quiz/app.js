@@ -125,6 +125,7 @@
   function renderResult() {
     var result = score(data, answers);
     var best = result.ranked[0], role = best.role;
+    var bestScore = Math.round(best.score * 100);
 
     var rows = result.ranked.map(function (r, i) {
       var s = Math.round(r.score * 100);
@@ -146,11 +147,19 @@
     app.innerHTML = '<div class="rpage">' +
       bar('<button class="btn ink small again">Play again</button>') +
       '<div class="stepin rise">' +
-        '<section class="hero"><div class="wrap">' +
-          '<div class="eyebrow">Your best match &middot; ' + Math.round(best.score * 100) + ' / 100</div>' +
-          '<h1>' + esc(role.name) + '</h1>' +
-          '<div class="sub">' + esc(role.oneLine) + '</div>' +
-          '<button class="linkbtn tolist">See all ' + result.ranked.length + ' roles, ranked &darr;</button>' +
+        '<section class="hero"><div class="wrap herogrid">' +
+          '<div class="herotext">' +
+            '<div class="eyebrow">Your best match</div>' +
+            '<h1>' + esc(role.name) + '</h1>' +
+            '<div class="sub">' + esc(role.oneLine) + '</div>' +
+            '<button class="linkbtn tolist">See all ' + result.ranked.length + ' roles, ranked &darr;</button>' +
+          '</div>' +
+          // The best score, large, as the same kind of ring the ranked list uses.
+          '<div class="bigring" role="img" aria-label="Match score ' + bestScore + ' out of 100">' +
+            '<svg viewBox="0 0 44 44" aria-hidden="true"><circle class="rtrack" cx="22" cy="22" r="20"/>' +
+            '<circle class="rfill" cx="22" cy="22" r="20" pathLength="100" data-s="' + bestScore + '"/></svg>' +
+            '<div class="bignum"><b>' + bestScore + '</b><span>/ 100</span></div>' +
+          '</div>' +
         '</div></section>' +
         '<main class="wrap">' +
           '<section class="block detail">' +

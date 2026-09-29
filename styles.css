@@ -90,6 +90,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .clink-join b { color: var(--accent); }
 
 .section { padding: 72px 0; }
+/* Consecutive sections read as one list of cards, not two separate blocks. */
+.section + .section { padding-top: 0; }
 .eyebrow {
   font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
   letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);

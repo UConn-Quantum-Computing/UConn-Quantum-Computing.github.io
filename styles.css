@@ -65,8 +65,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-.nav { border-bottom: 1px solid var(--rule); }
-.nav-in { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; }
+.nav { border-bottom: 1px solid var(--rule); background: var(--bg); }
+.nav-in { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; gap: 32px; }
+/* Pinned on wide screens, so the tabs stay in reach while a panel scrolls. Not on
+   phones, where the logo and two rows of tabs would take too much of the screen. */
+@media (min-width: 801px) { .nav { position: sticky; top: 0; z-index: 5; } }
 .nav-logo { height: 50px; width: 135px; color: var(--ink); }
 
 .hero { padding: 84px 0 72px; border-bottom: 1px solid var(--rule); }
@@ -89,10 +92,25 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .clink-join { border-color: var(--accent); }
 .clink-join b { color: var(--accent); }
 
-.section { padding: 72px 0; }
-/* Consecutive sections read as one list of cards, not two separate blocks. */
-.section + .section { padding-top: 0; }
+/* Tabs, right of the logo in the top bar. The active tab is marked by ink and a 2px
+   underline that sits on the bar's bottom rule, never by color. */
+.tabs { display: flex; gap: 28px; margin-left: auto; align-self: stretch; }
+.tab {
+  flex: none; display: flex; align-items: center; padding-top: 2px; margin-bottom: -1px;
+  font-size: 15.5px; font-weight: 500; color: var(--ink-3); text-decoration: none;
+  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tab:focus-visible { outline-offset: -2px; }
+
+.panel { padding: 56px 0 80px; }
+.panel[hidden] { display: none; }
+.eyebrow.group { margin-top: 52px; }
+.empty { margin-top: 16px; padding: 26px 32px; border: 1px dashed var(--rule-2); color: var(--ink-3); }
+
 .eyebrow {
+  display: block;
   font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
   letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
 }
@@ -116,4 +134,14 @@ footer a { color: var(--ink-2); text-decoration: none; }
 footer a:hover { color: var(--ink); text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
-@media (max-width: 640px) { .hero { padding: 52px 0 44px; } .section { padding: 48px 0; } }
+/* Below this the logo and five tabs do not fit one row. The tabs drop under the logo,
+   and wrap onto a second line rather than scroll, so none of them is hidden. */
+@media (max-width: 800px) {
+  .nav-in { height: auto; flex-wrap: wrap; row-gap: 4px; padding-top: 14px; }
+  .tabs { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 22px; }
+  .tab { padding: 11px 0 10px; font-size: 15px; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 52px 0 44px; }
+  .panel { padding: 40px 0 56px; }
+}

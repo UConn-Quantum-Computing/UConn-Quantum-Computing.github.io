@@ -32,7 +32,7 @@ and going back brings the previous one down from above. Answers are kept when go
 back.
 
 The results page scrolls: the best match and its details first, then every role
-ranked, each with a bar and its match score out of 100. The "See all 11 roles" link in
+ranked, each with its match score out of 100 inside a navy ring filled to match. The "See all 11 roles" link in
 the header jumps to the list, which on a projector sits below the first screen.
 
 It is a responsive page, not a fixed slide. Sizes are in `rem` and the root size
@@ -74,8 +74,8 @@ high on "investigative" and would otherwise look alike.
 If someone plans a Bachelor's and every degree the survey lists for a role is higher,
 the match drops by 10% and the result says so. It never hides a role.
 
-It uses no machine learning and no training data. Every match can be explained, and
-the result screen shows the two answers that drove it.
+It uses no machine learning and no training data. Every score can be traced back to
+the answers given and the published data behind each role.
 
 ## Where each number comes from
 
@@ -83,7 +83,7 @@ the result screen shows the two answers that drove it.
 |---|---|---|
 | The roles, and "Companies ask for" | Hughes et al., [*Assessing the Needs of the Quantum Industry*](https://arxiv.org/abs/2109.03601), IEEE Trans. Educ. 65(4), 2022. Table I, from a survey of 57 companies. | Sourced |
 | Role interest scores (`onet.v`) | [O*NET 30.0](https://www.onetcenter.org/database.html) `Interests.txt`, occupational interest scores (scale 1 to 7), by USDOL/ETA, used under CC BY 4.0. Occupation codes are in `data.js`. | Sourced |
-| Understand / Build / Use triangle | The three proficiency areas of the [European Competence Framework for Quantum Technologies](https://qtedu.eu/european-competence-framework-quantum-technologies) v2.5 (concepts, engineering, applications and strategy), relabelled for beginners. | Sourced idea |
+| Understand / Build / Use triangle | The three proficiency areas of the [European Competence Framework for Quantum Technologies](https://qtedu.eu/european-competence-framework-quantum-technologies) v2.5 (concepts, engineering, applications and strategy), relabeled for beginners. | Sourced idea |
 | Which quantum role maps to which O*NET job | Club judgment | Check |
 | Topic weights, `lean` values, the answer scoring | Club judgment, tuned so every role wins for the player it fits (`check.js`) | Check |
 | The 40/60 blend, the 10% degree adjustment | Club judgment | Check |

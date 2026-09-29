@@ -125,9 +125,6 @@
   function renderResult() {
     var result = score(data, answers);
     var best = result.ranked[0], role = best.role;
-    var why = best.why.length
-      ? 'You picked ' + best.why.map(function (w) { return '<strong>&ldquo;' + esc(w) + '&rdquo;</strong>'; }).join(' and ') + '.'
-      : 'Your answers as a whole, rather than any single one.';
 
     var rows = result.ranked.map(function (r, i) {
       var s = Math.round(r.score * 100);
@@ -137,8 +134,12 @@
           '<div class="rd">' + esc(r.role.oneLine) + '</div>' +
           (r.degreeTag ? '<div class="rnote">' + esc(r.degreeTag) + '</div>' : '') +
         '</div>' +
-        '<div class="rbar" aria-hidden="true"><span data-w="' + s + '"></span></div>' +
-        '<span class="rs" aria-label="Match score ' + s + ' out of 100">' + s + '</span>' +
+        // A ring filled in proportion to the score, with the number in the middle.
+        // pathLength 100 makes the stroke's dash lengths read directly as percent.
+        '<div class="ring" role="img" aria-label="Match score ' + s + ' out of 100">' +
+          '<svg viewBox="0 0 44 44" aria-hidden="true"><circle class="rtrack" cx="22" cy="22" r="19"/>' +
+          '<circle class="rfill" cx="22" cy="22" r="19" pathLength="100" data-s="' + s + '"/></svg>' +
+          '<span class="rs">' + s + '</span></div>' +
         '</li>';
     }).join('');
 
@@ -157,7 +158,6 @@
               row('You would work on', esc(role.workOn)) +
               row('Companies ask for', esc(role.ask) + '<span class="from">' + esc(role.askFrom) + '</span>' +
                 (best.degreeNote ? '<span class="note">' + esc(best.degreeNote) + '</span>' : '')) +
-              row('Why you got this', why) +
               row('Your first step', esc(role.firstStep)) +
             '</div>' +
             '<div class="side"><div class="lab">Where you lean</div>' + triangle(result.lean) + '</div>' +
@@ -177,10 +177,10 @@
     app.querySelector('.tolist').addEventListener('click', function () {
       document.getElementById('ranking').scrollIntoView({ behavior: calm ? 'auto' : 'smooth' });
     });
-    // Grow the bars after first paint, so they animate from zero.
+    // Fill the rings after first paint, so they animate from empty.
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        app.querySelectorAll('.rbar span').forEach(function (el) { el.style.width = el.getAttribute('data-w') + '%'; });
+        app.querySelectorAll('.rfill').forEach(function (el) { el.style.strokeDashoffset = 100 - Number(el.getAttribute('data-s')); });
       });
     });
   }

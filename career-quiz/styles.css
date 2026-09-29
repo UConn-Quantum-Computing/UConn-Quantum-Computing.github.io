@@ -176,7 +176,7 @@ kbd {
 .rank { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
 .rrow {
   display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr) minmax(8rem, 30%) 2.6rem;
+  grid-template-columns: 2.2rem minmax(0, 1fr) 4.4rem;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 0.6rem;
@@ -187,13 +187,20 @@ kbd {
 .rt { font-size: 1rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
 .rd { font-size: 0.8rem; color: var(--ink-2); line-height: 1.45; margin-top: 0.15rem; }
 .rnote { display: inline-block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--rule-2); padding: 0.1rem 0.4rem; margin-top: 0.35rem; }
-.rbar { height: 0.55rem; background: var(--rule); }
-.rbar span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 700ms var(--ease); transition-delay: calc(var(--i) * 45ms); }
-.rrow:not(.top) .rbar span { background: var(--ink-2); }
-.rs { font-family: var(--mono); font-size: 1rem; font-weight: 500; text-align: right; }
+/* Score ring: a hairline track, a navy arc as long as the score, the number inside. */
+.ring { position: relative; width: 4.4rem; height: 4.4rem; }
+.ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.rtrack { fill: none; stroke: var(--rule); stroke-width: 4; }
+.rfill {
+  fill: none; stroke: var(--ink); stroke-width: 4;
+  stroke-dasharray: 100; stroke-dashoffset: 100;
+  transition: stroke-dashoffset 800ms var(--ease); transition-delay: calc(var(--i) * 45ms);
+}
+.rs { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 1.2rem; font-weight: 600; }
 @media (max-width: 640px) {
-  .rrow { grid-template-columns: 1.8rem minmax(0, 1fr) 2.4rem; row-gap: 0.5rem; }
-  .rbar { grid-column: 2 / 3; grid-row: 2; }
+  .rrow { grid-template-columns: 1.6rem minmax(0, 1fr) 3.6rem; gap: 0.7rem; }
+  .ring { width: 3.6rem; height: 3.6rem; }
+  .rs { font-size: 1rem; }
 }
 
 .foot { font-size: 0.74rem; line-height: 1.55; color: var(--ink-3); margin: 3rem 0 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
@@ -214,5 +221,5 @@ kbd {
   @keyframes leavedown { to { opacity: 0; transform: translateY(1.4rem); } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .progress span, .rbar span { transition: none; }
+  .progress span, .rfill { transition: none; }
 }

@@ -486,6 +486,52 @@ section.tint { background: var(--layer); }
 .sponsors img.stack { height: 64px; }
 .sponsors img.wide { height: 38px; }
 
+/* Tier labels. Not .eyebrow: those are rationed to three on the page and these
+   are structural headings, not decoration. Same mono treatment, quieter. */
+.tier {
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 30px;
+}
+.sponsors + .tier { margin-top: 56px; }
+
+/* Academic partners: unit lockup above the faculty member it funds. The two
+   cards are spread so the pair spans about the same width as the industry row
+   above (three logos plus their gaps, roughly 690px), which keeps the two tiers
+   reading as one block rather than a wide row over a narrow cluster. */
+.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 90px; }
+/* Centred throughout. The mark and the portrait are narrower than the card, so
+   left-aligned text under centred images reads as a misalignment. */
+.acad { text-align: center; }
+/* Centred over the card, and both marks share one box so neither sits higher
+   than the other.
+   Sized by width, not height: the UCONN wordmark spans the full width of both
+   files, but the lockups carry different numbers of lines beneath it, so equal
+   heights give visibly different UCONNs. At 56px tall CLAS's UCONN read 142px
+   across against the School of Computing's 110. Equal widths match them. */
+.acad-mark { display: flex; align-items: flex-end; justify-content: center;
+             height: 64px; margin-bottom: 18px; text-decoration: none; transition: opacity .2s; }
+.acad-mark:hover { opacity: .6; }
+.acad-mark img.stack { width: 115px; height: auto; max-width: 100%; }
+/* The portrait is a credit, not the subject of the section, so it runs narrower
+   than the card: 150px against the 115px lockup above it, keeping its 3:4. The
+   text block stays the full card width so the longer titles do not wrap raggedly.
+   Centred to sit under the centred mark. */
+.acad .person img, .acad .person .ph { width: 150px; margin: 0 auto; }
+/* The portrait links to that person's university page. Block, so the link box is
+   the photo itself and not a text-sized sliver, and dimming on hover the same
+   way the lockups and sponsor marks do. */
+.acad-photo { display: block; text-decoration: none; transition: opacity .2s; }
+.acad-photo:hover { opacity: .6; }
+/* A notch smaller than the organizer cards: these sit beside logos rather than
+   in a grid of five, and the longer faculty titles need the room. At 11.5px the
+   longest role line, "Director, UConn Quantum Institute (incoming)", holds on
+   one line inside the 300px card. */
+.acad .person h3 { font-size: 14px; margin-top: 11px; }
+.acad .person p { font-size: 11.5px; line-height: 1.5; }
+@media (max-width: 1040px) { .acads { gap: 90px; } }
+@media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }

@@ -77,21 +77,26 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       for the official reversed version and swap it in; recoloring is technically an alteration.
       `logo-uconn-quantum-original.svg` is the untouched white-on-navy original.
 - [ ] **Sponsor logos** — the marquee strip under the hero holds the club lockup, the IBM
-      Quantum wordmark, QuantumCT, the UConn School of Computing and qBraid. It is decorative and
+      Quantum wordmark, QuantumCT, the UConn School of Computing, qBraid and UConn CLAS. It is decorative and
       **not clickable**. The linked version is the `#sponsors` section after the register band,
       also in the nav, where each sponsor mark is a still link that dims on hover. The club is
       the host, not a sponsor, so its lockup appears in the strip only. A new sponsor goes in
       **both** places, as `<img>` or `<svg><use>`, never a placeholder chip.
       Sponsor links: IBM to `ibm.com/quantum` — not `quantum.ibm.com`, which redirects to the
       platform login — QuantumCT to `quantumct.org`, the School of Computing to
-      `computing.engineering.uconn.edu`, and qBraid to `qbraid.com`.
+      `computing.engineering.uconn.edu`, qBraid to `qbraid.com`, and CLAS to `clas.uconn.edu`.
       Two rules for editing the track. It repeats the same group **three times** and slides by
       exactly one third, so all three groups must stay identical or the loop visibly jumps.
       And a group has to be at least as wide as the viewport or a gap appears as it wraps, so
-      each group lists the five marks **three times over**: one pass is about 1240px with its
-      gaps, which makes a group roughly 3730px. Two passes per group would now be enough. Add
+      each group lists the six marks **three times over**: one pass is about 1470px with its
+      gaps, which makes a group roughly 4420px. Two passes per group would now be enough. Add
       or drop whole passes as the roster changes rather than editing a single group, never one
       group on its own, and recheck the width afterwards.
+      `assets/logo-uconn-clas.png` is the College of Liberal Arts and Sciences lockup, taken
+      unmodified from clas.uconn.edu. It shares the School of Computing's `.mq-stack` and
+      `.stack` sizes, being the same kind of stacked mark. UConn issues these centrally; a
+      departmental version (Physics, say) has to be requested through
+      `uconnucomm.wufoo.com/forms/wordmark-logo-request/`, never redrawn.
       `assets/logo-qbraid.png` is qBraid's dark-text lockup, supplied by the club rather than
       taken from qbraid.com, whose only published wordmark is white and would vanish here.
       Scaled down from 4104px wide to 1200 (756KB to 136KB); nothing else about it changed.

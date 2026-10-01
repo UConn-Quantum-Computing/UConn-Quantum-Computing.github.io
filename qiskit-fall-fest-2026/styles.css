@@ -499,7 +499,7 @@ section.tint { background: var(--layer); }
    cards are spread so the pair spans about the same width as the industry row
    above (three logos plus their gaps, roughly 690px), which keeps the two tiers
    reading as one block rather than a wide row over a narrow cluster. */
-.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 260px)); gap: 170px; }
+.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 90px; }
 /* Centred over the card, and both marks share one box so neither sits higher
    than the other.
    Sized by width, not height: the UCONN wordmark spans the full width of both
@@ -515,6 +515,12 @@ section.tint { background: var(--layer); }
    text block stays the full card width so the longer titles do not wrap raggedly.
    Centred to sit under the centred mark. */
 .acad .person img, .acad .person .ph { width: 150px; margin: 0 auto; }
+/* A notch smaller than the organizer cards: these sit beside logos rather than
+   in a grid of five, and the longer faculty titles need the room. At 11.5px the
+   longest role line, "Director, UConn Quantum Institute (incoming)", holds on
+   one line inside the 300px card. */
+.acad .person h3 { font-size: 14px; margin-top: 11px; }
+.acad .person p { font-size: 11.5px; line-height: 1.5; }
 @media (max-width: 1040px) { .acads { gap: 90px; } }
 @media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
 

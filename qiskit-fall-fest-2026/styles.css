@@ -510,6 +510,11 @@ section.tint { background: var(--layer); }
              height: 64px; margin-bottom: 18px; text-decoration: none; transition: opacity .2s; }
 .acad-mark:hover { opacity: .6; }
 .acad-mark img.stack { width: 115px; height: auto; max-width: 100%; }
+/* The portrait is a credit, not the subject of the section, so it runs narrower
+   than the card: 150px against the 115px lockup above it, keeping its 3:4. The
+   text block stays the full card width so the longer titles do not wrap raggedly.
+   Centred to sit under the centred mark. */
+.acad .person img, .acad .person .ph { width: 150px; margin: 0 auto; }
 @media (max-width: 1040px) { .acads { gap: 90px; } }
 @media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
 

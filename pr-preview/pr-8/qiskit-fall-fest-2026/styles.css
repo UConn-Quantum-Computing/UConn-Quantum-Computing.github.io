@@ -501,12 +501,15 @@ section.tint { background: var(--layer); }
    reading as one block rather than a wide row over a narrow cluster. */
 .acads { display: grid; grid-template-columns: repeat(2, minmax(0, 260px)); gap: 170px; }
 /* Centred over the card, and both marks share one box so neither sits higher
-   than the other: CLAS is wider than the School of Computing lockup, so they are
-   capped by height and width rather than height alone. */
+   than the other.
+   Sized by width, not height: the UCONN wordmark spans the full width of both
+   files, but the lockups carry different numbers of lines beneath it, so equal
+   heights give visibly different UCONNs. At 56px tall CLAS's UCONN read 142px
+   across against the School of Computing's 110. Equal widths match them. */
 .acad-mark { display: flex; align-items: flex-end; justify-content: center;
              height: 64px; margin-bottom: 18px; text-decoration: none; transition: opacity .2s; }
 .acad-mark:hover { opacity: .6; }
-.acad-mark img.stack { max-height: 56px; max-width: 100%; height: auto; width: auto; }
+.acad-mark img.stack { width: 115px; height: auto; max-width: 100%; }
 @media (max-width: 1040px) { .acads { gap: 90px; } }
 @media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
 

@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=54">
+<link rel="stylesheet" href="styles.css?v=55">
 </head>
 <body>
 
@@ -594,13 +594,39 @@
     <div class="sec-h">
       <h2>Our Sponsors</h2>
     </div>
+
+    <h3 class="tier">Industry partners</h3>
     <ul class="sponsors">
       <li><a href="https://www.ibm.com/quantum" rel="noopener"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></a></li>
       <li><a href="https://www.quantumct.org/" rel="noopener"><img class="lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt="QuantumCT"></a></li>
-      <li><a href="https://computing.engineering.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-school-of-computing.png" width="300" height="152" alt="UConn College of Engineering, School of Computing"></a></li>
       <li><a href="https://www.qbraid.com/" rel="noopener"><img class="wide" src="assets/logo-qbraid.png" width="1200" height="331" alt="qBraid"></a></li>
-      <li><a href="https://clas.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-clas.png" width="1509" height="595" alt="UConn College of Liberal Arts and Sciences"></a></li>
     </ul>
+
+    <!-- Academic partners: each unit's lockup sits above the faculty member whose
+         research funds back the event, so the logo reads as "this person, in this
+         unit" rather than as the college sponsoring it institutionally.
+         PLACEHOLDERS: swap each .ph for an <img> once photos and names arrive.
+         Photos go in assets/team/ at 3:4, 600x800, EXIF stripped, like the
+         organizer cards this reuses. -->
+    <h3 class="tier">Academic partners</h3>
+    <div class="acads">
+      <div class="acad">
+        <a class="acad-mark" href="https://clas.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-clas.png" width="1509" height="595" alt="UConn College of Liberal Arts and Sciences"></a>
+        <div class="person">
+          <div class="ph">PHOTO</div>
+          <h3>[Faculty name]</h3>
+          <p><span class="role">[Title]</span><br>Department of Physics<br>College of Liberal Arts and Sciences</p>
+        </div>
+      </div>
+      <div class="acad">
+        <a class="acad-mark" href="https://computing.engineering.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-school-of-computing.png" width="300" height="152" alt="UConn College of Engineering, School of Computing"></a>
+        <div class="person">
+          <div class="ph">PHOTO</div>
+          <h3>[Faculty name]</h3>
+          <p><span class="role">[Title]</span><br>School of Computing<br>College of Engineering</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

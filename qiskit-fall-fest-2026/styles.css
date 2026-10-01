@@ -486,6 +486,24 @@ section.tint { background: var(--layer); }
 .sponsors img.stack { height: 64px; }
 .sponsors img.wide { height: 38px; }
 
+/* Tier labels. Not .eyebrow: those are rationed to three on the page and these
+   are structural headings, not decoration. Same mono treatment, quieter. */
+.tier {
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 30px;
+}
+.sponsors + .tier { margin-top: 56px; }
+
+/* Academic partners: unit lockup above the faculty member it funds. Two columns
+   at the organizer-card width, so the photos match the people grid above. */
+.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 40px; }
+.acad-mark { display: flex; align-items: flex-end; height: 64px; margin-bottom: 18px;
+             text-decoration: none; transition: opacity .2s; }
+.acad-mark:hover { opacity: .6; }
+.acad-mark img.stack { height: 56px; width: auto; }
+@media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+
 /* ---------- footer ---------- */
 footer { padding: 56px 0; font-size: 14px; color: var(--ink-2); }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }

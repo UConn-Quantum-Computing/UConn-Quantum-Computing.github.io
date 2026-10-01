@@ -500,6 +500,9 @@ section.tint { background: var(--layer); }
    above (three logos plus their gaps, roughly 690px), which keeps the two tiers
    reading as one block rather than a wide row over a narrow cluster. */
 .acads { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 90px; }
+/* Centred throughout. The mark and the portrait are narrower than the card, so
+   left-aligned text under centred images reads as a misalignment. */
+.acad { text-align: center; }
 /* Centred over the card, and both marks share one box so neither sits higher
    than the other.
    Sized by width, not height: the UCONN wordmark spans the full width of both

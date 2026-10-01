@@ -518,6 +518,11 @@ section.tint { background: var(--layer); }
    text block stays the full card width so the longer titles do not wrap raggedly.
    Centred to sit under the centred mark. */
 .acad .person img, .acad .person .ph { width: 150px; margin: 0 auto; }
+/* The portrait links to that person's university page. Block, so the link box is
+   the photo itself and not a text-sized sliver, and dimming on hover the same
+   way the lockups and sponsor marks do. */
+.acad-photo { display: block; text-decoration: none; transition: opacity .2s; }
+.acad-photo:hover { opacity: .6; }
 /* A notch smaller than the organizer cards: these sit beside logos rather than
    in a grid of five, and the longer faculty titles need the room. At 11.5px the
    longest role line, "Director, UConn Quantum Institute (incoming)", holds on

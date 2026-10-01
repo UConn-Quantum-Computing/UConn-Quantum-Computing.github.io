@@ -495,13 +495,19 @@ section.tint { background: var(--layer); }
 }
 .sponsors + .tier { margin-top: 56px; }
 
-/* Academic partners: unit lockup above the faculty member it funds. Two columns
-   at the organizer-card width, so the photos match the people grid above. */
-.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 40px; }
-.acad-mark { display: flex; align-items: flex-end; height: 64px; margin-bottom: 18px;
-             text-decoration: none; transition: opacity .2s; }
+/* Academic partners: unit lockup above the faculty member it funds. The two
+   cards are spread so the pair spans about the same width as the industry row
+   above (three logos plus their gaps, roughly 690px), which keeps the two tiers
+   reading as one block rather than a wide row over a narrow cluster. */
+.acads { display: grid; grid-template-columns: repeat(2, minmax(0, 260px)); gap: 170px; }
+/* Centred over the card, and both marks share one box so neither sits higher
+   than the other: CLAS is wider than the School of Computing lockup, so they are
+   capped by height and width rather than height alone. */
+.acad-mark { display: flex; align-items: flex-end; justify-content: center;
+             height: 64px; margin-bottom: 18px; text-decoration: none; transition: opacity .2s; }
 .acad-mark:hover { opacity: .6; }
-.acad-mark img.stack { height: 56px; width: auto; }
+.acad-mark img.stack { max-height: 56px; max-width: 100%; height: auto; width: auto; }
+@media (max-width: 1040px) { .acads { gap: 90px; } }
 @media (max-width: 700px) { .acads { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
 
 /* ---------- footer ---------- */

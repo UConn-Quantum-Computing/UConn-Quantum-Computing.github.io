@@ -20,7 +20,7 @@
 
    Light only, deliberately. Every image on the page has a light background,
    so on a dark ground they read as glowing rectangles rather than artwork.
-   The page paints its own colours explicitly and does not follow the system
+   The page paints its own colors explicitly and does not follow the system
    theme. */
 :root {
   /* Tells the browser this page is light, so it does not dark-tint
@@ -149,7 +149,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero-lede { font-size: 19px; color: var(--ink-2); margin-top: 24px; max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 32px; }
 
-/* inline-flex, centred both ways: the row stretches the buttons to a shared
+/* inline-flex, centered both ways: the row stretches the buttons to a shared
    height, and an inline-block label would sit at the top of the taller box. */
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 28px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .2s, transform .1s; }
 .btn:active { transform: translateY(1px); }
@@ -176,7 +176,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);
 }
 
-/* Map, in full colour. Only a slight dim in dark mode, so it does not glare
+/* Map, in full color. Only a slight dim in dark mode, so it does not glare
    against a navy page; never inverted, which would read water as land. */
 .map { margin: 12px 0 0; }
 .map iframe {
@@ -216,7 +216,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .mq-item img.mq-lockup { height: 40px; }
 /* The School of Computing mark is a three-line stacked lockup, so it takes the
    full 44px row. Even so its smallest line renders about 4px tall here: at
-   strip scale it is recognised by UCONN, which comes out at about 18px. */
+   strip scale it is recognized by UCONN, which comes out at about 18px. */
 .mq-item img.mq-stack { height: 44px; }
 /* qBraid's type fills 75% of its file, against 43% for QuantumCT, so the same
    height would make its wordmark tower over the rest. 30px lands its type
@@ -434,7 +434,7 @@ section.tint { background: var(--layer); }
 .band h2 { font-size: clamp(30px, 4.4vw, 50px); color: var(--band-ink); margin-top: 14px; letter-spacing: -0.03em; }
 .band p { color: var(--band-mute); margin-top: 20px; max-width: 52ch; font-size: 17px; }
 /* The global <strong> lifts to --ink, which is the band's own background.
-   Re-point it at the band ink or the emphasised word disappears. */
+   Re-point it at the band ink or the emphasized word disappears. */
 .band strong { color: var(--band-ink); }
 /* The band is always navy, so its button inverts rather than inheriting the
    navy accent, which would be invisible against it. */
@@ -500,10 +500,10 @@ section.tint { background: var(--layer); }
    above (three logos plus their gaps, roughly 690px), which keeps the two tiers
    reading as one block rather than a wide row over a narrow cluster. */
 .acads { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 90px; }
-/* Centred throughout. The mark and the portrait are narrower than the card, so
-   left-aligned text under centred images reads as a misalignment. */
+/* Centered throughout. The mark and the portrait are narrower than the card, so
+   left-aligned text under centered images reads as a misalignment. */
 .acad { text-align: center; }
-/* Centred over the card, and both marks share one box so neither sits higher
+/* Centered over the card, and both marks share one box so neither sits higher
    than the other.
    Sized by width, not height: the UCONN wordmark spans the full width of both
    files, but the lockups carry different numbers of lines beneath it, so equal
@@ -516,7 +516,7 @@ section.tint { background: var(--layer); }
 /* The portrait is a credit, not the subject of the section, so it runs narrower
    than the card: 150px against the 115px lockup above it, keeping its 3:4. The
    text block stays the full card width so the longer titles do not wrap raggedly.
-   Centred to sit under the centred mark. */
+   Centered to sit under the centered mark. */
 .acad .person img, .acad .person .ph { width: 150px; margin: 0 auto; }
 /* The portrait links to that person's university page. Block, so the link box is
    the photo itself and not a text-sized sliver, and dimming on hover the same

@@ -58,7 +58,7 @@ Search the source for `REPLACE`, `TODO` and `[` — every placeholder is marked.
       leads with, so it cannot ship with guesses in it.
 - [x] **Organizer photos** — all five cards are complete: name, role, major, class year,
       LinkedIn URL and photo. Photos live in `assets/team/` at 3:4 portrait, 600x800, EXIF
-      stripped. The `.ph` grey placeholder rule is still in the stylesheet on purpose: if an
+      stripped. The `.ph` gray placeholder rule is still in the stylesheet on purpose: if an
       organizer would rather not have a photo published, delete their `<img>` and restore
       `<div class="ph">PHOTO</div>`. The grid is set to five columns, so changing the number
       of organizers means changing `.people` in the stylesheet too.

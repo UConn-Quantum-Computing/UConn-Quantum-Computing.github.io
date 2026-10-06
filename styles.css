@@ -20,7 +20,7 @@
 
    Light only, deliberately. Every image on the page has a light background,
    so on a dark ground they read as glowing rectangles rather than artwork.
-   The page paints its own colours explicitly and does not follow the system
+   The page paints its own colors explicitly and does not follow the system
    theme. */
 :root {
   /* Tells the browser this page is light, so it does not dark-tint

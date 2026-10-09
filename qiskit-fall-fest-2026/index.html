@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=65">
+<link rel="stylesheet" href="styles.css?v=66">
 </head>
 <body>
 
@@ -112,7 +112,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#register">Register</a>
-          <a class="btn btn-ghost" href="#schedule">See schedule overview</a>
+          <a class="btn btn-ghost" href="#schedule">See the schedule</a>
         </div>
       </div>
 
@@ -346,29 +346,57 @@
 
     <div class="dayrows">
       <div class="dayrow reveal">
-        <div class="dr-when">Thu 15 Oct<span>6:00 to 9:00 PM</span><span class="dr-mode">In person or online</span></div>
+        <div class="dr-when">Thu 15 Oct<span>6:00 to 9:00 PM</span><span class="dr-mode">In person or online</span>
+          <span class="dr-room">SCHN 151, Andre Schenker Lecture Hall<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Andre+Schenker+Lecture+Hall%2C+341+Mansfield+Road%2C+Storrs%2C+CT+06269" rel="noopener">Map</a></span></div>
         <div class="dr-body">
           <h3>Meet</h3>
-          <p>A careers and research panel with industry professionals from QuantumCT and faculty
-            from universities across Connecticut, followed by time to network with them.</p>
+          <p>A keynote, then a careers and research panel with people from IBM Quantum, QuantumCT and UConn, followed by food and time to network with them.</p>
+          <ul class="agenda">
+          <li><span class="t">6:00 PM</span><span><span class="it">Doors open, check-in, drinks and snacks</span></span></li>
+          <li><span class="t">6:10 PM</span><span><span class="it">Welcome</span></span></li>
+          <li class="key"><span class="t">6:20 PM</span><span><span class="it">Keynote</span><span class="spks"><a class="spk" href="https://raj.cse.uconn.edu/" rel="noopener"><img src="assets/speakers/sanguthevar-rajasekaran.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Dr. Sanguthevar Rajasekaran</b><span>Director, UConn School of Computing</span></span></a></span></span></li>
+          <li class="key"><span class="t">6:45 PM</span><span><span class="it">Careers and research panel</span><span class="spks"><a class="spk" href="https://research.ibm.com/people/brian-ingmanson" rel="noopener"><img src="assets/speakers/brian-ingmanson.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Brian Ingmanson</b><span>IBM Quantum &middot; UConn alum</span></span></a><a class="spk" href="https://walter-krawec.scholar.uconn.edu/" rel="noopener"><img src="assets/speakers/walter-krawec.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Dr. Walter Krawec</b><span>UConn Computer Science</span></span></a><a class="spk" href="https://www.quantumct.org/about-quantumct/" rel="noopener"><img src="assets/speakers/natasha-harris.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Natasha Harris</b><span>QuantumCT</span></span></a><a class="spk" href="https://materials-science.institute.uconn.edu/person/alexander-balatsky/" rel="noopener"><img src="assets/speakers/alexander-balatsky.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Dr. Alexander Balatsky</b><span>UConn Physics</span></span></a></span></span></li>
+          <li class="key"><span class="t">7:25 PM</span><span><span class="it">Food, networking and setup help</span><span class="sub">Bring your laptop for help with your IBM Quantum account or Qiskit install</span></span></li>
+          <li><span class="t">8:45 PM</span><span><span class="it">Wrap up</span></span></li>
+          </ul>
         </div>
       </div>
 
       <div class="dayrow reveal">
-        <div class="dr-when">Fri 16 Oct<span>6:00 to 9:00 PM</span><span class="dr-mode">In person or online</span></div>
+        <div class="dr-when">Fri 16 Oct<span>6:00 to 9:00 PM</span><span class="dr-mode">In person or online</span>
+          <span class="dr-room">MCHU 101, Lawrence D. McHugh Hall<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Lawrence+D.+McHugh+Hall%2C+UConn%2C+Storrs%2C+CT+06269" rel="noopener">Map</a></span></div>
         <div class="dr-body">
           <h3>Learn</h3>
-          <p>Quantum and Qiskit from scratch, a talk from an IBM Quantum speaker, and your
-            first circuit on a real quantum computer.</p>
+          <p>Quantum and Qiskit from scratch, your first circuit on a real quantum computer, and a talk from IBM Quantum on error correction and noise.</p>
+          <ul class="agenda">
+          <li><span class="t">5:45 PM</span><span><span class="it">Check-in opens</span><span class="sub">Outside the room</span></span></li>
+          <li><span class="t">6:00 PM</span><span><span class="it">Doors open, food, setup help</span><span class="sub">Missed Thursday? Get help with your IBM Quantum account and Qiskit install</span></span></li>
+          <li class="key"><span class="t">6:15 PM</span><span><span class="it">Quantum and Qiskit 101</span><span class="sub">UConn Quantum Computing</span></span></li>
+          <li class="key"><span class="t">6:50 PM</span><span><span class="it">Your first quantum circuit, on real hardware</span></span></li>
+          <li class="key"><span class="t">7:30 PM</span><span><span class="it">Qiskit for error correction and noise</span><span class="spks"><a class="spk" href="https://scholar.google.com/citations?user=5Y1MGycAAAAJ" rel="noopener"><img src="assets/speakers/francesco-valenti.jpg" width="192" height="192" loading="lazy" alt=""><span><b>Dr. Francesco Valenti</b><span>IBM Quantum</span></span></a></span></span></li>
+          <li class="key"><span class="t">8:10 PM</span><span><span class="it">How to use qBraid (tentative)</span><span class="sub">The platform you will use in Saturday&rsquo;s hackathon</span></span></li>
+          <li class="key"><span class="t">8:40 PM</span><span><span class="it">Team formation</span><span class="sub">Come without a team, leave with one</span></span></li>
+          <li><span class="t">9:00 PM</span><span><span class="it">Wrap up</span></span></li>
+          </ul>
         </div>
       </div>
 
       <div class="dayrow reveal">
-        <div class="dr-when">Sat 17 Oct<span>9:00 AM to 5:00 PM</span><span class="dr-mode dr-mode-here">In person only</span></div>
+        <div class="dr-when">Sat 17 Oct<span>9:00 AM to 5:00 PM</span><span class="dr-mode dr-mode-here">In person only</span>
+          <span class="dr-room">ITE C80, Information Technologies Engineering Building<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Information+Technologies+Engineering+Building%2C+371+Fairfield+Way%2C+Storrs%2C+CT+06269" rel="noopener">Map</a></span></div>
         <div class="dr-body">
           <h3>Build</h3>
-          <p>The hackathon. Build something with mentors on hand all day, demo it in the
-            afternoon, and stay for the awards.</p>
+          <p>The hackathon. Five and a half hours to build with organizers on hand all day, then demos and awards.</p>
+          <ul class="agenda">
+          <li><span class="t">9:00 AM</span><span><span class="it">Check-in and breakfast</span></span></li>
+          <li class="key"><span class="t">9:30 AM</span><span><span class="it">Challenges revealed</span><span class="sub">Short opening remarks, then 5 hours 30 minutes to build</span></span></li>
+          <li><span class="t">12:30 PM</span><span><span class="it">Lunch</span><span class="sub">Grab it and keep building</span></span></li>
+          <li><span class="t">1:15 PM</span><span><span class="it">Organizer office hours</span></span></li>
+          <li class="key"><span class="t">3:00 PM</span><span><span class="it">Submissions close, demos begin</span><span class="sub">About four minutes per team</span></span></li>
+          <li><span class="t">4:00 PM</span><span><span class="it">Judges decide, group photo, swag</span></span></li>
+          <li class="key"><span class="t">4:30 PM</span><span><span class="it">Awards</span></span></li>
+          <li><span class="t">4:45 PM</span><span><span class="it">Wrap up</span></span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -382,13 +410,10 @@
         up <strong>IBM Quantum swag</strong>.
       </p>
       <p class="sched-note">
-        <b>Note</b>
-        This is a high level overview. The detailed schedule for each day, along with the
-        Saturday challenges and the speaker line-up, will be released closer to the event.
-        Follow us on
-        <a href="https://www.instagram.com/uconnquantum/" rel="noopener">Instagram</a> or
-        <a href="https://www.linkedin.com/company/uconn-quantum-computing/" rel="noopener">LinkedIn</a>
-        to hear first.
+        <b>Joining online</b>
+        Thursday and Friday are streamed. The link goes out in our
+        <a href="https://discord.gg/TD6WuFUtbT" rel="noopener">Discord</a> and by email to everyone
+        who registers. Saturday&rsquo;s hackathon is in person only.
       </p>
     </div>
   </div>
@@ -650,7 +675,7 @@
         <summary>I know nothing about quantum computing. Is this really for me?</summary>
         <p>Yes, and specifically so. About half the places at this event are held for people who
           have never studied quantum computing. Friday evening teaches you what you need, the
-          Saturday has work pitched squarely at complete beginners, and mentors are on hand all day.</p>
+          Saturday has work pitched squarely at complete beginners, and organizers are on hand all day.</p>
       </details>
       <details>
         <summary>Do I have to come to all three days?</summary>
@@ -673,7 +698,7 @@
         <summary>Can I take part online?</summary>
         <p>Thursday and Friday, yes. Both evenings are streamed, and the joining link goes out
           to everyone who registers. Saturday's hackathon runs in person at Storrs only, because
-          the mentoring, the demos, and the awards all happen in the room.</p>
+          the hands-on help, the demos, and the awards all happen in the room.</p>
         <p>If you can make it to campus, do. <strong>Food is provided</strong>, the careers panel
           is much more useful when you can actually talk to the people on it, and there is a
           chance to pick up <strong>IBM Quantum swag</strong>.</p>

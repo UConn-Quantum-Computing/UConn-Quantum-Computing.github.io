@@ -435,6 +435,15 @@ section.tint { background: var(--layer); }
 .person a:hover .person-ic { color: var(--accent); }
 .person a:hover { text-decoration: underline; }
 
+/* With thanks to: helpers outside the organizing team. Photo beside the text
+   at about a third of an organizer card, so the grid above still reads as the
+   team. auto-fill lets more names join the row without a new rule. */
+.thanks-h { margin-top: 64px; }
+.thanks { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px 20px; }
+.thank { display: flex; align-items: flex-start; gap: 16px; }
+.thank img, .thank .ph { width: 84px; flex: none; font-size: 13px; }
+.thank h3 { margin-top: 2px; }
+
 /* ---------- faq ---------- */
 /* Heading column beside the accordion rather than above it. Deliberately NOT a
    two-column accordion: opening an item shifts only its own column, so the rows

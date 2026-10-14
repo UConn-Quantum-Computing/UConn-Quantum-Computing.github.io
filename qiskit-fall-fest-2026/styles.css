@@ -435,7 +435,7 @@ section.tint { background: var(--layer); }
 .person a:hover .person-ic { color: var(--accent); }
 .person a:hover { text-decoration: underline; }
 
-/* With thanks to: helpers outside the organizing team. Photo beside the text
+/* With special thanks to: helpers outside the organizing team. Photo beside the text
    at about a third of an organizer card, so the grid above still reads as the
    team. auto-fill lets more names join the row without a new rule. */
 .thanks-h { margin-top: 64px; }

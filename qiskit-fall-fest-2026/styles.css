@@ -416,6 +416,10 @@ section.tint { background: var(--layer); }
   display: grid; place-items: center;
   font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--ink-3); letter-spacing: .1em;
 }
+/* Organizer portraits at 150px, the same as the academic partner portraits, so
+   no one on the page is pictured larger than the faculty. The columns stay 1fr,
+   so the five cards still spread across the full width. */
+.people .person img { width: 150px; max-width: 100%; }
 /* Narrow cards, so the name gets the room and everything under it stays quiet
    and the same length on every card. */
 .person h3 {
@@ -434,6 +438,15 @@ section.tint { background: var(--layer); }
 .person-ic { width: 12px; height: 12px; flex: none; color: var(--ink-3); transition: color .2s; }
 .person a:hover .person-ic { color: var(--accent); }
 .person a:hover { text-decoration: underline; }
+
+/* With special thanks to: helpers outside the organizing team. Photo beside the
+   text, smaller than the organizer portraits, so the grid above still reads as
+   the team. auto-fill lets more names join the row without a new rule. */
+.thanks-h { margin-top: 64px; }
+.thanks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 24px 20px; }
+.thank { display: flex; align-items: flex-start; gap: 16px; }
+.thank img, .thank .ph { width: 84px; flex: none; font-size: 13px; }
+.thank h3 { margin-top: 2px; }
 
 /* ---------- faq ---------- */
 /* Heading column beside the accordion rather than above it. Deliberately NOT a

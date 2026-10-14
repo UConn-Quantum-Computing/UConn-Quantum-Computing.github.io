@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=67">
+<link rel="stylesheet" href="styles.css?v=70">
 </head>
 <body>
 
@@ -89,8 +89,8 @@
       <a href="#about">About</a>
       <a href="#schedule">Schedule</a>
       <a href="#people">Organizers</a>
-      <a href="#resources">Resources</a>
       <a href="#sponsors">Sponsors</a>
+      <a href="#resources">Resources</a>
       <a href="#faq">FAQ</a>
       <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSd5UsDtJWufVUV34c0vvgdPC0G0bPgtnEsLFW40ttpi8cHqow/viewform">Register</a>
     </div>
@@ -335,7 +335,7 @@
 <section id="schedule" class="tint">
   <div class="wrap">
     <div class="sec-h">
-      <div class="eyebrow">15 to 17 October</div>
+      <div class="eyebrow">October 15–17</div>
       <h2 style="margin-top:12px;">The three days</h2>
       <p>
         Each day removes a different reason not to come. Come to one, two, or all three, and
@@ -467,7 +467,7 @@
 <section id="people" class="tint">
   <div class="wrap">
     <div class="sec-h">
-      <h2>The organizing team</h2>
+      <h2>Organizers</h2>
     </div>
 
     <div class="people">
@@ -503,18 +503,86 @@
       </div>
     </div>
 
+    <!-- People who helped without being on the organizing team. Smaller cards
+         than the organizers, photo beside the text, so the five above stay the
+         team. Photos are 3:4 in assets/team/, EXIF stripped, like the cards above. -->
+    <h3 class="tier thanks-h">With special thanks to</h3>
+    <div class="thanks">
+      <div class="person thank">
+        <img src="assets/team/vidhi-parekh.jpg?v=2" width="600" height="800" loading="lazy" alt="Vidhi Parekh">
+        <div>
+          <h3>Vidhi Parekh</h3>
+          <p><span class="role">Event logistics</span><br>Analytics and Information Management<br>Class of 2027</p>
+          <a href="https://www.linkedin.com/in/vidhiparekh2027/" rel="noopener"><svg class="person-ic" width="12" height="12" aria-hidden="true"><use href="#ic-linkedin"></use></svg>LinkedIn</a>
+        </div>
+      </div>
+      <div class="person thank">
+        <img src="assets/team/priyanshi-sitlani.jpg" width="600" height="800" loading="lazy" alt="Priyanshi Sitlani">
+        <div>
+          <h3>Priyanshi Sitlani</h3>
+          <p><span class="role">Event logistics</span><br>Computer Science<br>Class of 2027</p>
+          <a href="https://www.linkedin.com/in/priyanshi-sitlani/" rel="noopener"><svg class="person-ic" width="12" height="12" aria-hidden="true"><use href="#ic-linkedin"></use></svg>LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SPONSORS ===================== -->
+<!-- The strip under the hero shows the roster in motion and is not clickable;
+     this is where sponsor marks link out. Add a new sponsor in both places.
+     The club is the host, not a sponsor, so its lockup is in the strip only. -->
+<section id="sponsors">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Our Sponsors</h2>
+    </div>
+
+    <h3 class="tier">Industry partners</h3>
+    <ul class="sponsors">
+      <li><a href="https://www.ibm.com/quantum" rel="noopener"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></a></li>
+      <li><a href="https://www.quantumct.org/" rel="noopener"><img class="lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt="QuantumCT"></a></li>
+      <li><a href="https://www.qbraid.com/" rel="noopener"><img class="wide" src="assets/logo-qbraid.png" width="1200" height="331" alt="qBraid"></a></li>
+    </ul>
+
+    <!-- Academic partners: each unit's lockup sits above the faculty member whose
+         research funds back the event, so the logo reads as "this person, in this
+         unit" rather than as the college sponsoring it institutionally.
+         PLACEHOLDERS: swap each .ph for an <img> once photos and names arrive.
+         Photos go in assets/team/ at 3:4, 600x800, EXIF stripped, like the
+         organizer cards this reuses. -->
+    <h3 class="tier">Academic partners</h3>
+    <div class="acads">
+      <div class="acad">
+        <a class="acad-mark" href="https://computing.engineering.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-school-of-computing.png" width="300" height="152" alt="UConn College of Engineering, School of Computing"></a>
+        <div class="person">
+          <a class="acad-photo" href="https://raj.cse.uconn.edu/" rel="noopener"><img src="assets/team/sanguthevar-rajasekaran.jpg" width="600" height="800" loading="lazy" alt="Sanguthevar Rajasekaran"></a>
+          <h3>Dr. Sanguthevar Rajasekaran</h3>
+          <p><span class="role">Director, School of Computing</span><br>Board of Trustees Distinguished Professor<br>Pratt &amp; Whitney Chair Professor of CSE</p>
+        </div>
+      </div>
+      <div class="acad">
+        <a class="acad-mark" href="https://clas.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-clas.png" width="1509" height="595" alt="UConn College of Liberal Arts and Sciences"></a>
+        <div class="person">
+          <a class="acad-photo" href="https://physics.uconn.edu/person/dmitri-kharzeev/" rel="noopener"><img src="assets/team/dmitri-kharzeev.jpg" width="600" height="800" loading="lazy" alt="Dmitri Kharzeev"></a>
+          <h3>Dr. Dmitri Kharzeev</h3>
+          <p><span class="role">Director, UConn Quantum Institute (incoming)</span><br>Professor, Department of Physics<br>College of Liberal Arts and Sciences</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===================== RESOURCES =====================
-     Plain section between the tinted #people and the navy #register, so the
-     tint alternation holds. All links are IBM's own material and were checked
+     Tinted, between the plain #sponsors and the navy #register, so the
+     alternation holds. All links are IBM's own material and were checked
      live: learning.quantum.ibm.com and docs.quantum.ibm.com are both old
      domains that now 301 to quantum.cloud.ibm.com, so use the new ones.
      The ordering is our recommendation; IBM does not publish difficulty
      levels for the courses.
 ================================================================== -->
-<section id="resources">
+<section id="resources" class="tint">
   <div class="wrap">
     <div class="sec-h">
       <h2>Want a head start?</h2>
@@ -614,11 +682,11 @@
       <!-- The facts, repeated here on purpose. This is the last thing anyone reads
            before deciding, and it is the only place the Saturday cap is stated. -->
       <dl class="band-facts">
-        <div><dt>Dates</dt><dd>15 to 17 October 2026</dd></div>
+        <div><dt>Dates</dt><dd>October 15–17, 2026</dd></div>
         <div><dt>Where</dt><dd>UConn Storrs, with Thursday and Friday online too</dd></div>
         <div><dt>Cost</dt><dd>Free, and food on all three days</dd></div>
         <div><dt>Experience</dt><dd>None needed</dd></div>
-        <div><dt>Saturday</dt><dd><strong>Places are capped by room capacity</strong>, so register
+        <div><dt>Saturday</dt><dd><strong>Spots are capped by room capacity</strong>, so register
           early if you want the hackathon</dd></div>
       </dl>
     </div>
@@ -626,50 +694,6 @@
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<!-- ===================== SPONSORS ===================== -->
-<!-- The strip under the hero shows the roster in motion and is not clickable;
-     this is where sponsor marks link out. Add a new sponsor in both places.
-     The club is the host, not a sponsor, so its lockup is in the strip only. -->
-<section id="sponsors">
-  <div class="wrap">
-    <div class="sec-h">
-      <h2>Our Sponsors</h2>
-    </div>
-
-    <h3 class="tier">Industry partners</h3>
-    <ul class="sponsors">
-      <li><a href="https://www.ibm.com/quantum" rel="noopener"><img src="assets/logo-ibm-quantum.png" width="1781" height="254" alt="IBM Quantum"></a></li>
-      <li><a href="https://www.quantumct.org/" rel="noopener"><img class="lockup" src="assets/logo-quantumct.png" width="1712" height="402" alt="QuantumCT"></a></li>
-      <li><a href="https://www.qbraid.com/" rel="noopener"><img class="wide" src="assets/logo-qbraid.png" width="1200" height="331" alt="qBraid"></a></li>
-    </ul>
-
-    <!-- Academic partners: each unit's lockup sits above the faculty member whose
-         research funds back the event, so the logo reads as "this person, in this
-         unit" rather than as the college sponsoring it institutionally.
-         PLACEHOLDERS: swap each .ph for an <img> once photos and names arrive.
-         Photos go in assets/team/ at 3:4, 600x800, EXIF stripped, like the
-         organizer cards this reuses. -->
-    <h3 class="tier">Academic partners</h3>
-    <div class="acads">
-      <div class="acad">
-        <a class="acad-mark" href="https://computing.engineering.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-school-of-computing.png" width="300" height="152" alt="UConn College of Engineering, School of Computing"></a>
-        <div class="person">
-          <a class="acad-photo" href="https://raj.cse.uconn.edu/" rel="noopener"><img src="assets/team/sanguthevar-rajasekaran.jpg" width="600" height="800" loading="lazy" alt="Sanguthevar Rajasekaran"></a>
-          <h3>Dr. Sanguthevar Rajasekaran</h3>
-          <p><span class="role">Director, School of Computing</span><br>Board of Trustees Distinguished Professor<br>Pratt &amp; Whitney Chair Professor of CSE</p>
-        </div>
-      </div>
-      <div class="acad">
-        <a class="acad-mark" href="https://clas.uconn.edu/" rel="noopener"><img class="stack" src="assets/logo-uconn-clas.png" width="1509" height="595" alt="UConn College of Liberal Arts and Sciences"></a>
-        <div class="person">
-          <a class="acad-photo" href="https://physics.uconn.edu/person/dmitri-kharzeev/" rel="noopener"><img src="assets/team/dmitri-kharzeev.jpg" width="600" height="800" loading="lazy" alt="Dmitri Kharzeev"></a>
-          <h3>Dr. Dmitri Kharzeev</h3>
-          <p><span class="role">Director, UConn Quantum Institute (incoming)</span><br>Professor, Department of Physics<br>College of Liberal Arts and Sciences</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="faq">
   <div class="wrap">
@@ -689,8 +713,8 @@
       <div class="faq">
       <details>
         <summary>I know nothing about quantum computing. Is this really for me?</summary>
-        <p>Yes, and specifically so. About half the places at this event are held for people who
-          have never studied quantum computing. Friday evening teaches you what you need, the
+        <p>Yes, and specifically so. About half the spots at this event are held for people who
+          have never studied quantum computing. Friday evening teaches you what you need,
           Saturday has work pitched squarely at complete beginners, and organizers are on hand all day.</p>
       </details>
       <details>
@@ -748,7 +772,7 @@
       <div>
         <div class="foot-mark">Qiskit Fall Fest <b>Connecticut</b></div>
         <p style="margin-top:14px;max-width:36ch;color:var(--ink-3);">
-          15 to 17 October 2026 at the University of Connecticut, Storrs.
+          October 15–17, 2026, at the University of Connecticut, Storrs.
           Hosted by UConn Quantum Computing.
         </p>
       </div>

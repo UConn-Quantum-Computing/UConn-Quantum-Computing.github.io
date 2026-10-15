@@ -534,7 +534,10 @@ section.tint { background: var(--layer); }
   letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
   padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 30px;
 }
-.sponsors + .tier { margin-top: 56px; }
+.sponsors + .tier, .acads + .tier { margin-top: 56px; }
+/* A reversed logo (white type) on the page navy, so it reads without being
+   recolored. Padding sizes the tile; the logo keeps the row's 29px height. */
+.sponsors a.on-dark { background: var(--ink); padding: 14px 22px; }
 
 /* Academic partners: one row per unit, its lockup in a fixed left column and
    that unit's faculty side by side to its right, so a unit with more people

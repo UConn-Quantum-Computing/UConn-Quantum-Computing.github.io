@@ -611,3 +611,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   .sched-notes { grid-template-columns: 1fr; }
   .datecard { margin-top: 4px; }
 }
+
+/* Registration is closed: the buttons stay in place, faded and inert, so the
+   page reads as a finished event rather than a broken one. They are spans,
+   not links, so there is nothing to click or tab to. */
+.is-closed, .is-closed:hover { opacity: .45; cursor: not-allowed; pointer-events: none; transform: none; }
+.band .btn-primary.is-closed, .band .btn-primary.is-closed:hover { background: var(--band-ink); color: var(--band-bg); }
+.nav-cta.is-closed, .nav-cta.is-closed:hover { background: var(--accent); }
+@media (max-width: 900px) { .nav-cta .cta-note { display: none; } }

@@ -184,13 +184,14 @@ function show(id, c) {
   }
   const kind = c.type === 'winner'
     ? `Certificate of Achievement · Hackathon, ${esc(c.place)} place${c.team ? ` · Team ${esc(c.team)}` : ''}`
+    : c.type === 'appreciation' ? `Certificate of Appreciation · ${esc(c.role)}`
     : 'Certificate of Participation';
   const days = DAYS.map(([n, l]) => `<span class="chip ${c.days.includes(n) ? 'on' : 'off'}">${c.days.includes(n) ? '✓ ' : ''}${l}</span>`).join('');
   const issued = new Date(c.issued + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  out.innerHTML = `<div class="card ok"><div class="status"><span class="dot" aria-hidden="true">✓</span>Verified: this certificate is genuine</div>
+  out.innerHTML = `<div class="card ok"><div class="status"><span class="dot" aria-hidden="true">✓</span>Verified</div>
     <div class="body"><div class="name">${esc(c.name)}</div><div class="kind">${kind}</div>
     <dl><dt>Event</dt><dd>Qiskit Fall Fest Connecticut 2026, hosted by UConn Quantum Computing</dd>
-    <dt>Days attended</dt><dd><div class="days">${days}</div></dd>
+    ${c.type === 'appreciation' ? `<dt>Role</dt><dd>${esc(c.role)}</dd>` : `<dt>Days attended</dt><dd><div class="days">${days}</div></dd>`}
     <dt>Certificate ID</dt><dd style="font-family:'IBM Plex Mono',monospace">${esc(pretty(norm(id)))}</dd>
     <dt>Issued</dt><dd>${esc(issued)}</dd></dl></div></div>`;
 }

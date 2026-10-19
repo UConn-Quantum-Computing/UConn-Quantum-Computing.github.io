@@ -207,11 +207,16 @@ document.getElementById('f').addEventListener('submit', (e) => {
   e.preventDefault();
   const id = document.getElementById('id').value.trim();
   if (!id) return;
-  history.replaceState(null, '', `?id=${encodeURIComponent(pretty(norm(id)))}`);
   verify(id);
 });
+// A QR code opens this page as ?id=…: check it once, then drop the ID from the
+// address so a refresh comes back to an empty form instead of the result.
 const q = new URLSearchParams(location.search).get('id');
-if (q) { document.getElementById('id').value = pretty(norm(q)); verify(q); }
+if (q) {
+  history.replaceState(null, '', location.pathname);
+  document.getElementById('id').value = pretty(norm(q));
+  verify(q);
+}
 </script>
 </body>
 </html>

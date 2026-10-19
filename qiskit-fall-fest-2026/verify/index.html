@@ -26,8 +26,10 @@
   header { border-bottom:1px solid var(--rule); }
   header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:72px; }
   .v-logo { height:40px; width:auto; color:var(--ink); display:block; }
-  header nav a { font-size:14px; text-decoration:none; color:var(--ink-2); }
-  header nav a:hover { color:var(--ink); text-decoration:underline; }
+  /* Same tab treatment as the Fall Fest page's menu links (.nav-links a). */
+  header nav a { font-size:14px; color:var(--ink-2); text-decoration:none; padding:3px 0 6px;
+                 border-bottom:2px solid transparent; transition:color .2s, border-color .2s; }
+  header nav a:hover, header nav a:focus-visible { color:var(--ink); border-bottom-color:var(--ink); text-decoration:none; }
   main { flex:1; padding:56px 0 72px; }
   .eyebrow { font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); }
   h1 { margin-top:10px; font-size:clamp(30px, 6vw, 44px); font-weight:600; letter-spacing:-.03em; line-height:1.08; text-wrap:balance; }

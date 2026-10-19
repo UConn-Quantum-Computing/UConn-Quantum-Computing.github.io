@@ -619,3 +619,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 .band .btn-primary.is-closed, .band .btn-primary.is-closed:hover { background: var(--band-ink); color: var(--band-bg); }
 .nav-cta.is-closed, .nav-cta.is-closed:hover { background: var(--accent); }
 @media (max-width: 900px) { .nav-cta .cta-note { display: none; } }
+
+/* Registration band after the event: the closed button beside a live link to
+   certificate verification. Outlined in the band's own ink so the faded
+   button and this one never read as the same state. */
+.band-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 22px; }
+.band-actions .btn-primary { margin-top: 0; }
+.btn-band-ghost { background: transparent; color: var(--band-ink); border-color: var(--band-ink); }
+.btn-band-ghost:hover { background: var(--band-ink); color: var(--band-bg); }

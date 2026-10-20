@@ -63,6 +63,7 @@
   .chip.on { background:var(--ink); color:#fff; }
   .chip.off { border-color:var(--rule); color:var(--rule-2); }
   .msg { padding:18px 20px 20px; color:var(--ink-2); line-height:1.6; }
+  .note { margin-top:16px; font-size:13px; color:var(--ink-3); line-height:1.5; }
   .where { margin-top:48px; padding-top:28px; border-top:1px solid var(--rule); }
   .where h2 { font-size:20px; font-weight:600; letter-spacing:-.01em; }
   .where p { margin-top:6px; color:var(--ink-2); font-size:15px; line-height:1.6; }
@@ -193,7 +194,8 @@ function show(id, c) {
     <dl><dt>Event</dt><dd>Qiskit Fall Fest Connecticut 2026, hosted by UConn Quantum Computing</dd>
     ${c.type === 'appreciation' ? `<dt>Role</dt><dd>${esc(c.role)}</dd>` : `<dt>Days attended</dt><dd><div class="days">${days}</div></dd>`}
     <dt>Certificate ID</dt><dd style="font-family:'IBM Plex Mono',monospace">${esc(pretty(norm(id)))}</dd>
-    <dt>Issued</dt><dd>${esc(issued)}</dd></dl></div></div>`;
+    <dt>Issued</dt><dd>${esc(issued)}</dd></dl>
+    ${c.sample ? '<p class="note">* This is a sample certificate, made to show how verification works. It was not issued to a participant.</p>' : ''}</div></div>`;
 }
 
 async function verify(id) {

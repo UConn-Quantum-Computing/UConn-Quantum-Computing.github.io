@@ -1,0 +1,9 @@
+User-agent: *
+
+# PR previews are throwaway copies of the whole site. Left crawlable they would
+# compete with the real pages for the same search terms, and a stale preview of
+# an event page outranking the event page is worse than no preview at all.
+# Preview builds also carry a noindex meta tag; see .github/workflows/pr-preview.yml.
+Disallow: /pr-preview/
+
+Allow: /

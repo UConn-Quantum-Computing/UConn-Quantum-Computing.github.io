@@ -71,6 +71,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
    phones, where the logo and two rows of tabs would take too much of the screen. */
 @media (min-width: 801px) { .nav { position: sticky; top: 0; z-index: 5; } }
 .nav-logo { height: 50px; width: 135px; color: var(--ink); }
+.nav-join { flex: none; display: flex; align-items: center; padding: 12px 22px; margin-bottom: -1px;
+  background-color: var(--accent);
+  font-size: 14px; font-weight: 800; color: var(--on-accent); text-decoration: none;
+  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.nav-join:hover { color: var(--ink) }
 
 .hero { padding: 84px 0 72px; border-bottom: 1px solid var(--rule); }
 .hero h1 { font-size: clamp(36px, 6vw, 62px); letter-spacing: -0.035em; }
@@ -104,13 +110,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .tab:hover { color: var(--ink); }
 .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
 .tab:focus-visible { outline-offset: -2px; }
-#tab-join-btn{ flex: none; display: flex; align-items: center; padding-top: 2px; margin-bottom: -1px;
-  /* Same type as the nav links on the Qiskit Fall Fest page: 14px, regular weight. */
-  font-size: 14px; font-weight: 400; color: var(--ink-2); text-decoration: none;
-  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s
-}
-#tab-join-btn:hover { color: var(--ink) }
-
 
 .panel { padding: 56px 0 80px; }
 .panel[hidden] { display: none; }

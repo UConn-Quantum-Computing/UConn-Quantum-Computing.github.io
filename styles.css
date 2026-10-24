@@ -75,8 +75,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   background-color: var(--accent);
   font-size: 14px; font-weight: 800; color: var(--on-accent); text-decoration: none;
   border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+  transition: background-color 0.2s ease;
 }
-.nav-join:hover { color: var(--ink) }
+.nav-join:hover { background-color: var(--accent-br); }
 
 .hero { padding: 84px 0 72px; border-bottom: 1px solid var(--rule); }
 .hero h1 { font-size: clamp(36px, 6vw, 62px); letter-spacing: -0.035em; }

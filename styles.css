@@ -69,7 +69,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .nav-in { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; gap: 32px; }
 /* Pinned on wide screens, so the tabs stay in reach while a panel scrolls. Not on
    phones, where the logo and two rows of tabs would take too much of the screen. */
-@media (min-width: 801px) { .nav { position: sticky; top: 0; z-index: 5; } }
+
+/* Updated min width to 881 because logo starts changing size at 826px, added extra space as a buffer zone */   
+@media (min-width: 881px) { .nav { position: sticky; top: 0; z-index: 5; } }
 .nav-logo { height: 50px; width: 135px; color: var(--ink); }
 .nav-join { flex: none; display: flex; align-items: center; padding: 12px 22px;
   background-color: var(--accent);
@@ -143,7 +145,9 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 /* Below this the logo and five tabs do not fit one row. The tabs drop under the logo,
    and wrap onto a second line rather than scroll, so none of them is hidden. */
-@media (max-width: 800px) {
+
+/* Updated from 800 to 880px to add more room, because logo image started changing size when it got too small */   
+@media (max-width: 880px) {
   .nav-in { height: auto; flex-wrap: wrap; row-gap: 4px; padding-top: 14px; }
   .tabs { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 22px; }
   .tab { padding: 11px 0 10px; }

@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css?v=34">
+
+<!-- This script is intentionally here do not move to bottom of body,
+     the purpose is to add a class to the html document to prevent nav 
+     tabs from unintentionally being loaded before they can be hidden 
+     after the page loads. -->
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
@@ -196,7 +202,7 @@
   window.addEventListener('popstate', function () { show(location.hash.slice(1)); });
   show(location.hash.slice(1));
 })();
-</script>
+</scrip>
 
 </body>
 </html>

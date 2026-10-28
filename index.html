@@ -75,9 +75,9 @@
      it, every panel shows, stacked. -->
 <nav class="nav" aria-label="Sections">
   <div class="nav-in">
-    <button type="button" class="nav-menu" aria-expanded="false" aria-controls="tablist" aria-label="Menu"><svg width="36" height="36" aria-hidden="true"><use href="#ic-menu"></use></svg></button>
+    <button type="button" class="nav-menu" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg width="36" height="36" aria-hidden="true"><use href="#ic-menu"></use></svg></button>
     <svg class="nav-logo" width="135" height="50" role="img" aria-label="UConn Quantum Computing"><use href="#uqc-logo"></use></svg>
-    <div class="tabs" id="menu" role="tablist">
+    <div class="tabs" role="tablist">
       <a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about">About</a>
       <a class="tab" role="tab" id="tab-events" href="#events" aria-controls="events">Events</a>
       <a class="tab" role="tab" id="tab-career-match" href="#career-match" aria-controls="career-match">Quantum Career Match</a>
@@ -171,6 +171,31 @@
 
 <script>
 (function () {
+
+  var menuButton = document.querySelector('.nav-menu');
+  var nav = document.querySelector('.nav');
+
+  function setOpen(open) {
+    menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    nav.classList.toggle('open', open);
+  }
+
+  menuButton.addEventListener('click', function () {
+    setOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  // Breakpoint: keep in step with the sticky rule and the mobile block in styles.css (880px).
+  window.matchMedia('(min-width: 881px)').addEventListener('change', function (e) {
+    if (e.matches) setOpen(false);
+  });
+
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var ids = tabs.map(function (t) { return t.getAttribute('aria-controls'); });
   function show(id, focus) {
@@ -181,8 +206,8 @@
       t.tabIndex = on ? 0 : -1;
       document.getElementById(ids[i]).hidden = !on;
       if (on && focus) t.focus();
-      setOpen(false);
     });
+    if (!focus) setOpen(false);
   }
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function (e) {
@@ -202,35 +227,6 @@
   });
   window.addEventListener('popstate', function () { show(location.hash.slice(1)); });
   show(location.hash.slice(1));
-
-  //menu button logic
-  const menuButton = document.querySelector(".nav-menu");
-  const panel = document.getElementById("menu");
-  const nav = document.querySelector(".nav");
-
-  function setOpen(open) {
-    menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
-    nav.classList.toggle('open', open);
-  }
-
-  menuButton.addEventListener("click", function() {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    setOpen(!isOpen)
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-      setOpen(false);
-      menuButton.focus();
-    }
-  });
-
-  const desktopQuery = window.matchMedia('(min-width: 881px)');
-  desktopQuery.addEventListener('change', function (e) {
-    if (e.matches) {
-      setOpen(false);
-    }
-  });
 
 })();
 </script>

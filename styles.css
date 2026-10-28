@@ -152,11 +152,31 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 /* Updated from 800 to 880px to add more room, because logo image started changing size when it got too small */   
 @media (max-width: 880px) {
   .nav-in { height: auto; flex-wrap: wrap; row-gap: 4px; padding-top: 14px; }
-  .nav-menu { display: flex; }
   .tabs { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 22px; }
   .tab { padding: 11px 0 10px; }
+  .nav-join { margin-left: auto; }
+
+  /* JS: one slim row (menu, logo, Join) and a dropdown panel for the tabs.
+     880px is where the old row stopped fitting (about 826px, plus a buffer). */
+  .js .nav { position: relative; z-index: 5; }
+  .js .nav-in { height: 76px; flex-wrap: nowrap; padding-top: 0; gap: 12px; }
+  .js .nav-menu { display: flex; }
+  .js .tabs {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    width: auto; margin: 0; padding: 0 24px; gap: 0;
+    flex-direction: column;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+  }
+  .js .nav.open .tabs { display: flex; }
+  .js .tab { padding: 14px 0; margin-bottom: 0; border-bottom: 1px solid var(--rule); }
+  .js .tab[aria-selected="true"] { border-bottom-color: var(--ink); }
 }
 @media (max-width: 640px) {
   .hero { padding: 52px 0 44px; }
   .panel { padding: 40px 0 56px; }
+}
+
+@media (max-width: 480px) {
+  .js .nav-logo { width: 104px; height: 38px; }
+  .nav-join { padding: 10px 16px; }
 }

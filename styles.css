@@ -62,6 +62,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.02em; line-height: 
 p { margin: 0; }
 a { color: var(--accent); text-underline-offset: 2px; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
@@ -69,8 +70,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .nav-in { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; gap: 32px; }
 /* Pinned on wide screens, so the tabs stay in reach while a panel scrolls. Not on
    phones, where the logo and two rows of tabs would take too much of the screen. */
-@media (min-width: 801px) { .nav { position: sticky; top: 0; z-index: 5; } }
+
+/* Updated min width to 881 because logo starts changing size at 826px, added extra space as a buffer zone */   
+@media (min-width: 881px) { .nav { position: sticky; top: 0; z-index: 5; } }
 .nav-logo { height: 50px; width: 135px; color: var(--ink); }
+.nav-menu { display: none; background: transparent; border: none; font: inherit; color: var(--ink); padding: 0; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; flex: none; transition: background-color 0.2s ease; }
+.nav-menu:hover { background-color: var(--accent-bg); }
+.nav-join { flex: none; display: flex; align-items: center; padding: 12px 22px;
+  background-color: var(--accent);
+  font-size: 14px; font-weight: 600; color: var(--on-accent); text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.nav-join:hover { background-color: var(--accent-br); }
 
 .hero { padding: 84px 0 72px; border-bottom: 1px solid var(--rule); }
 .hero h1 { font-size: clamp(36px, 6vw, 62px); letter-spacing: -0.035em; }
@@ -137,12 +148,35 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 /* Below this the logo and five tabs do not fit one row. The tabs drop under the logo,
    and wrap onto a second line rather than scroll, so none of them is hidden. */
-@media (max-width: 800px) {
+
+/* Updated from 800 to 880px to add more room, because logo image started changing size when it got too small */   
+@media (max-width: 880px) {
   .nav-in { height: auto; flex-wrap: wrap; row-gap: 4px; padding-top: 14px; }
   .tabs { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 22px; }
   .tab { padding: 11px 0 10px; }
+  .nav-join { margin-left: auto; }
+
+  /* JS: one slim row (menu, logo, Join) and a dropdown panel for the tabs.
+     880px is where the old row stopped fitting (about 826px, plus a buffer). */
+  .js .nav { position: relative; z-index: 5; }
+  .js .nav-in { height: 76px; flex-wrap: nowrap; padding-top: 0; gap: 12px; }
+  .js .nav-menu { display: flex; }
+  .js .tabs {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    width: auto; margin: 0; padding: 0 24px; gap: 0;
+    flex-direction: column;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+  }
+  .js .nav.open .tabs { display: flex; }
+  .js .tab { padding: 14px 0; margin-bottom: 0; border-bottom: 1px solid var(--rule); }
+  .js .tab[aria-selected="true"] { border-bottom-color: var(--ink); }
 }
 @media (max-width: 640px) {
   .hero { padding: 52px 0 44px; }
   .panel { padding: 40px 0 56px; }
+}
+
+@media (max-width: 480px) {
+  .js .nav-logo { width: 104px; height: 38px; }
+  .nav-join { padding: 10px 16px; }
 }

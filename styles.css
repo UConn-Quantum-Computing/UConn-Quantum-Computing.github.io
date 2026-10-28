@@ -62,6 +62,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.02em; line-height: 
 p { margin: 0; }
 a { color: var(--accent); text-underline-offset: 2px; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
@@ -73,6 +74,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 /* Updated min width to 881 because logo starts changing size at 826px, added extra space as a buffer zone */   
 @media (min-width: 881px) { .nav { position: sticky; top: 0; z-index: 5; } }
 .nav-logo { height: 50px; width: 135px; color: var(--ink); }
+.nav-menu { display: none; background: transparent; border: none; font: inherit; color: var(--ink); padding: 0; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; flex: none; transition: background-color 0.2s ease; }
+.nav-menu:hover { background-color: var(--accent-bg); }
 .nav-join { flex: none; display: flex; align-items: center; padding: 12px 22px;
   background-color: var(--accent);
   font-size: 14px; font-weight: 600; color: var(--on-accent); text-decoration: none;
@@ -149,6 +152,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 /* Updated from 800 to 880px to add more room, because logo image started changing size when it got too small */   
 @media (max-width: 880px) {
   .nav-in { height: auto; flex-wrap: wrap; row-gap: 4px; padding-top: 14px; }
+  .nav-menu { display: flex; }
   .tabs { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 22px; }
   .tab { padding: 11px 0 10px; }
 }

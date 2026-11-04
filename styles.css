@@ -110,7 +110,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .eyebrow.group { margin-top: 52px; }
 .empty { margin-top: 16px; padding: 26px 32px; border: 1px dashed var(--rule-2); color: var(--ink-3); }
 .empty-event-card { margin-top:16px; padding: 34px 32px; border: 1px solid var(--rule-2); }
-.empty-event-card h2 { font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 12px; color: var(--ink); }
+.empty-event-card h2 { margin-bottom: 12px; color: var(--ink); }
 .empty-event-card p { margin-bottom: 16px; color: var(--ink-3); }
 .empty-event-card .clink {display: inline-flex;}
 
